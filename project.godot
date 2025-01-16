@@ -13,7 +13,7 @@ config_version=5
 config/name="GGJ"
 run/main_scene="res://scenes/GameScenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/logo.png"
 
 [audio]
 
@@ -23,11 +23,7 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 Utilities="*res://scenes/utilities.tscn"
 AudioManager="*res://scenes/audio_manager.tscn"
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
+Loading="*res://scenes/loading.tscn"
 
 [input]
 

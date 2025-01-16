@@ -1,16 +1,17 @@
 extends Node
 
-# 导出变量，用于场景管理
-@export var scenes: Array[PackedScene] = []
-@export var scene_map: Dictionary = {}
-@export var is_persistence: bool = false
+var scene_map: Dictionary = {
+	"MainMenu": "res://scenes/GameScenes/main_menu.tscn",
+	"GameScene": "res://scenes/GameScenes/sample_game.tscn",
+}     # 场景索引与路径的映射
+@export var is_persistence: bool = false   # 是否启用持久化
 
-const PATH = "user://settings.cfg"
+const PATH = "user://settings.cfg"         # 配置文件路径
 var config: ConfigFile
 
 func _ready():
 	config = ConfigFile.new()
-	
+
 	# 保存所有控制动作及其对应的事件（如按键绑定）
 	for action in InputMap.get_actions():
 		if InputMap.action_get_events(action).size() != 0:
@@ -50,24 +51,26 @@ func load_control_settings():
 			InputMap.action_add_event(action, value)
 
 func load_video_settings():
-	var screen_type = config.get_value("Video","fullscreen")
+	var screen_type = config.get_value("Video", "fullscreen")
 	DisplayServer.window_set_mode(screen_type)
-	var borderless = config.get_value("Video","borderless")
+	var borderless = config.get_value("Video", "borderless")
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, borderless)
 	var vsync_index = config.get_value("Video", "vsync")
 	DisplayServer.window_set_vsync_mode(vsync_index)
 
 # 场景管理：切换场景
-func switch_scene(scene_name: StringName, cur_scene: Node):
-	var scene = scenes[scene_map[scene_name]].instantiate()
-	get_tree().root.add_child(scene)
-	cur_scene.queue_free()
+func switch_scene(scene_name: String):
+	var scene_path = scene_map.get(scene_name)
+	Loading.load_scene(scene_path)
 
+# 隐藏场景
 func hide_scene(scene):
 	scene.hide()
 
+# 从场景树中移除场景
 func remove_scene(scene):
 	get_tree().root.remove_child(scene)
 
+# 删除场景
 func delete_scene(scene):
 	scene.queue_free()
