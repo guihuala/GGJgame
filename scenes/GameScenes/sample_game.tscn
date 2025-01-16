@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_clim0"]
 [ext_resource type="Script" path="res://scripts/sample_game.gd" id="1_omkqs"]
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="2_nwagm"]
-[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/settings.tscn" id="4_y4cq8"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://scenes/GameUI/settings.tscn" id="4_y4cq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c5i0"]
 size = Vector2(32, 32)

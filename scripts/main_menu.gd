@@ -10,12 +10,11 @@ func reset_focus():
 
 func _on_start_pressed():
 	Utilities.switch_scene("GameScene")
-	AudioManager.play_music_sound()
 
 func _on_option_pressed():
 	option_menu.show()
 	option_menu.reset_focus()
-	AudioManager.play_button_sound()
+	AudioManager.play_sfx("button_click")
 
 func _on_quit_pressed():
 	get_tree().quit()

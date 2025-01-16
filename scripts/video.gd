@@ -25,16 +25,16 @@ func _on_fullscreen_toggled(toggled_on):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		Utilities.config.set_value("Video", "fullscreen", DisplayServer.WINDOW_MODE_WINDOWED)
 	Utilities.save_data()
-	AudioManager.play_button_sound()
+	AudioManager.plsy_sfx("button_click")
 
 func _on_borderless_toggled(toggled_on):
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, toggled_on)
 	Utilities.config.set_value("Video", "borderless", toggled_on)
 	Utilities.save_data()
-	AudioManager.play_button_sound()
+	AudioManager.plsy_sfx("button_click")
 
 func _on_vsync_item_selected(index):
 	DisplayServer.window_set_vsync_mode(index)
 	Utilities.config.set_value("Video", "vsync", index)
 	Utilities.save_data()
-	AudioManager.play_button_sound()
+	AudioManager.plsy_sfx("button_click")

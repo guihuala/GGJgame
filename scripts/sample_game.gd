@@ -9,6 +9,7 @@ Game <==> Pause Menu ==> Settings
 '''
 
 func _ready():
+	AudioManager.play_BGM("BGM")
 	ui_layer.hide()
 
 func _input(event: InputEvent):
@@ -17,6 +18,10 @@ func _input(event: InputEvent):
 			show_ui_layer()
 		else:
 			resume_game()
+
+	if event is InputEventKey and event.keycode == KEY_SPACE and event.pressed:
+		Dialogic.start('test')
+		get_viewport().set_input_as_handled()
 
 func show_ui_layer():
 	pause_game()

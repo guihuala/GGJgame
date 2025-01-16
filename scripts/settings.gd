@@ -24,4 +24,3 @@ func reload_settings():
 func _on_back_pressed():
 	hide()
 	pre_scene.reset_focus()
-	AudioManager.play_button_sound()
