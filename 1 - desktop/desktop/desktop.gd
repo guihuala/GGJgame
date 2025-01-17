@@ -11,7 +11,7 @@ func window_vibrate():
 	await get_tree().create_timer(vibrate_duration).timeout
 	should_vibrate = false
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if should_vibrate:
 		size = Vector2(
 			randf_range(size.x - vibrate_intensity, size.x + vibrate_intensity),

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp0ckch0onu81"]
 
-[ext_resource type="Script" path="res://window_vibrate_component.gd" id="1_5w2xv"]
+[ext_resource type="Script" path="res://1 - desktop/desktop/desktop.gd" id="1_5w2xv"]
 [ext_resource type="Script" path="res://button.gd" id="2_ante6"]
-[ext_resource type="Script" path="res://double_click_open.gd" id="3_4a3bj"]
-[ext_resource type="PackedScene" uid="uid://c15m6i7q6160h" path="res://window.tscn" id="4_on6xo"]
+[ext_resource type="Script" path="res://1 - desktop/applications/app_icon.gd" id="3_4a3bj"]
+[ext_resource type="PackedScene" uid="uid://c15m6i7q6160h" path="res://1 - desktop/applications/app_window.tscn" id="4_on6xo"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -60,3 +60,4 @@ offset_right = 1450.0
 offset_bottom = 498.0
 grow_horizontal = 1
 grow_vertical = 1
+script = null

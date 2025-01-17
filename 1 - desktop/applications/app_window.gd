@@ -70,7 +70,7 @@ func _process(delta):
 
 # 关闭按钮处理方法
 func _on_close_button_pressed() -> void:
-	queue_free()
+	hide()
 
 # 长按触发的操作 留空，可以后续实现具体小游戏逻辑
 func _on_long_press_action() -> void:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c15m6i7q6160h"]
 
-[ext_resource type="Script" path="res://window.gd" id="1_i1i6e"]
+[ext_resource type="Script" path="res://1 - desktop/applications/app_window.gd" id="1_y0d0n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjptm"]
 
@@ -12,7 +12,7 @@ offset_right = 832.0
 offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_i1i6e")
+script = ExtResource("1_y0d0n")
 
 [node name="TitleBar" type="Control" parent="."]
 layout_mode = 1
