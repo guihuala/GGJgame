@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ci33op7nhikcv"
-path="res://.godot/imported/啵 弹出 冒泡.mp3-2ff3f2a56dc655e3ec31ee29e53ab0a5.mp3str"
+path="res://.godot/imported/啵 弹出 冒泡.mp3-65039cab7983bdb519600583e4ed8319.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/音效/啵 弹出 冒泡.mp3"
-dest_files=["res://.godot/imported/啵 弹出 冒泡.mp3-2ff3f2a56dc655e3ec31ee29e53ab0a5.mp3str"]
+source_file="res://assets/audio/Sfx/啵 弹出 冒泡.mp3"
+dest_files=["res://.godot/imported/啵 弹出 冒泡.mp3-65039cab7983bdb519600583e4ed8319.mp3str"]
 
 [params]
 

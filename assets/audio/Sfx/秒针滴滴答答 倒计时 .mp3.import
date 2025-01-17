@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://biixeb46budnk"
-path="res://.godot/imported/秒针滴滴答答 倒计时 .mp3-14854be0541f927be12046336b73248d.mp3str"
+path="res://.godot/imported/秒针滴滴答答 倒计时 .mp3-2573cb3e8ea35d0a71e8407d8840fc01.mp3str"
 
 [deps]
 
-source_file="res://assets/audio/音效/秒针滴滴答答 倒计时 .mp3"
-dest_files=["res://.godot/imported/秒针滴滴答答 倒计时 .mp3-14854be0541f927be12046336b73248d.mp3str"]
+source_file="res://assets/audio/Sfx/秒针滴滴答答 倒计时 .mp3"
+dest_files=["res://.godot/imported/秒针滴滴答答 倒计时 .mp3-2573cb3e8ea35d0a71e8407d8840fc01.mp3str"]
 
 [params]
 

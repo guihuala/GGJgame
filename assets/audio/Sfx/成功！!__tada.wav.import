@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bhym8sh2girc7"
-path="res://.godot/imported/成功！!__tada.wav-7bf95e8b6fc0b77e7bdc2732dfdbc299.sample"
+path="res://.godot/imported/成功！!__tada.wav-556ba2199d00b94df85d51eff089f465.sample"
 
 [deps]
 
-source_file="res://assets/audio/音效/成功！!__tada.wav"
-dest_files=["res://.godot/imported/成功！!__tada.wav-7bf95e8b6fc0b77e7bdc2732dfdbc299.sample"]
+source_file="res://assets/audio/Sfx/成功！!__tada.wav"
+dest_files=["res://.godot/imported/成功！!__tada.wav-556ba2199d00b94df85d51eff089f465.sample"]
 
 [params]
 
