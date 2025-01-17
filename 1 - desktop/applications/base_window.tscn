@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://davsqrph0xicm"]
+
+[ext_resource type="Script" path="res://1 - desktop/applications/base_window.gd" id="1_nrbke"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = -1
+anchor_left = 0.382813
+anchor_top = 0.361111
+anchor_right = 0.617188
+anchor_bottom = 0.638889
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nrbke")
+shake_intensity_1 = 1.0
+shake_intensity_2 = 3.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "×"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

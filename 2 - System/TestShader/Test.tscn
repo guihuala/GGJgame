@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://c720pss2gl6bk"]
+
+[ext_resource type="Shader" path="res://Shaders/2D-perspective.gdshader" id="1_3m0vn"]
+[ext_resource type="Texture2D" uid="uid://c5p5fad6qauuq" path="res://assets/logo.png" id="2_nyurd"]
+[ext_resource type="Script" path="res://2 - System/TestShader/perspective.gd" id="3_8qk1w"]
+[ext_resource type="Shader" path="res://Shaders/2D-Squish.gdshader" id="4_h7y6q"]
+[ext_resource type="Script" path="res://2 - System/TestShader/squish.gd" id="5_rawf0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5db8"]
+shader = ExtResource("1_3m0vn")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0546"]
+shader = ExtResource("4_h7y6q")
+shader_parameter/uv_mode = false
+shader_parameter/x_factor = 2.0
+shader_parameter/bulge = null
+
+[node name="Test" type="Node2D"]
+
+[node name="perspective" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_x5db8")
+position = Vector2(325, 325)
+scale = Vector2(0.287109, 0.287109)
+texture = ExtResource("2_nyurd")
+script = ExtResource("3_8qk1w")
+
+[node name="squish" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_m0546")
+position = Vector2(704, 336)
+scale = Vector2(0.287109, 0.287109)
+texture = ExtResource("2_nyurd")
+script = ExtResource("5_rawf0")

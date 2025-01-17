@@ -13,9 +13,9 @@ func window_vibrate():
 	
 func _physics_process(_delta: float) -> void:
 	if should_vibrate:
-		size = Vector2(
-			randf_range(size.x - vibrate_intensity, size.x + vibrate_intensity),
-			randf_range(size.y - vibrate_intensity, size.y + vibrate_intensity)
+		global_position = Vector2(
+			randf_range(global_position.x - vibrate_intensity, global_position.x + vibrate_intensity),
+			randf_range(global_position.y - vibrate_intensity, global_position.y + vibrate_intensity)
 		)
 	else:
 		size = Vector2(2560,1440)
