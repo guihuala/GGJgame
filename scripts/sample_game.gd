@@ -19,10 +19,6 @@ func _input(event: InputEvent):
 		else:
 			resume_game()
 
-	if event is InputEventKey and event.keycode == KEY_SPACE and event.pressed:
-		Dialogic.start('test')
-		get_viewport().set_input_as_handled()
-
 func show_ui_layer():
 	pause_game()
 	ui_layer.show()
