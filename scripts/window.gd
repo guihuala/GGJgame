@@ -52,7 +52,6 @@ func _input(event):
 					interaction_state = InteractionState.DRAGGING
 					offset = get_global_mouse_position() - global_position
 			else:
-				
 				# 重置状态
 				interaction_state = InteractionState.IDLE
 				long_press_timer = 0.0

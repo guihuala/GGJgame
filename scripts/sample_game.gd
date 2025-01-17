@@ -19,10 +19,6 @@ func _input(event: InputEvent):
 		else:
 			resume_game()
 
-	if event is InputEventKey and event.keycode == KEY_SPACE and event.pressed:
-		Dialogic.start('test')
-		get_viewport().set_input_as_handled()
-
 func show_ui_layer():
 	pause_game()
 	ui_layer.show()
@@ -49,11 +45,3 @@ func _on_option_pressed():
 func _on_main_menu_pressed():
 	Engine.time_scale = 1
 	Utilities.switch_scene("MainMenu")
-
-func _on_new_window_pressed() -> void:
-	Utilities.DraggablePanel.create(
-		"面板", 
-		Vector2(400, 300), 
-		Vector2(100, 100), 
-		self
-	)
