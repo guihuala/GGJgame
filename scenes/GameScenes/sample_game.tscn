@@ -86,6 +86,19 @@ visible = false
 layout_mode = 1
 pre_scene = NodePath("../../..")
 
+[node name="NewWindow" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 489.0
+offset_top = 359.0
+offset_right = 662.0
+offset_bottom = 396.0
+focus_neighbor_top = NodePath("../MainMenu")
+focus_neighbor_bottom = NodePath("../Option")
+theme = ExtResource("2_nwagm")
+theme_override_font_sizes/font_size = 24
+text = "打开新窗口"
+
 [connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/PauseMenu/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="NewWindow" to="." method="_on_new_window_pressed"]
