@@ -15,6 +15,10 @@ run/main_scene="res://3 - real_new_project/desktop.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioManager="*res://2 - System/Audio/audio_manager.tscn"
+
 [display]
 
 window/size/viewport_width=2560
