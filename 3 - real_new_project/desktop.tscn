@@ -40,35 +40,35 @@ grow_vertical = 0
 
 [node name="Wall" type="Node2D" parent="."]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Wall"]
+[node name="top" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/top"]
 position = Vector2(1278.5, -128.25)
 shape = SubResource("RectangleShape2D_vueqy")
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="Wall"]
+[node name="left" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/RigidBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/left"]
 position = Vector2(-116.25, 719)
 shape = SubResource("RectangleShape2D_nieyc")
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="Wall"]
+[node name="right" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/RigidBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/right"]
 position = Vector2(2674, 716)
 shape = SubResource("RectangleShape2D_2dxgw")
 
 [node name="app1" parent="." instance=ExtResource("2_6bklj")]
 layout_mode = 0
-offset_left = 550.0
+offset_left = 264.0
 offset_top = 1136.0
-offset_right = 700.0
+offset_right = 414.0
 offset_bottom = 1286.0
 bubble_packed_scene = ExtResource("2_yp7xp")
 impulse_min = 30.0
