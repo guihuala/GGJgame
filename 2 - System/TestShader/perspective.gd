@@ -26,7 +26,7 @@ func _ready():
 		sprite_bounds.size + margin * 2
 	)
 
-func _process(_delta):
+func _process(delta):
 	# 如果鼠标不在区域内，逐渐恢复到原始状态
 	if !is_mouse_in_area:
 		var current_y_rot = material.get_shader_parameter("y_rot")
@@ -45,9 +45,12 @@ func _process(_delta):
 		material.set_shader_parameter("x_rot", new_x_rot)
 
 # 专门的输入事件处理方法
-func _input(event):
+func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseMotion:
 		var mouse_pos = event.position
+		
+		# 更新鼠标区域状态
+		is_mouse_in_area = active_area.has_point(mouse_pos)
 		
 		# 如果鼠标不在活动区域内，直接返回
 		if !is_mouse_in_area:
@@ -80,9 +83,3 @@ func _input(event):
 		# 更新着色器参数
 		material.set_shader_parameter("y_rot", new_y_rot)
 		material.set_shader_parameter("x_rot", new_x_rot)
-
-func _on_area_2d_mouse_entered() -> void:
-	is_mouse_in_area = true
-
-func _on_area_2d_mouse_exited() -> void:
-	is_mouse_in_area = false
