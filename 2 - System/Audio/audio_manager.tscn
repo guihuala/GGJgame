@@ -17,8 +17,6 @@ script = ExtResource("1_dnwig")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_1tfns")
-bus = &"Music"
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_f2okg")
-bus = &"Sound Effect"

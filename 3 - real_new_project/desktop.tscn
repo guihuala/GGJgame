@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=13 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
-[ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
+[ext_resource type="PackedScene" uid="uid://du1o1tucchx86" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
@@ -140,10 +140,11 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="Sprite2D" type="Sprite2D" parent="Char"]
-position = Vector2(135, 1286)
+position = Vector2(144, 1296)
 scale = Vector2(3, 3)
 texture = ExtResource("4_ahila")
 hframes = 4
+
 [node name="salaryLabel" type="Label" parent="."]
 layout_mode = 1
 offset_right = 272.0
@@ -154,6 +155,11 @@ script = ExtResource("5_s2ymt")
 
 [node name="Settings" parent="." instance=ExtResource("4_n1bes")]
 layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+offset_left = -320.0
+offset_top = -152.0
+grow_horizontal = 0
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("5_3hqm3")

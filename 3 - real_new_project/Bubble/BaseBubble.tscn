@@ -13,9 +13,6 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q31j"]
-size = Vector2(231.5, 49)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtbv7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg0ji"]
@@ -37,6 +34,8 @@ size = Vector2(231.5, 49)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2fdl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khy01"]
 
 [node name="BaseBubble" type="RigidBody2D"]
 gravity_scale = -1.0
@@ -100,3 +99,5 @@ offset_bottom = 80.0
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Area2D" to="sprite" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="sprite" method="_on_area_2d_mouse_exited"]

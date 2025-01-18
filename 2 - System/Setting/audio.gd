@@ -55,7 +55,7 @@ func _on_bgm_pressed() -> void:
 			bgm_button.texture_normal = bgm_off_texture
 	
 	# 播放按钮点击音效
-	AudioManager.play_sfx("button_click")
+	# AudioManager.play_sfx("button_click")
 
 func _on_sfx_pressed() -> void:
 	# 切换音效音量
@@ -80,4 +80,4 @@ func _on_sfx_pressed() -> void:
 			sfx_button.texture_normal = sfx_off_texture
 	
 	# 播放按钮点击音效
-	AudioManager.play_sfx("button_click")
+	# AudioManager.play_sfx("button_click")
