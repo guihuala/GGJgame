@@ -88,6 +88,29 @@ offset_top = -150.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4mvi7")
+
+[node name="Settings" parent="." instance=ExtResource("4_n1bes")]
+layout_mode = 1
+offset_left = -352.0
+offset_top = -224.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="salaryLabel" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "11111111"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_s2ymt")
 
 [node name="Wall" type="Node2D" parent="."]
 visible = false
