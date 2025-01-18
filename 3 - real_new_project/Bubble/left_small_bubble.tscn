@@ -70,7 +70,6 @@ scale = Vector2(217.696, 4.89763)
 polygon = PackedVector2Array(-12.7879, -7.78863, -12.7604, -16.3642, -12.6823, -16.9768, -12.2413, -17.3851, -11.0654, -16.9768, -10.2155, -16.5684, -10.2155, 2.21621, -12.618, 1.80785, -12.7052, 4.87056, -12.7925, 7.11654, -12.7865, -2.31263)
 
 [node name="Button" type="Button" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
