@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://brqyp8papxen" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
 [ext_resource type="PackedScene" uid="uid://d1bnpccjpj0is" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
 [ext_resource type="Texture2D" uid="uid://djgi8vf8fxxsi" path="res://assets/AppIcons/修正版图标.png" id="10_11fhx"]
+[ext_resource type="PackedScene" uid="uid://cssyrjc0c3xqh" path="res://3 - real_new_project/Bubble/DingdingBubble.tscn" id="11_wjb8b"]
 [ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="13_lef2j"]
-[ext_resource type="PackedScene" uid="uid://blwgwaefpgajb" path="res://3 - real_new_project/Bubble/left_large_bubble_1.tscn" id="14_5a6qt"]
 [ext_resource type="Script" path="res://3 - real_new_project/bubble_root.gd" id="14_dkx3m"]
 [ext_resource type="Script" path="res://3 - real_new_project/ad_manager.gd" id="14_k3l8w"]
 [ext_resource type="Script" path="res://3 - real_new_project/character.gd" id="15_d8d24"]
@@ -291,7 +291,7 @@ offset_top = 1288.0
 offset_right = 678.0
 offset_bottom = 1438.0
 texture = SubResource("AtlasTexture_jdcrg")
-bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh"), ExtResource("14_5a6qt")])
+bubble_packed_scene_list = Array[PackedScene]([ExtResource("11_wjb8b")])
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
@@ -398,6 +398,7 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="Settings"]
+visible = false
 layout_mode = 0
 offset_left = 402.0
 offset_top = 169.0
