@@ -6,9 +6,6 @@ extends Control
 
 var should_vibrate: bool = false
 
-func _ready() -> void:
-	AudioManager.play_BGM("BGM")
-
 func window_vibrate():
 	should_vibrate = true
 	await get_tree().create_timer(vibrate_duration).timeout

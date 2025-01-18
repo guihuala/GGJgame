@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://ecc742oj2t8y"]
+
+[ext_resource type="FontFile" uid="uid://dsisvfrdgqau" path="res://assets/Fonts/Cubic_11_1.013_R.ttf" id="1_e06fq"]
+[ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="1_kxilw"]
+[ext_resource type="Texture2D" uid="uid://bpvh4r1ekdqg7" path="res://3 - real_new_project/assets/bubble_2.png" id="3_awtyr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsf57"]
+size = Vector2(363, 134)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rb18"]
+texture = ExtResource("1_kxilw")
+modulate_color = Color(0.136923, 0.717237, 0.288371, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6162"]
+texture = ExtResource("1_kxilw")
+texture_margin_left = 52.8553
+texture_margin_top = 17.4474
+texture_margin_right = 25.1447
+texture_margin_bottom = 37.9737
+
+[sub_resource type="Theme" id="Theme_vgib0"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_e06fq")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_o6162")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h57cc"]
+texture = ExtResource("3_awtyr")
+modulate_color = Color(1, 0.506577, 0.506577, 1)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(2, 7)
+shape = SubResource("RectangleShape2D_hsf57")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 35.0
+offset_right = 328.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1rb18")
+text = "123333333333333333333333333333"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -10.0
+offset_top = -11.0
+offset_right = 316.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1rb18")
+text = "123333333333333333333333333333"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 171.0
+offset_top = -81.0
+offset_right = 497.0
+offset_bottom = -23.0
+theme = SubResource("Theme_vgib0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_h57cc")
+text = "123333333333333333333333333333"
+horizontal_alignment = 1
+vertical_alignment = 1

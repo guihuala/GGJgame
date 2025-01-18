@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2q1i88ko61ge"
-path="res://.godot/imported/壁纸_XP蓝天白云草地.png-cee4fa3ef2129ea07ac8e6fb9594632d.ctex"
+uid="uid://balcr35rx7ngh"
+path="res://.godot/imported/bubble_1.png-feb58a3d2d5604e0209bbe2f2ce1603b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://3 - real_new_project/壁纸_XP蓝天白云草地.png"
-dest_files=["res://.godot/imported/壁纸_XP蓝天白云草地.png-cee4fa3ef2129ea07ac8e6fb9594632d.ctex"]
+source_file="res://3 - real_new_project/assets/bubble_1.png"
+dest_files=["res://.godot/imported/bubble_1.png-feb58a3d2d5604e0209bbe2f2ce1603b.ctex"]
 
 [params]
 
