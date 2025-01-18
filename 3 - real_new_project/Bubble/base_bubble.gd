@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 # 对话内容节点
-@onready var text_label: Label = $PanelContainer/Label
+@onready var text_label: Label = $Label
 # 鼠标是否在气泡的判断区域内，如果在就可以戳破
 var is_in_area: bool = false
 

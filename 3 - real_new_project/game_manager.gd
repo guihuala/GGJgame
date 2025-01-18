@@ -26,7 +26,6 @@ enum GamePhase {
 	SETTLEMENT  # 结算阶段
 }
 
-
 # 常量
 const WORK_START_TIME = 9.5  # 9:30
 const WORK_END_TIME = 18.5   # 18:30
@@ -39,6 +38,7 @@ var current_phase: GamePhase = GamePhase.PREPARE
 var current_day: int = 1
 var current_game_time: float = WORK_START_TIME
 var timer: Timer
+var can_spawn_bubble: bool = true
 
 # 开始游戏
 func start_game():
@@ -70,6 +70,12 @@ func end_game():
 	
 	# 可以添加游戏结束的其他逻辑，如显示总成绩等
 	print("游戏结束，总薪水：", current_salary)
+
+func set_can_spawn_bubble(value:bool) -> void:
+	can_spawn_bubble = value
+
+func get_can_spawn_bubble() -> bool:
+	return can_spawn_bubble
 
 # 改变游戏状态的方法
 func change_game_state(new_state: GameState):

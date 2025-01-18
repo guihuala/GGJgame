@@ -1,20 +1,23 @@
-[gd_scene load_steps=22 format=3 uid="uid://d34v6xb2mrvti"]
+[gd_scene load_steps=25 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
 [ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_eoe06"]
-[ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
 [ext_resource type="Texture2D" uid="uid://dmb8es35ysx14" path="res://assets/AppIcons/IMG_0111.png" id="4_6atb4"]
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
-[ext_resource type="Script" path="res://3 - real_new_project/game_manager.gd" id="5_3hqm3"]
 [ext_resource type="PackedScene" uid="uid://bflws4wlq6lka" path="res://3 - real_new_project/Bubble/left_large_bubble.tscn" id="5_g3va0"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
 [ext_resource type="PackedScene" uid="uid://e12c4is2sqjx" path="res://3 - real_new_project/Bubble/left_small_bubble.tscn" id="6_lkpvu"]
 [ext_resource type="Texture2D" uid="uid://c1sp480vi6xgy" path="res://assets/AppIcons/IMG_0112.png" id="6_x3ykp"]
 [ext_resource type="Texture2D" uid="uid://ch2ckieqd3gna" path="res://assets/AppIcons/IMG_0113.png" id="7_q23ud"]
-[ext_resource type="PackedScene" uid="uid://cetswwanemk58" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
-[ext_resource type="PackedScene" uid="uid://xsubd8vmq53m" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
+[ext_resource type="PackedScene" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
+[ext_resource type="PackedScene" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
+[ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="13_lef2j"]
+[ext_resource type="Script" path="res://3 - real_new_project/bubble_root.gd" id="14_dkx3m"]
+[ext_resource type="Script" path="res://3 - real_new_project/ad_manager.gd" id="14_k3l8w"]
+[ext_resource type="PackedScene" uid="uid://dn3cck8idqo2w" path="res://3 - real_new_project/GameStart&Over/start_panel.tscn" id="17_hbt6g"]
+[ext_resource type="PackedScene" uid="uid://by4ydpj64yl0w" path="res://3 - real_new_project/Ad/PopupAdScene.tscn" id="17_ivgs8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
 texture = ExtResource("2_eoe06")
@@ -95,6 +98,9 @@ offset_bottom = 40.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_b1pj6")
 
+[node name="BubbleRoot" type="Node" parent="."]
+script = ExtResource("14_dkx3m")
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -110,7 +116,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4mvi7")
 
-[node name="app1" parent="." instance=ExtResource("2_6bklj")]
+[node name="app1" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
 layout_mode = 0
 offset_left = 528.0
 offset_top = 1288.0
@@ -122,8 +128,9 @@ impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
 interval_max = 4.0
+bubble_root = NodePath("../BubbleRoot")
 
-[node name="app2" parent="." instance=ExtResource("2_6bklj")]
+[node name="app2" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
 layout_mode = 0
 offset_left = 1040.0
 offset_top = 1288.0
@@ -135,8 +142,9 @@ impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
 interval_max = 4.0
+bubble_root = NodePath("../BubbleRoot")
 
-[node name="app3" parent="." instance=ExtResource("2_6bklj")]
+[node name="app3" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
 layout_mode = 0
 offset_left = 1536.0
 offset_top = 1288.0
@@ -148,6 +156,7 @@ impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
 interval_max = 4.0
+bubble_root = NodePath("../BubbleRoot")
 
 [node name="Settings" parent="." instance=ExtResource("4_n1bes")]
 layout_mode = 1
@@ -173,13 +182,26 @@ offset_top = -88.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
-text = "11111111"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_s2ymt")
 
+[node name="dateLabel" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_lef2j")
+
 [node name="Wall" type="Node2D" parent="."]
-visible = false
 
 [node name="top" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
@@ -220,12 +242,18 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_ahila")
 hframes = 4
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("5_3hqm3")
+[node name="AdManager" type="Node" parent="."]
+script = ExtResource("14_k3l8w")
+ad_types = Array[PackedScene]([ExtResource("17_ivgs8")])
 
-[node name="AdManager" type="Node" parent="GameManager"]
-
-[node name="BaseBubble" parent="." instance=ExtResource("2_yp7xp")]
-position = Vector2(586, 1062)
-
-[connection signal="salary_changed" from="GameManager" to="Settings/salaryLabel" method="_on_game_manager_salary_changed"]
+[node name="StartPanel" parent="." instance=ExtResource("17_hbt6g")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = -304.0
+offset_right = 608.0
+offset_bottom = 296.0
