@@ -87,6 +87,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BubbleRoot" type="Node" parent="."]
+
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -197,10 +199,12 @@ offset_bottom = 40.0
 
 [node name="StartPanel" parent="Windows" instance=ExtResource("11_dsg00")]
 layout_mode = 1
-anchor_left = 17.0
-anchor_top = 8.6
-anchor_right = 47.0
-anchor_bottom = 26.4
+anchor_left = 14.6
+anchor_top = 6.6
+anchor_right = 51.0
+anchor_bottom = 29.2
+offset_right = -0.00012207
+offset_bottom = 16.0
 
 [node name="Wall" type="Node2D" parent="."]
 

@@ -19,12 +19,9 @@ func update_info(stage) -> void:
 			pass
 			
 		GameManager.GameState.FINISHED:
-			self.show()
+			popup()
 			GameResult.show()
 
-func _on_game_over() -> void:
-	self.show
-
 func _on_start_game_btn_pressed() -> void:
-	self.hide()
+	hide_window()
 	GameManager.start_game()

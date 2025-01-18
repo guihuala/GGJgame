@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1nc403l81055"
-path="res://.godot/imported/dingding.png-48f2a3a55a9389335adc5974389434df.ctex"
+uid="uid://c8i41bvr3iet5"
+path="res://.godot/imported/结算界面.png-b4397c57758477fd23eee2e9ca815e2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/AppIcons/dingding.png"
-dest_files=["res://.godot/imported/dingding.png-48f2a3a55a9389335adc5974389434df.ctex"]
+source_file="res://assets/ResultIcon/结算界面.png"
+dest_files=["res://.godot/imported/结算界面.png-b4397c57758477fd23eee2e9ca815e2e.ctex"]
 
 [params]
 
