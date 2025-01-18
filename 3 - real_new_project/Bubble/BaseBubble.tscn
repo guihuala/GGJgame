@@ -13,6 +13,9 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q31j"]
+size = Vector2(231.5, 49)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtbv7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg0ji"]
@@ -36,7 +39,6 @@ shader_parameter/inset = 0.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
 
 [node name="BaseBubble" type="RigidBody2D"]
-scale = Vector2(2, 2)
 gravity_scale = -1.0
 script = ExtResource("1_w3cyc")
 bubble_gravity = -0.1

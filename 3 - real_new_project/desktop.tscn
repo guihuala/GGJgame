@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=10 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
-[ext_resource type="PackedScene" uid="uid://du1o1tucchx86" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
+[ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
+[ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 278.5)
@@ -12,6 +13,53 @@ size = Vector2(238.5, 1444)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxgw"]
 size = Vector2(238.5, 1444)
+
+[sub_resource type="Animation" id="Animation_uruys"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Char/Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Char/Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Char/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_feeon"]
+_data = {
+"new_animation": SubResource("Animation_uruys")
+}
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -30,16 +78,19 @@ texture = ExtResource("1_b1pj6")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -230.0
-offset_bottom = -80.0
+offset_left = -899.0
+offset_top = -150.0
+offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Wall" type="Node2D" parent="."]
+visible = false
 
 [node name="top" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
@@ -67,14 +118,26 @@ shape = SubResource("RectangleShape2D_2dxgw")
 
 [node name="app1" parent="." instance=ExtResource("2_6bklj")]
 layout_mode = 0
-offset_left = 488.0
-offset_top = 1208.0
-offset_right = 638.0
-offset_bottom = 1358.0
+offset_left = 904.0
+offset_top = 970.0
+offset_right = 1054.0
+offset_bottom = 1120.0
 bubble_packed_scene = ExtResource("2_yp7xp")
 impulse_min = 30.0
 impulse_max = 100.0
 interval = 2.0
 
-[node name="Settings" parent="." instance=ExtResource("4_n1bes")]
-layout_mode = 1
+[node name="Char" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Char"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_feeon")
+}
+autoplay = "new_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="Char"]
+position = Vector2(135, 1286)
+scale = Vector2(3, 3)
+texture = ExtResource("4_ahila")
+hframes = 4
