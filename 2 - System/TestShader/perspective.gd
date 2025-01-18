@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export var rotation_speed := 0.1
-@export var max_rotation := 15.0
+@export var max_rotation := 1.0
 @export var restore_speed := 0.1
 
 var viewport_size: Vector2
@@ -26,7 +26,7 @@ func _ready():
 		sprite_bounds.size + margin * 2
 	)
 
-func _process(_delta):
+func _process(delta):
 	# 如果鼠标不在区域内，逐渐恢复到原始状态
 	if !is_mouse_in_area:
 		var current_y_rot = material.get_shader_parameter("y_rot")
@@ -44,7 +44,8 @@ func _process(_delta):
 		material.set_shader_parameter("y_rot", new_y_rot)
 		material.set_shader_parameter("x_rot", new_x_rot)
 
-func _input(event):
+# 专门的输入事件处理方法
+func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseMotion:
 		var mouse_pos = event.position
 		
@@ -54,7 +55,7 @@ func _input(event):
 		# 如果鼠标不在活动区域内，直接返回
 		if !is_mouse_in_area:
 			return
-			
+		
 		# 计算相对于sprite中心的偏移
 		var sprite_center = sprite_bounds.get_center()
 		var offset = mouse_pos - sprite_center

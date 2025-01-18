@@ -1,0 +1,94 @@
+[gd_scene load_steps=19 format=3 uid="uid://phbxth3014fd"]
+
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_w3cyc"]
+[ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="2_2a82l"]
+[ext_resource type="Shader" path="res://Shaders/2D-perspective.gdshader" id="2_npnbv"]
+[ext_resource type="Script" path="res://2 - System/TestShader/perspective.gd" id="4_80nbw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
+shader = ExtResource("2_npnbv")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqkse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q31j"]
+size = Vector2(992, 192)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtbv7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg0ji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1eam0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sakyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymjd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vhs3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edu4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71kp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ui0ad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2fdl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
+
+[node name="BaseBubble" type="RigidBody2D"]
+gravity_scale = -1.0
+script = ExtResource("1_w3cyc")
+bubble_gravity = -0.1
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.818182)
+material = SubResource("ShaderMaterial_vbn76")
+position = Vector2(512, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("2_2a82l")
+script = ExtResource("4_80nbw")
+
+[node name="Label" type="Label" parent="sprite"]
+anchors_preset = -1
+anchor_right = 0.975
+anchor_bottom = 0.797
+offset_left = -244.0
+offset_top = -48.0
+offset_right = -271.2
+offset_bottom = -74.016
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "123123"
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite"]
+shape = SubResource("RectangleShape2D_aqkse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(496, 112)
+shape = SubResource("RectangleShape2D_6q31j")
+debug_color = Color(0, 0.854025, 0.992807, 0.42)
+
+[node name="Button" type="Button" parent="."]
+offset_top = 8.0
+offset_right = 992.0
+offset_bottom = 208.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wtbv7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cg0ji")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1eam0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sakyw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ymjd0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1vhs3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_edu4f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_71kp6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

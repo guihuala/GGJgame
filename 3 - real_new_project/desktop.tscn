@@ -1,12 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=4 format=3 uid="uid://dtvgq2opbysf8"]
 
-[ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
-[ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
-[ext_resource type="Texture2D" uid="uid://bukh2xqxkak5h" path="res://1 - desktop/desktop/coin.png" id="2_est7o"]
-[ext_resource type="Script" path="res://3 - real_new_project/bubble_manager.gd" id="3_asncc"]
+[ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
+[ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh47j"]
-size = Vector2(65, 1491)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nieyc"]
+size = Vector2(2570, 20)
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -33,63 +31,17 @@ offset_top = -150.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-layout_mode = 2
+[node name="BaseBubble" parent="." instance=ExtResource("2_yp7xp")]
+position = Vector2(328, 432)
 
-[node name="app1" parent="PanelContainer/HBoxContainer" instance=ExtResource("2_6bklj")]
-layout_mode = 2
+[node name="BaseBubble2" parent="." instance=ExtResource("2_yp7xp")]
+position = Vector2(0, 208)
+bubble_gravity = -2.0
 
-[node name="app2" type="TextureRect" parent="PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 6
-texture = ExtResource("2_est7o")
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+freeze = true
 
-[node name="app3" type="TextureRect" parent="PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-size_flags_horizontal = 6
-texture = ExtResource("2_est7o")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.780469
-anchor_right = 1.0
-anchor_bottom = 0.138889
-offset_left = 522.0
-offset_bottom = -117.0
-grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-texture = ExtResource("2_est7o")
-expand_mode = 4
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.13666, 0.669716, 0.25886, 1)
-theme_override_font_sizes/font_size = 100
-text = ":123123"
-
-[node name="Wall" type="Node2D" parent="."]
-
-[node name="LeftWall" type="StaticBody2D" parent="Wall"]
-position = Vector2(-7, -14)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/LeftWall"]
-position = Vector2(-8.5, 735.5)
-shape = SubResource("RectangleShape2D_mh47j")
-
-[node name="RightWall" type="StaticBody2D" parent="Wall"]
-position = Vector2(2579, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/RightWall"]
-position = Vector2(-8.5, 735.5)
-shape = SubResource("RectangleShape2D_mh47j")
-
-[node name="BubbleManager" type="Node2D" parent="."]
-script = ExtResource("3_asncc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(1275, 0)
+shape = SubResource("RectangleShape2D_nieyc")
