@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
+[ext_resource type="Script" path="res://3 - real_new_project/game_manager.gd" id="5_3hqm3"]
+[ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 278.5)
@@ -141,3 +144,18 @@ position = Vector2(135, 1286)
 scale = Vector2(3, 3)
 texture = ExtResource("4_ahila")
 hframes = 4
+[node name="salaryLabel" type="Label" parent="."]
+layout_mode = 1
+offset_right = 272.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
+script = ExtResource("5_s2ymt")
+
+[node name="Settings" parent="." instance=ExtResource("4_n1bes")]
+layout_mode = 1
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("5_3hqm3")
+
+[connection signal="salary_changed" from="GameManager" to="salaryLabel" method="_on_game_manager_salary_changed"]

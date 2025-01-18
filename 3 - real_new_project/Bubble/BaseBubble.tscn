@@ -47,7 +47,6 @@ bubble_gravity = -0.1
 modulate = Color(1, 1, 1, 0.818182)
 material = SubResource("ShaderMaterial_vbn76")
 position = Vector2(10, 10)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_2a82l")
 script = ExtResource("4_80nbw")
 
@@ -65,16 +64,16 @@ theme_override_font_sizes/font_size = 24
 text = "123123"
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 2)
-shape = SubResource("RectangleShape2D_6q31j")
-debug_color = Color(0, 0.854025, 0.992807, 0.42)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(11.9839, 8.16666)
+scale = Vector2(0.997984, 0.958333)
+polygon = PackedVector2Array(-256, -56, 232, -56, 232, -56, 240, 64, 208, 40, -256, 40)
 
 [node name="Button" type="Button" parent="."]
-offset_left = -109.0
-offset_top = -30.0
-offset_right = 129.0
-offset_bottom = 31.0
+offset_left = -248.0
+offset_top = -48.0
+offset_right = 248.0
+offset_bottom = 48.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wtbv7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cg0ji")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_1eam0")
@@ -87,4 +86,17 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_khy01")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -240.0
+offset_top = 56.0
+offset_right = 248.0
+offset_bottom = 80.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
