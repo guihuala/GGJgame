@@ -11,6 +11,10 @@ enum GamePhase {
 var current_day: int = 1
 var current_phase: int = GamePhase.PREPARE
 
+func _ready() -> void:
+	GameManager.phase_changed.connect(_on_game_manager_phase_changed)
+	GameManager.day_started.connect(_on_game_manager_day_started)
+	
 func _on_game_manager_day_started(day: int) -> void:
 	current_day = day
 	update_text()

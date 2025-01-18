@@ -35,37 +35,27 @@ script = ExtResource("1_5oh5j")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 576.0
-offset_bottom = 376.0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = 304.0
+offset_bottom = 208.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_44aui")
 
 [node name="CloseArea1" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 264.0
-offset_bottom = 176.0
-
-[node name="CloseArea2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 216.0
-offset_right = 432.0
-offset_bottom = 376.0
-
-[node name="CloseArea3" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 376.0
-offset_right = 576.0
-offset_bottom = 184.0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = -8.0
+offset_bottom = 8.0
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 312.0
-offset_right = 576.0
-offset_bottom = 376.0
+offset_left = 240.0
+offset_top = 144.0
+offset_right = 304.0
+offset_bottom = 208.0
 theme_override_colors/font_hover_color = Color(1, 0.49019, 0.422857, 1)
 theme_override_colors/font_pressed_color = Color(0.632225, 1.9493e-06, 3.36915e-07, 1)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -85,4 +75,18 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_eh3vm")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ixmdc")
 text = "x"
 
-[connection signal="pressed" from="CloseButton" to="." method="_on_button_pressed"]
+[node name="FloatingLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -272.0
+offset_top = 216.0
+offset_right = 304.0
+offset_bottom = 272.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+text = "11111111111"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

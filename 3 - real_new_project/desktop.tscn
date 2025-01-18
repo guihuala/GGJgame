@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
 [ext_resource type="Texture2D" uid="uid://c1sp480vi6xgy" path="res://assets/AppIcons/IMG_0112.png" id="4_h0ic6"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
-[ext_resource type="Script" path="res://3 - real_new_project/game_manager.gd" id="5_3hqm3"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
 [ext_resource type="Texture2D" uid="uid://dmb8es35ysx14" path="res://assets/AppIcons/IMG_0111.png" id="6_rjhvt"]
 [ext_resource type="Texture2D" uid="uid://ch2ckieqd3gna" path="res://assets/AppIcons/IMG_0113.png" id="7_gm07w"]
+[ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="10_q6dft"]
 [ext_resource type="Script" path="res://3 - real_new_project/ad_manager.gd" id="12_35kau"]
 [ext_resource type="PackedScene" uid="uid://by4ydpj64yl0w" path="res://3 - real_new_project/Ad/PopupAdScene.tscn" id="13_7qx6f"]
 
@@ -173,6 +173,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_s2ymt")
 
+[node name="TimeLabel" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -216.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "11111111"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_q6dft")
+
 [node name="Wall" type="Node2D" parent="."]
 
 [node name="top" type="RigidBody2D" parent="Wall"]
@@ -214,11 +230,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_ahila")
 hframes = 4
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("5_3hqm3")
-
-[node name="AdManager" type="Node" parent="GameManager"]
+[node name="AdManager" type="Node" parent="."]
 script = ExtResource("12_35kau")
 ad_types = Array[PackedScene]([ExtResource("13_7qx6f")])
-
-[connection signal="salary_changed" from="GameManager" to="Settings/salaryLabel" method="_on_game_manager_salary_changed"]
