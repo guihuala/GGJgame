@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=15 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
 [ext_resource type="PackedScene" uid="uid://du1o1tucchx86" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
+[ext_resource type="Texture2D" uid="uid://cv1xs2f3id2j5" path="res://assets/AppIcons/edge.png" id="3_rrqni"]
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
 [ext_resource type="Script" path="res://3 - real_new_project/game_manager.gd" id="5_3hqm3"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
+[ext_resource type="Texture2D" uid="uid://bn8ssww2j87lm" path="res://assets/AppIcons/fish.png" id="5_yyyf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 278.5)
@@ -121,14 +123,29 @@ shape = SubResource("RectangleShape2D_2dxgw")
 
 [node name="app1" parent="." instance=ExtResource("2_6bklj")]
 layout_mode = 0
-offset_left = 904.0
-offset_top = 970.0
-offset_right = 1054.0
-offset_bottom = 1120.0
+offset_left = 528.0
+offset_top = 1288.0
+offset_right = 678.0
+offset_bottom = 1438.0
+texture = ExtResource("3_rrqni")
 bubble_packed_scene = ExtResource("2_yp7xp")
 impulse_min = 30.0
 impulse_max = 100.0
 interval = 2.0
+texts = Array[String](["你干了这么多年了也不容易，这样，我手头上有一个大项目，你拿去做做看", "小x，快过年了吧，今年业绩怎么样？晚上做一份今年的部门业绩总结发给我", "小x，明天早上十三点A总要来，你负责安排接待下", "小x，这个项目可得好好做，对公司很重要，下周前交给甲方不少于114514个方案", "你来公司也有一段时间了，这里有份项目，你自己做做看，算是公司对你的一次考验"])
+
+[node name="app2" parent="." instance=ExtResource("2_6bklj")]
+layout_mode = 0
+offset_left = 1104.0
+offset_top = 1288.0
+offset_right = 1254.0
+offset_bottom = 1438.0
+texture = ExtResource("5_yyyf6")
+bubble_packed_scene = ExtResource("2_yp7xp")
+impulse_min = 30.0
+impulse_max = 100.0
+interval = 2.0
+texts = Array[String](["这两天上面有大人物下来参观，你让大伙把环境搞搞，切忌出现隐患问题", "你不是一直想要这个外派培训的机会嘛，公司有意让你去，明天前把资料整理一下发给人事", "总部最近派了几个人来交流学习，和人事沟通下，务必安排好了", "最近底下员工有人举报小Q有点问题啊，你去查查他的情况底细，明晚前把报告给我"])
 
 [node name="Char" type="Node2D" parent="."]
 

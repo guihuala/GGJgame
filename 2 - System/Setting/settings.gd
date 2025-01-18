@@ -22,7 +22,6 @@ func _ready():
 		pause_button.texture_normal = pause_off_texture
 
 func _on_pause_pressed() -> void:
-	# 切换暂停状态
 	is_paused = !is_paused
 	
 	if is_paused:
@@ -48,10 +47,6 @@ func pause_game():
 	# 停止游戏计时器
 	if game_manager and game_manager.has_method("pause_timer"):
 		game_manager.pause_timer()
-	
-	# 可以添加暂停菜单显示等其他逻辑
-	# 例如：显示暂停界面
-	# show_pause_menu()
 
 func resume_game():
 	# 恢复场景树的处理模式
