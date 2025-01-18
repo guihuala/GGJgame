@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6c6y73f7wo5u"
-path="res://.godot/imported/人物动画.png-d548c964435310b1b823f9b9af745c02.ctex"
+uid="uid://ccvefufpnfudc"
+path="res://.godot/imported/大量员工描边加粗.PNG-67370c09a1cd117658aa81dc04d77f30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2 - System/TestShader/人物动画.png"
-dest_files=["res://.godot/imported/人物动画.png-d548c964435310b1b823f9b9af745c02.ctex"]
+source_file="res://assets/Character/大量员工描边加粗.PNG"
+dest_files=["res://.godot/imported/大量员工描边加粗.PNG-67370c09a1cd117658aa81dc04d77f30.ctex"]
 
 [params]
 

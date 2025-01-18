@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=17 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
 [ext_resource type="PackedScene" uid="uid://du1o1tucchx86" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
+[ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_eoe06"]
 [ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
 [ext_resource type="Texture2D" uid="uid://cv1xs2f3id2j5" path="res://assets/AppIcons/edge.png" id="3_rrqni"]
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
@@ -9,6 +10,14 @@
 [ext_resource type="Script" path="res://3 - real_new_project/game_manager.gd" id="5_3hqm3"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
 [ext_resource type="Texture2D" uid="uid://bn8ssww2j87lm" path="res://assets/AppIcons/fish.png" id="5_yyyf6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
+texture = ExtResource("2_eoe06")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 128, 33, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 278.5)
@@ -88,11 +97,38 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -899.0
-offset_top = -150.0
-offset_right = 960.0
+offset_left = -1280.0
+offset_top = -208.0
+offset_right = 1280.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4mvi7")
+
+[node name="Settings" parent="." instance=ExtResource("4_n1bes")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+offset_left = -352.0
+offset_top = -224.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+
+[node name="salaryLabel" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "11111111"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_s2ymt")
 
 [node name="Wall" type="Node2D" parent="."]
 visible = false
@@ -136,9 +172,9 @@ texts = Array[String](["你干了这么多年了也不容易，这样，我手�
 
 [node name="app2" parent="." instance=ExtResource("2_6bklj")]
 layout_mode = 0
-offset_left = 1104.0
+offset_left = 1040.0
 offset_top = 1288.0
-offset_right = 1254.0
+offset_right = 1190.0
 offset_bottom = 1438.0
 texture = ExtResource("5_yyyf6")
 bubble_packed_scene = ExtResource("2_yp7xp")
@@ -162,23 +198,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_ahila")
 hframes = 4
 
-[node name="salaryLabel" type="Label" parent="."]
-layout_mode = 1
-offset_right = 272.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 24
-vertical_alignment = 1
-script = ExtResource("5_s2ymt")
-
-[node name="Settings" parent="." instance=ExtResource("4_n1bes")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-offset_left = -320.0
-offset_top = -152.0
-grow_horizontal = 0
-
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("5_3hqm3")
 
-[connection signal="salary_changed" from="GameManager" to="salaryLabel" method="_on_game_manager_salary_changed"]
+[connection signal="salary_changed" from="GameManager" to="Settings/salaryLabel" method="_on_game_manager_salary_changed"]

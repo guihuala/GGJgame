@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj8ibf1m7df33"
-path="res://.godot/imported/壁纸_XP蓝天白云草地.png-1890b4e90481e54f5b11100b70fc6646.ctex"
+uid="uid://gdlv5027qe1y"
+path="res://.godot/imported/大量员工.PNG-1530745acb3e1753c38474036db5db0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://1 - desktop/desktop/壁纸_XP蓝天白云草地.png"
-dest_files=["res://.godot/imported/壁纸_XP蓝天白云草地.png-1890b4e90481e54f5b11100b70fc6646.ctex"]
+source_file="res://assets/Character/大量员工.PNG"
+dest_files=["res://.godot/imported/大量员工.PNG-1530745acb3e1753c38474036db5db0b.ctex"]
 
 [params]
 

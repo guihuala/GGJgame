@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://603k3vy4p3f1"]
+[gd_scene load_steps=11 format=3 uid="uid://603k3vy4p3f1"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_5ko4b"]
+[ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_esk3t"]
 [ext_resource type="Script" path="res://2 - System/Setting/settings.gd" id="2_xpasx"]
 [ext_resource type="Texture2D" uid="uid://bx0vflqinjwjk" path="res://assets/Icon/Pause.png" id="3_8o8m8"]
 [ext_resource type="Script" path="res://2 - System/Setting/audio.gd" id="4_cb44x"]
@@ -8,23 +9,26 @@
 [ext_resource type="Texture2D" uid="uid://bhcp83kfc7qml" path="res://assets/Icon/Music-0.png" id="6_5ejyi"]
 [ext_resource type="Texture2D" uid="uid://bbmxske7kpwki" path="res://assets/Icon/Speaker-0.png" id="6_8erne"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6kql"]
-bg_color = Color(0.414066, 0.414066, 0.414066, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7v83"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(280.088, 0, 113.912, 101.074)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eojpe"]
 load_path = "res://.godot/imported/Speaker-Crossed.png-4845d3d70e087868c6d4de317b8084fc.ctex"
 
 [node name="Settings" type="Panel"]
 process_mode = 3
-anchors_preset = 12
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -96.0
-grow_horizontal = 2
+offset_left = -448.0
+offset_top = -304.0
+grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_5ko4b")
-theme_override_styles/panel = SubResource("StyleBoxFlat_s6kql")
+theme_override_styles/panel = SubResource("StyleBoxTexture_m7v83")
 script = ExtResource("2_xpasx")
 pause_on_texture = ExtResource("3_8o8m8")
 pause_off_texture = ExtResource("4_ctmyt")
