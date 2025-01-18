@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://bd71dljjmcagu"]
+[gd_scene load_steps=46 format=3 uid="uid://bd71dljjmcagu"]
 
 [ext_resource type="PackedScene" uid="uid://iuxldiq8fnbw" path="res://3 - real_new_project/Windows/base_window.tscn" id="1_bnjgw"]
 [ext_resource type="Script" path="res://3 - real_new_project/tutorial.gd" id="2_7ni6o"]
 [ext_resource type="Texture2D" uid="uid://c575d6tax6ffn" path="res://assets/Tutorial/演示小动画.png" id="3_2do0t"]
+[ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="4_ittwg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_phko8"]
 atlas = ExtResource("3_2do0t")
@@ -67,6 +68,11 @@ animations = [{
 "name": &"new_animation",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1hi0"]
+shader = ExtResource("4_ittwg")
+shader_parameter/influence = 0.5
+shader_parameter/offset = null
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjcu2"]
 
@@ -177,57 +183,58 @@ animations = [{
 }]
 
 [node name="Panel" instance=ExtResource("1_bnjgw")]
+anchor_left = 0.273047
+anchor_top = 0.194444
+anchor_right = 0.720312
+anchor_bottom = 0.709028
 script = ExtResource("2_7ni6o")
 
-[node name="StartPanel_2" type="Control" parent="." index="1"]
+[node name="Button" parent="." index="0"]
+offset_left = -140.0
+offset_bottom = -15.1
+
+[node name="StartPanel_3" type="Control" parent="." index="1"]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -144.0
-offset_right = 256.0
-offset_bottom = 112.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StartPanel_2" index="0"]
-position = Vector2(262.628, 156.172)
-scale = Vector2(3.29142, 3.29142)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StartPanel_3" index="0"]
+position = Vector2(664, 425)
+scale = Vector2(5.74005, 5.74005)
 sprite_frames = SubResource("SpriteFrames_gvrbm")
 animation = &"new_animation"
+autoplay = "new_animation"
 frame = 2
-frame_progress = 0.0269721
+frame_progress = 0.881136
 
-[node name="Label" type="Label" parent="StartPanel_2" index="1"]
+[node name="Label" type="Label" parent="StartPanel_3" index="1"]
 layout_mode = 0
-offset_left = 47.9988
-offset_top = 40.0002
-offset_right = 255.999
-offset_bottom = 99.0002
-theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
-theme_override_font_sizes/font_size = 24
+offset_left = 143.0
+offset_top = 243.0
+offset_right = 559.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0.362985, 0.418973, 0.600789, 1)
+theme_override_font_sizes/font_size = 48
 text = "拖动长按信息，
 将信息分配给下属"
 
-[node name="StartGameBtn_2" type="Button" parent="StartPanel_2" index="2"]
+[node name="StartGameBtn_2" type="Button" parent="StartPanel_3" index="2"]
+material = SubResource("ShaderMaterial_b1hi0")
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -112.001
-offset_top = 32.0002
-offset_right = 147.999
-offset_bottom = 60.0002
+offset_top = -117.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0.677301, 0.604786, 0.619661, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 64
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rjcu2")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1xahg")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_48j4m")
@@ -241,29 +248,36 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_uegcl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_x1xh3")
 text = "开启一周的社畜生活！"
 
-[node name="StartPanel_1" type="Control" parent="." index="2"]
+[node name="Label3" type="Label" parent="StartPanel_3" index="3"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -144.0
-offset_right = 256.0
-offset_bottom = 112.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 66.0
+offset_bottom = 178.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_colors/font_color = Color(0.362985, 0.418973, 0.600789, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 50
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+text = "进阶操作"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="NextPage" type="Button" parent="StartPanel_1" index="0"]
+[node name="StartPanel_2" type="Control" parent="." index="2"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -48.0
-offset_right = 40.0
-offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NextPage_2" type="Button" parent="StartPanel_2" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tqjf7")
@@ -278,35 +292,98 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_axc6o")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lss8s")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3fw42")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="StartPanel_1" index="1"]
-position = Vector2(262.913, 132)
-scale = Vector2(3.28682, 3.28682)
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="StartPanel_2" index="1"]
+position = Vector2(683, 411)
+scale = Vector2(7.43798, 7.43798)
 sprite_frames = SubResource("SpriteFrames_cim3l")
 autoplay = "default"
+frame = 4
+frame_progress = 0.449339
 
-[node name="Label" type="Label" parent="StartPanel_1" index="2"]
+[node name="Label" type="Label" parent="StartPanel_2" index="2"]
 layout_mode = 0
-offset_left = 199.999
-offset_top = 72.0002
-offset_right = 407.999
-offset_bottom = 131.0
-theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
-theme_override_font_sizes/font_size = 24
-text = "点击消除短信息"
+offset_left = 572.0
+offset_top = 269.0
+offset_right = 884.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.362985, 0.418973, 0.600789, 1)
+theme_override_font_sizes/font_size = 48
+text = "单击
+忽略垃圾信息"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="StartPanel_2" index="3"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 466.0
+offset_right = 886.0
+offset_bottom = 581.0
+theme_override_colors/font_color = Color(0.362985, 0.418973, 0.600789, 1)
+theme_override_font_sizes/font_size = 48
+text = "长按
+处理工作消息"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="StartPanel_2" index="4"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 65.0
+offset_bottom = 177.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.362985, 0.418973, 0.600789, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 50
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+text = "基本操作"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="StartPanel_1" index="3"]
+[node name="StartPanel_1" type="Control" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NextPage_1" type="Button" parent="StartPanel_1" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tqjf7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pbryb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_r7yyg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_v2csn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_alxvh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_we11m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6qyau")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_0p1ww")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_axc6o")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lss8s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3fw42")
+
+[node name="Label" type="Label" parent="StartPanel_1" index="1"]
 layout_mode = 0
-offset_left = 215.999
-offset_top = 160.0
-offset_right = 527.999
-offset_bottom = 219.0
-theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
-theme_override_font_sizes/font_size = 24
-text = "长按消除长信息，
-但是会加快时间流逝的速度"
+offset_left = 180.0
+offset_top = 58.0
+offset_right = 1071.0
+offset_bottom = 736.0
+theme_override_colors/font_color = Color(0.362985, 0.418973, 0.600789, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 50
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+text = "欢迎来到我们前途有限公司
+作为新人
+您需要处理以下工作"
 vertical_alignment = 1
 
-[connection signal="pressed" from="StartPanel_2/StartGameBtn_2" to="." method="_on_start_game_btn_2_pressed"]
-[connection signal="pressed" from="StartPanel_1/NextPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="StartPanel_3/StartGameBtn_2" to="." method="_on_start_game_btn_2_pressed"]
+[connection signal="pressed" from="StartPanel_2/NextPage_2" to="." method="_on_next_page_2_pressed"]
+[connection signal="pressed" from="StartPanel_1/NextPage_1" to="." method="_on_next_page_1_pressed"]

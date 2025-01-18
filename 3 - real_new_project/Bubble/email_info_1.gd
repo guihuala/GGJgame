@@ -17,7 +17,14 @@ var is_in_area: bool = false
 @export var min_salary: int = 10
 @export var max_salary: int = 50
 
+var duration: float = 3.0  # 持续时间
+@onready var timer: Timer = $Timer
+
 func _ready():
+	timer.timeout.connect(_on_timer_timeout)
+	timer.wait_time = duration
+	timer.start()
+	
 	# 配置刚体属性
 	mass = bubble_mass
 	gravity_scale = bubble_gravity
@@ -51,8 +58,10 @@ func _on_button_pressed() -> void:
 	# 生成随机薪水
 	var random_salary = randi_range(min_salary, max_salary)
 	
-	# 增加随机数额的薪水
 	GameManager.decrease_salary(random_salary)
 	
 	# 播放销毁特效
 	on_destroy_bubble()
+
+func _on_timer_timeout():
+	queue_free()

@@ -44,6 +44,71 @@ var can_spawn_bubble: bool = true
 # 视频播放计时器
 var video_timer: Timer
 var VideoPlayer
+# 时间流速相关常量
+const DEFAULT_TIME_SPEED = 1.0  # 默认时间流速
+const MAX_TIME_SPEED = 3.0      # 最大时间流速
+const MIN_TIME_SPEED = 0.5      # 最小时间流速
+
+# 时间流速变量
+var current_time_speed: float = DEFAULT_TIME_SPEED
+
+# 改变时间流速的方法
+func change_time_speed(speed: float) -> bool:
+	# 检查速度是否在允许的范围内
+	if speed < MIN_TIME_SPEED or speed > MAX_TIME_SPEED:
+		print("时间流速必须在 %.1f 到 %.1f 之间" % [MIN_TIME_SPEED, MAX_TIME_SPEED])
+		return false
+	
+	# 更新时间流速
+	current_time_speed = speed
+	
+	# 如果计时器存在，调整其等待时间
+	if timer:
+		# 根据时间流速调整计时器的间隔
+		timer.wait_time = 1.0 / current_time_speed
+	
+	return true
+
+# 重置时间流速到默认值
+func reset_time_speed():
+	change_time_speed(DEFAULT_TIME_SPEED)
+
+# 获取当前时间流速
+func get_time_speed() -> float:
+	return current_time_speed
+
+# 修改 setup_timer 方法以支持时间流速
+func setup_timer():
+	# 如果计时器已存在，先移除
+	if timer:
+		timer.queue_free()
+	
+	# 创建新的计时器
+	timer = Timer.new()
+	add_child(timer)
+	timer.timeout.connect(_on_timer_timeout)
+	
+	# 根据当前时间流速设置计时器间隔
+	var real_time_step = 1.0 / current_time_speed
+	timer.wait_time = real_time_step
+	
+	# 添加时间流速变化的逻辑到 _on_timer_timeout
+	timer.timeout.connect(func():
+		# 原有的时间更新逻辑
+		if current_game_state != GameState.RUNNING:
+			return
+		
+		# 更新游戏时间，考虑时间流速
+		var time_step = (DAY_END_TIME - WORK_START_TIME) / DAY_DURATION * current_time_speed
+		current_game_time += time_step
+		
+		# 检查并更新阶段
+		if current_game_time >= DAY_END_TIME:
+			end_day()
+		elif current_game_time >= WORK_END_TIME and current_phase == GamePhase.WORK:
+			current_phase = GamePhase.OVERTIME
+			emit_signal("phase_changed", current_phase)
+	)
 
 # 开始游戏
 func start_game():
@@ -51,9 +116,10 @@ func start_game():
 	current_day = 1
 	current_game_time = WORK_START_TIME
 	current_phase = GamePhase.PREPARE
+	current_time_speed = DEFAULT_TIME_SPEED
 	
 	# 设置初始薪水
-	set_salary(500)
+	set_salary(0)
 	
 	# 设置游戏状态为进行中
 	change_game_state(GameState.RUNNING)
@@ -64,6 +130,7 @@ func start_game():
 	# 开始第一天
 	start_day()
 	
+	# 骷髅打金服视频
 	VideoPlayer = get_tree().get_nodes_in_group("Video")[0]
 
 # 结束游戏
@@ -74,9 +141,6 @@ func end_game():
 	
 	# 设置游戏状态为已结束
 	change_game_state(GameState.FINISHED)
-	
-	# 可以添加游戏结束的其他逻辑，如显示总成绩等
-	print("游戏结束，总薪水：", current_salary)
 
 func set_can_spawn_bubble(value:bool) -> void:
 	can_spawn_bubble = value
@@ -88,20 +152,6 @@ func get_can_spawn_bubble() -> bool:
 func change_game_state(new_state: GameState):
 	current_game_state = new_state
 	emit_signal("game_state_changed", current_game_state)
-
-func setup_timer():
-	# 如果计时器已存在，先移除
-	if timer:
-		timer.queue_free()
-	
-	# 创建新的计时器
-	timer = Timer.new()
-	add_child(timer)
-	timer.timeout.connect(_on_timer_timeout)
-	
-	# 设置计时器间隔（1秒）
-	var real_time_step = 1.0
-	timer.wait_time = real_time_step
 
 func start_day():
 	# 只有在游戏运行中才能开始新的一天
@@ -148,6 +198,8 @@ func end_day():
 	current_phase = GamePhase.SETTLEMENT
 	emit_signal("phase_changed", current_phase)
 	
+	reset_time_speed()
+	
 	# 显示商店界面
 	show_shop()
 	
@@ -164,7 +216,8 @@ func show_shop():
 	# 显示商店的具体实现
 	pass
 
-# 薪水处理（保持原有逻辑）
+
+
 func increase_salary(amount: int):
 	current_salary += amount
 	emit_signal("salary_changed", current_salary,amount)

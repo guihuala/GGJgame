@@ -10,6 +10,8 @@ const CONFIG_PATH = "user://game_config.cfg"
 var is_info_show: bool = false
 
 func _ready():
+	AudioManager.play_BGM("BGM2")
+	
 	setting_window.hide()
 	
 	# 检查是否是第一次启动游戏
@@ -50,12 +52,15 @@ func _on_video_finished():
 	video_player.visible = false
 
 func _on_play_btn_pressed() -> void:
+	AudioManager.play_sfx("bubble2")
 	Utilities.switch_scene("GameScene")
 
 func _on_setting_btn_pressed() -> void:
+	AudioManager.play_sfx("bubble2")
 	setting_window.show()
 
 func _on_texture_button_pressed() -> void:
+	AudioManager.play_sfx("bubble2")
 	if !is_info_show:
 		$AnimationPlayer.play("info")
 	else :

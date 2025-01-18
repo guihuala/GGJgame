@@ -6,14 +6,19 @@ extends Node
 # Music and sound dictionaries
 var music_dict: Dictionary = {
 	"BGM": preload("res://assets/audio/BGM/背景音乐.wav"),
+	"BGM2":preload("res://assets/audio/BGM/背景音乐2.mp3")
 }
 
 var sound_dict: Dictionary = {
 	"button_click": preload("res://assets/audio/Sfx/Modern10.wav"),
 	"bubble":preload("res://assets/audio/Sfx/啵 弹出 冒泡.mp3"),
+	"bubble2":preload("res://assets/audio/Sfx/弹出信息.mp3"),
 	"succeed":preload("res://assets/audio/Sfx/成功！!__tada.wav"),
 	"Buzz":preload("res://assets/audio/Sfx/手机震动声.mp3"),
 	"tick":preload("res://assets/audio/Sfx/秒针滴滴答答 倒计时 .mp3"),
+	"start":preload("res://assets/audio/Sfx/开机声音.mp3"),
+	"end":preload("res://assets/audio/Sfx/电脑关机.mp3"),
+	"Warn":preload("res://assets/audio/Sfx/warning-sound.mp3")
 }
 
 func _ready():
