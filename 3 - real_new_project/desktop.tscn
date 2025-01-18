@@ -1,23 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=10 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
-[ext_resource type="PackedScene" uid="uid://du1o1tucchx86" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
-[ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_eoe06"]
+[ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
-[ext_resource type="Texture2D" uid="uid://cv1xs2f3id2j5" path="res://assets/AppIcons/edge.png" id="3_rrqni"]
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
-[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
-[ext_resource type="Script" path="res://3 - real_new_project/game_manager.gd" id="5_3hqm3"]
-[ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
-[ext_resource type="Texture2D" uid="uid://bn8ssww2j87lm" path="res://assets/AppIcons/fish.png" id="5_yyyf6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
-texture = ExtResource("2_eoe06")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(0, 128, 33, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 278.5)
@@ -97,38 +83,11 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -1280.0
-offset_top = -208.0
-offset_right = 1280.0
-offset_bottom = 8.0
+offset_left = -899.0
+offset_top = -150.0
+offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_4mvi7")
-
-[node name="Settings" parent="." instance=ExtResource("4_n1bes")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-offset_left = -352.0
-offset_top = -224.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 0
-
-[node name="salaryLabel" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -88.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "11111111"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_s2ymt")
 
 [node name="Wall" type="Node2D" parent="."]
 visible = false
@@ -159,29 +118,14 @@ shape = SubResource("RectangleShape2D_2dxgw")
 
 [node name="app1" parent="." instance=ExtResource("2_6bklj")]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 1288.0
-offset_right = 678.0
-offset_bottom = 1438.0
-texture = ExtResource("3_rrqni")
+offset_left = 904.0
+offset_top = 970.0
+offset_right = 1054.0
+offset_bottom = 1120.0
 bubble_packed_scene = ExtResource("2_yp7xp")
 impulse_min = 30.0
 impulse_max = 100.0
 interval = 2.0
-texts = Array[String](["你干了这么多年了也不容易，这样，我手头上有一个大项目，你拿去做做看", "小x，快过年了吧，今年业绩怎么样？晚上做一份今年的部门业绩总结发给我", "小x，明天早上十三点A总要来，你负责安排接待下", "小x，这个项目可得好好做，对公司很重要，下周前交给甲方不少于114514个方案", "你来公司也有一段时间了，这里有份项目，你自己做做看，算是公司对你的一次考验"])
-
-[node name="app2" parent="." instance=ExtResource("2_6bklj")]
-layout_mode = 0
-offset_left = 1040.0
-offset_top = 1288.0
-offset_right = 1190.0
-offset_bottom = 1438.0
-texture = ExtResource("5_yyyf6")
-bubble_packed_scene = ExtResource("2_yp7xp")
-impulse_min = 30.0
-impulse_max = 100.0
-interval = 2.0
-texts = Array[String](["这两天上面有大人物下来参观，你让大伙把环境搞搞，切忌出现隐患问题", "你不是一直想要这个外派培训的机会嘛，公司有意让你去，明天前把资料整理一下发给人事", "总部最近派了几个人来交流学习，和人事沟通下，务必安排好了", "最近底下员工有人举报小Q有点问题啊，你去查查他的情况底细，明晚前把报告给我"])
 
 [node name="Char" type="Node2D" parent="."]
 
@@ -193,12 +137,7 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="Sprite2D" type="Sprite2D" parent="Char"]
-position = Vector2(144, 1296)
+position = Vector2(135, 1286)
 scale = Vector2(3, 3)
 texture = ExtResource("4_ahila")
 hframes = 4
-
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("5_3hqm3")
-
-[connection signal="salary_changed" from="GameManager" to="Settings/salaryLabel" method="_on_game_manager_salary_changed"]
