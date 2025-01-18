@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://phbxth3014fd"]
+[gd_scene load_steps=17 format=3 uid="uid://cetswwanemk58"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_w3cyc"]
-[ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="2_2a82l"]
-[ext_resource type="Shader" path="res://Shaders/2D-perspective.gdshader" id="2_npnbv"]
-[ext_resource type="Script" path="res://2 - System/TestShader/perspective.gd" id="4_80nbw"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_8b1f4"]
+[ext_resource type="Shader" path="res://Shaders/2D-perspective.gdshader" id="2_f2o75"]
+[ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="3_pk460"]
+[ext_resource type="Script" path="res://2 - System/TestShader/perspective.gd" id="4_b7xeq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
-shader = ExtResource("2_npnbv")
+shader = ExtResource("2_f2o75")
 shader_parameter/fov = 90.0
 shader_parameter/cull_back = true
 shader_parameter/y_rot = 0.0
@@ -37,14 +37,15 @@ shader_parameter/inset = 0.0
 
 [node name="BaseBubble" type="RigidBody2D"]
 gravity_scale = -1.0
-script = ExtResource("1_w3cyc")
+script = ExtResource("1_8b1f4")
 bubble_gravity = -0.1
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_vbn76")
-scale = Vector2(1.12888, 0.958628)
-texture = ExtResource("2_2a82l")
-script = ExtResource("4_80nbw")
+position = Vector2(-17.0033, -63.3239)
+scale = Vector2(1.1953, 1.94806)
+texture = ExtResource("3_pk460")
+script = ExtResource("4_b7xeq")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -52,27 +53,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -261.0
-offset_top = -59.0
-offset_right = 228.0
-offset_bottom = 40.0
+offset_left = -308.0
+offset_top = -177.0
+offset_right = 262.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "小x，明天早上十三点A总要来，你负责安排接待下"
+theme_override_font_sizes/font_size = 39
+text = "你不是一直想要这个外派培训的机会嘛，公司有意让你去，明天前把资料整理一下发给人事"
 autowrap_mode = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(2495.89, 27.1458)
-scale = Vector2(217.696, 4.89763)
-polygon = PackedVector2Array(-12.7865, -7.5, -12.7865, -16.2242, -10.2395, -16.6958, -10.2135, -13.8663, -10.194, 6.64737, -10.2785, 4.99684, -10.3694, 1.69579, -12.78, 1.69579, -12.7865, -2.31263)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(2523.38, -6.01428)
+scale = Vector2(220.829, 9.45137)
+polygon = PackedVector2Array(-12.885, -7.40482, -12.885, -17.4563, -10.7476, -18.3027, -10.254, -17.8795, -10.1997, -13.8589, -10.1951, -3.59585, -10.1906, 7.09043, -10.2721, 4.76272, -10.3694, 1.69579, -12.8669, 1.69439, -12.894, -1.69137)
 
 [node name="Button" type="Button" parent="."]
-offset_left = -192.0
-offset_top = -34.0
-offset_right = 106.0
-offset_bottom = 24.0
+visible = false
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -171.0
+offset_right = 130.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.31149, 1.1958)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wtbv7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cg0ji")
@@ -85,6 +93,5 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_71kp6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -16,15 +16,9 @@ var offset: Vector2
 @export var shake_intensity_3: float = 6
 
 
-
-
 func _ready() -> void:
 	#hide()
 	pass
-
-func _on_button_pressed() -> void:
-	hide()
-
 
 func _physics_process(delta: float) -> void:
 	time -= delta

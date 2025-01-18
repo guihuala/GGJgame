@@ -1,6 +1,6 @@
 extends TextureRect
 
-@export var bubble_packed_scene: PackedScene
+@export var bubble_packed_scene_list:Array[PackedScene]
 @export var location_list:Array[Marker2D]
 
 
@@ -11,17 +11,18 @@ extends TextureRect
 @export var double_bubble_probability: float
 @export var triple_bubble_probability: float
 
-@export var interval: float
-var timer: float
+@export var interval_min: float
+@export var interval_max: float
+var interval: float
 
 func _ready() -> void:
-	timer = interval
+	interval = randf_range(interval_min, interval_max)
 
 func _process(delta: float) -> void:
-	timer -= delta
-	if timer < 0:
-		timer = interval
-		var bubble_scene: RigidBody2D = bubble_packed_scene.instantiate()
+	interval -= delta
+	if interval < 0:
+		interval = randf_range(interval_min, interval_max)
+		var bubble_scene: RigidBody2D = bubble_packed_scene_list[randi()%len(bubble_packed_scene_list)].instantiate()
 		#实例化
 		location_list[randi()%3].add_child(bubble_scene)
 		#赋予初速度
