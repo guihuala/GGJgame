@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="社畜笑传之戳戳Bubble"
-run/main_scene="res://4 - mainmanu/MainMenu.tscn"
+run/main_scene="res://4 - main_manu/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Game_icon.png"
 

@@ -157,6 +157,7 @@ grow_vertical = 2
 script = ExtResource("1_37c2h")
 
 [node name="StartPanel_2" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,6 +178,7 @@ sprite_frames = SubResource("SpriteFrames_0qdva")
 autoplay = "default"
 
 [node name="Label" type="Label" parent="StartPanel_2"]
+layout_mode = 0
 offset_left = -24.0012
 offset_top = 24.0002
 offset_right = 183.999
@@ -193,10 +195,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -112.001
-offset_top = 32.0002
-offset_right = 147.999
-offset_bottom = 60.0002
+offset_left = -323.0
+offset_top = -70.0
+offset_right = 342.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0.677301, 0.604786, 0.619661, 1)
@@ -254,6 +256,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_0uf06")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="StartPanel_1"]
+layout_mode = 0
 offset_left = 199.999
 offset_top = 80.0002
 offset_right = 407.999
@@ -265,6 +268,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="StartPanel_1"]
+layout_mode = 0
 offset_left = 215.999
 offset_top = 160.0
 offset_right = 527.999

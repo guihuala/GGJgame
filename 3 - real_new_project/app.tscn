@@ -16,10 +16,10 @@ script = ExtResource("2_hvs1r")
 location_list = [NodePath("Marker2D2"), NodePath("Marker2D4"), NodePath("Marker2D3")]
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(-145, -39)
+position = Vector2(-122, -36)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(50, -50)
+position = Vector2(38, -42)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(278, -44)
+position = Vector2(223, -40)

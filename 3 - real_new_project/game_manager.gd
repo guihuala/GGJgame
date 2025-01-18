@@ -13,7 +13,7 @@ var current_salary: int = 0
 var current_game_state: GameState = GameState.NOT_STARTED
 
 # 通知UI更新的信号
-signal salary_changed(salary:int)
+signal salary_changed(salary:int, amount: int)
 signal salary_decrease
 signal game_state_changed(state: GameState)
 signal phase_changed(phase: GamePhase)
@@ -161,13 +161,13 @@ func show_shop():
 # 薪水处理（保持原有逻辑）
 func increase_salary(amount: int):
 	current_salary += amount
-	emit_signal("salary_changed", current_salary)
+	emit_signal("salary_changed", current_salary, amount)
 
 func decrease_salary(amount: int):
 	current_salary -= amount
 	if current_salary < 0:
 		current_salary = 0
-	emit_signal("salary_changed", current_salary)
+	emit_signal("salary_changed", current_salary, -amount)
 	emit_signal("salary_decrease")
 
 func get_salary() -> int:
