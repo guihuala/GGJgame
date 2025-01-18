@@ -409,7 +409,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Wall" type="Node2D" parent="."]
-visible = false
 
 [node name="top" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
