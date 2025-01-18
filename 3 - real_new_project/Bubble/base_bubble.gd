@@ -48,3 +48,10 @@ func _on_button_pressed() -> void:
 	
 	# 播放销毁特效
 	on_destroy_bubble()
+
+func _on_button_button_down() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_button_up() -> void:
+	pass # Replace with function body.

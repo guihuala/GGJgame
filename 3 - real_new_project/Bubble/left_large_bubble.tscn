@@ -93,4 +93,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
 
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
