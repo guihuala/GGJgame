@@ -6,15 +6,6 @@ var scene_map: Dictionary = {
 
 var current_scene: Node = null
 
-# 薪水
-var current_salary: int = 0
-
-# 通知UI更新的信号
-signal salary_changed(new_salary: int)
-
-func _ready() -> void:
-	emit_signal("salary_changed", current_salary)
-
 # 场景管理：切换场景
 func switch_scene(scene_name: String):
 	var scene_path = scene_map.get(scene_name)
@@ -43,24 +34,3 @@ func remove_scene(scene: Node):
 func delete_scene(scene: Node):
 	if scene:
 		scene.queue_free()
-
-# 增加薪水
-func increase_salary(amount: int):
-	current_salary += amount
-	emit_signal("salary_changed", current_salary)  # 发射信号
-
-# 减少薪水
-func decrease_salary(amount: int):
-	current_salary -= amount
-	if current_salary < 0:
-		current_salary = 0
-	emit_signal("salary_changed", current_salary)  # 发射信号
-
-# 获取薪水
-func get_salary() -> int:
-	return current_salary
-
-# 设置薪水
-func set_salary(amount: int):
-	current_salary = amount
-	emit_signal("salary_changed", current_salary)  # 发射信号

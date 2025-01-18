@@ -5,11 +5,15 @@ extends Node
 
 # Music and sound dictionaries
 var music_dict: Dictionary = {
-	"BGM": preload("res://assets/audio/BGM/Ludum Dare 30 - 07.ogg"),
+	"BGM": preload("res://assets/audio/BGM/背景音乐.wav"),
 }
 
 var sound_dict: Dictionary = {
 	"button_click": preload("res://assets/audio/Sfx/Modern10.wav"),
+	"bubble":preload("res://assets/audio/Sfx/啵 弹出 冒泡.mp3"),
+	"succeed":preload("res://assets/audio/Sfx/成功！!__tada.wav"),
+	"Buzz":preload("res://assets/audio/Sfx/手机震动声.mp3"),
+	"tick":preload("res://assets/audio/Sfx/秒针滴滴答答 倒计时 .mp3"),
 }
 
 func _ready():
