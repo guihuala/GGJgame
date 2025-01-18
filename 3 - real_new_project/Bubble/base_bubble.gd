@@ -19,7 +19,7 @@ func set_text(text: String):
 	text_label.text = text
 
 func on_destroy_bubble() -> void:
-	AudioManager.play_sfx("bubble")
+	#AudioManager.play_sfx("bubble")
 	queue_free()
 
 func _on_button_pressed() -> void:

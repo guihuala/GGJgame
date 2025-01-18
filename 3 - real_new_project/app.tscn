@@ -8,13 +8,13 @@ custom_minimum_size = Vector2(150, 150)
 size_flags_horizontal = 6
 texture = ExtResource("1_shwt5")
 script = ExtResource("2_hvs1r")
-location_list = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-10, -22)
+location_list = [NodePath("Marker2D2"), NodePath("Marker2D4"), NodePath("Marker2D3")]
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(73, -25)
+position = Vector2(-145, -39)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(50, -50)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(151, -21)
+position = Vector2(278, -44)
