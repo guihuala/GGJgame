@@ -87,7 +87,7 @@ func setup_timer():
 	timer.timeout.connect(_on_timer_timeout)
 	
 	# 设置计时器间隔（1秒）
-	var real_time_step = 0.01
+	var real_time_step = 1.0
 	timer.wait_time = real_time_step
 
 func start_day():
