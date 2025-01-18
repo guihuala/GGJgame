@@ -1,0 +1,70 @@
+[gd_scene load_steps=16 format=3 uid="uid://cssyrjc0c3xqh"]
+
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/dingding_bubble.gd" id="1_3xpa2"]
+[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_yx6f8"]
+[ext_resource type="Texture2D" uid="uid://dvtq1ycgyejrk" path="res://assets/BubbleTexture/dingdingBubble.png" id="3_gq3b2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
+shader = ExtResource("2_yx6f8")
+shader_parameter/do_abs = false
+shader_parameter/do_quantize = false
+shader_parameter/quantize_to = 1.0
+shader_parameter/sine_amplitude = Vector2(2, 0)
+shader_parameter/sine_speed = Vector2(2, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtbv7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg0ji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1eam0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sakyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymjd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vhs3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edu4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71kp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ui0ad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2fdl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
+
+[node name="BaseBubble" type="RigidBody2D"]
+gravity_scale = -1.0
+lock_rotation = true
+script = ExtResource("1_3xpa2")
+
+[node name="sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vbn76")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_gq3b2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2592, -129)
+scale = Vector2(217.696, 4.89763)
+polygon = PackedVector2Array(-12.1683, 4.90033, -11.4334, 5.30869, -11.4104, 52.2702, -12.1729, 52.2702)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -46.0
+offset_top = -86.0
+offset_right = 62.0
+offset_bottom = 81.0
+scale = Vector2(1.31149, 1.1958)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wtbv7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cg0ji")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1eam0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sakyw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ymjd0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1vhs3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_edu4f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_71kp6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
