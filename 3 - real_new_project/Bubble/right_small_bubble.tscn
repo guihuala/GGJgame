@@ -212,5 +212,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(237, 19)
+scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_jgwcs")
 animation = &"loading"
