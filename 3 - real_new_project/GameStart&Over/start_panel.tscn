@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn3cck8idqo2w"]
+
+[ext_resource type="PackedScene" uid="uid://iuxldiq8fnbw" path="res://3 - real_new_project/Windows/base_window.tscn" id="1_cflgh"]
+[ext_resource type="Script" path="res://3 - real_new_project/GameStart&Over/start_panel.gd" id="2_fuude"]
+
+[node name="StartPanel" instance=ExtResource("1_cflgh")]
+script = ExtResource("2_fuude")
+
+[node name="StartGameBtn" type="Button" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0012
+offset_top = -87.9998
+offset_right = 99.9988
+offset_bottom = -23.9998
+grow_horizontal = 2
+grow_vertical = 0
+text = "开始牛马生活"
+
+[node name="title" type="Label" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -10.0
+offset_right = 69.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "这个是游戏的标题"
+
+[node name="Result" type="Label" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -10.0
+offset_right = 35.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "游戏结束"
+
+[connection signal="pressed" from="StartGameBtn" to="." method="_on_start_game_btn_pressed"]

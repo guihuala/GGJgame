@@ -1,10 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://iuxldiq8fnbw"]
 
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="1_e037m"]
-[ext_resource type="Script" path="res://1 - desktop/applications/base_window.gd" id="1_nrbke"]
+[ext_resource type="Script" path="res://3 - real_new_project/Windows/base_window.gd" id="1_nrbke"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3t8ms"]
 texture = ExtResource("1_e037m")
+texture_margin_left = 3.0
+texture_margin_top = 15.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
 region_rect = Rect2(232.788, 103.019, 161.212, 90.9814)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3xbu"]
@@ -62,8 +66,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3t8ms")
 script = ExtResource("1_nrbke")
-shake_intensity_1 = 1.0
-shake_intensity_2 = 3.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
@@ -71,10 +73,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -84.0012
-offset_top = 24.0002
-offset_right = -7.00122
-offset_bottom = 56.0002
+offset_left = -44.0012
+offset_top = 0.000183105
+offset_right = -4.00122
+offset_bottom = 16.0002
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxTexture_c3xbu")
@@ -88,5 +90,3 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_ljdu8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_gfde1")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_ry418")
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6rvj")
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -24,7 +24,8 @@ func _process(delta: float) -> void:
 	timer -= delta
 	if timer < 0:
 		timer = interval
-		spawn_bubble()
+		if GameManager.current_phase == GameManager.GamePhase.WORK:
+			spawn_bubble()
 
 func spawn_bubble():
 	var bubble_scene: RigidBody2D = bubble_packed_scene.instantiate()
