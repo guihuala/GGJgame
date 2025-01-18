@@ -1,0 +1,312 @@
+[gd_scene load_steps=44 format=3 uid="uid://bd71dljjmcagu"]
+
+[ext_resource type="PackedScene" uid="uid://iuxldiq8fnbw" path="res://3 - real_new_project/Windows/base_window.tscn" id="1_bnjgw"]
+[ext_resource type="Script" path="res://3 - real_new_project/tutorial.gd" id="2_7ni6o"]
+[ext_resource type="Texture2D" uid="uid://c575d6tax6ffn" path="res://assets/Tutorial/演示小动画.png" id="3_2do0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phko8"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(0, 53, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7k3a"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(136, 53, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26sse"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(272, 53, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uapwx"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(408, 53, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1463"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(544, 53, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uw1v"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(680, 53, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkup8"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(816, 53, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4rt4"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(952, 53, 136, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvrbm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phko8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7k3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26sse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uapwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1463")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uw1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkup8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4rt4")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjcu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xahg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48j4m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffyc0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inapp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyvhx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xegdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b2bn2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tdxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uegcl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1xh3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqjf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbryb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7yyg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2csn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_alxvh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_we11m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qyau"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0p1ww"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axc6o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lss8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fw42"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj83f"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(0, 0, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nakgb"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(136, 0, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bngif"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(272, 0, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcfml"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(408, 0, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7mg5"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(544, 0, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6qbm"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(680, 0, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnc5t"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(816, 0, 136, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlw1q"]
+atlas = ExtResource("3_2do0t")
+region = Rect2(952, 0, 136, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cim3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj83f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nakgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bngif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcfml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7mg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6qbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnc5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlw1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Panel" instance=ExtResource("1_bnjgw")]
+script = ExtResource("2_7ni6o")
+
+[node name="StartPanel_2" type="Control" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -144.0
+offset_right = 256.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StartPanel_2" index="0"]
+position = Vector2(262.628, 156.172)
+scale = Vector2(3.29142, 3.29142)
+sprite_frames = SubResource("SpriteFrames_gvrbm")
+animation = &"new_animation"
+frame = 2
+frame_progress = 0.0269721
+
+[node name="Label" type="Label" parent="StartPanel_2" index="1"]
+layout_mode = 0
+offset_left = 47.9988
+offset_top = 40.0002
+offset_right = 255.999
+offset_bottom = 99.0002
+theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
+theme_override_font_sizes/font_size = 24
+text = "拖动长按信息，
+将信息分配给下属"
+
+[node name="StartGameBtn_2" type="Button" parent="StartPanel_2" index="2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.001
+offset_top = 32.0002
+offset_right = 147.999
+offset_bottom = 60.0002
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.677301, 0.604786, 0.619661, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rjcu2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1xahg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_48j4m")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ffyc0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_inapp")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qyvhx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xegdc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b2bn2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4tdxn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_uegcl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x1xh3")
+text = "开启一周的社畜生活！"
+
+[node name="StartPanel_1" type="Control" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -144.0
+offset_right = 256.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NextPage" type="Button" parent="StartPanel_1" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tqjf7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pbryb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_r7yyg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_v2csn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_alxvh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_we11m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6qyau")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_0p1ww")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_axc6o")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_lss8s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3fw42")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="StartPanel_1" index="1"]
+position = Vector2(262.913, 132)
+scale = Vector2(3.28682, 3.28682)
+sprite_frames = SubResource("SpriteFrames_cim3l")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="StartPanel_1" index="2"]
+layout_mode = 0
+offset_left = 199.999
+offset_top = 72.0002
+offset_right = 407.999
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
+theme_override_font_sizes/font_size = 24
+text = "点击消除短信息"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="StartPanel_1" index="3"]
+layout_mode = 0
+offset_left = 215.999
+offset_top = 160.0
+offset_right = 527.999
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
+theme_override_font_sizes/font_size = 24
+text = "长按消除长信息，
+但是会加快时间流逝的速度"
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartPanel_2/StartGameBtn_2" to="." method="_on_start_game_btn_2_pressed"]
+[connection signal="pressed" from="StartPanel_1/NextPage" to="." method="_on_next_page_pressed"]

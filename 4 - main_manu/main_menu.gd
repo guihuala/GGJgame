@@ -40,6 +40,7 @@ func play_intro_video():
 	# 显示并播放视频
 	video_player.visible = true
 	video_player.play()
+	
 
 # 视频播放完成后的回调
 func _on_video_finished():

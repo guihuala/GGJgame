@@ -41,6 +41,10 @@ var current_game_time: float = WORK_START_TIME
 var timer: Timer
 var can_spawn_bubble: bool = true
 
+# 视频播放计时器
+var video_timer: Timer
+var VideoPlayer
+
 # 开始游戏
 func start_game():
 	# 重置游戏状态
@@ -59,6 +63,8 @@ func start_game():
 	
 	# 开始第一天
 	start_day()
+	
+	VideoPlayer = get_tree().get_nodes_in_group("Video")[0]
 
 # 结束游戏
 func end_game():
@@ -176,3 +182,31 @@ func get_salary() -> int:
 func set_salary(amount: int):
 	current_salary = amount
 	emit_signal("salary_changed", current_salary)
+
+func _on_play_video():
+	var character = get_tree().get_nodes_in_group("Character")[0]
+	character.play_animation_angry()
+	
+	# 创建视频计时器
+	video_timer = Timer.new()
+	add_child(video_timer)
+	
+	# 设置3秒后停止视频
+	video_timer.wait_time = 3.0
+	video_timer.one_shot = true
+	video_timer.timeout.connect(_on_video_timer_timeout)
+	
+	# 显示并播放视频
+	VideoPlayer.visible = true
+	VideoPlayer.play()
+	
+	# 启动计时器
+	video_timer.start()
+
+func _on_video_timer_timeout():
+	# 停止视频
+	VideoPlayer.stop()
+	VideoPlayer.visible = false
+	
+	# 移除计时器
+	video_timer.queue_free()

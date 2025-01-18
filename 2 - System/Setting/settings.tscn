@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://603k3vy4p3f1"]
+[gd_scene load_steps=23 format=3 uid="uid://603k3vy4p3f1"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_5ko4b"]
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_esk3t"]
+[ext_resource type="Texture2D" uid="uid://nirrtrs428g1" path="res://assets/Windows/蓝窗.png" id="2_st0kn"]
 [ext_resource type="Script" path="res://2 - System/Setting/settings.gd" id="2_xpasx"]
 [ext_resource type="Texture2D" uid="uid://bx0vflqinjwjk" path="res://assets/Icon/Pause.png" id="3_8o8m8"]
 [ext_resource type="Script" path="res://2 - System/Setting/audio.gd" id="4_cb44x"]
@@ -10,11 +11,58 @@
 [ext_resource type="Texture2D" uid="uid://bbmxske7kpwki" path="res://assets/Icon/Speaker-0.png" id="6_8erne"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7v83"]
-texture = ExtResource("2_esk3t")
+texture = ExtResource("2_st0kn")
 region_rect = Rect2(280.088, 0, 113.912, 101.074)
+modulate_color = Color(1, 1, 1, 0.784314)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eojpe"]
 load_path = "res://.godot/imported/Speaker-Crossed.png-4845d3d70e087868c6d4de317b8084fc.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kp5cv"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4e3n"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qg4b4"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_isha8"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2178s"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yf1q8"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vuups"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1qw5x"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7bkks"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xhxm"]
+texture = ExtResource("2_esk3t")
+region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2vhog"]
+texture = ExtResource("2_st0kn")
+texture_margin_left = 12.5548
+texture_margin_top = 2.47792
+region_rect = Rect2(65.3395, 136.142, 47.5762, 13.1129)
 
 [node name="Settings" type="Panel"]
 process_mode = 3
@@ -74,6 +122,31 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 stretch_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.982
+anchor_top = 0.023
+anchor_right = 0.982
+anchor_bottom = 0.023
+offset_left = -117.936
+offset_top = -6.992
+offset_right = -3.93604
+offset_bottom = 24.008
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxTexture_kp5cv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_k4e3n")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qg4b4")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_isha8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_2178s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_yf1q8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vuups")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_1qw5x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7bkks")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_4xhxm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2vhog")
 
 [connection signal="pressed" from="Audio/HBoxContainer/BGM" to="Audio" method="_on_bgm_pressed"]
 [connection signal="pressed" from="Audio/HBoxContainer/sfx" to="Audio" method="_on_sfx_pressed"]

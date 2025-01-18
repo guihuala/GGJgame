@@ -1,30 +1,30 @@
-[gd_scene load_steps=39 format=3 uid="uid://bjavspsika77h"]
+[gd_scene load_steps=32 format=3 uid="uid://bjavspsika77h"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/tutorial.gd" id="1_37c2h"]
-[ext_resource type="Texture2D" uid="uid://blfh44gdxwmtq" path="res://assets/Tutorial/演示动画 (1).png" id="1_t5jke"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_80wqs"]
+load_path = "res://.godot/imported/演示动画 (1).png-b49e203dcfd4df907d8790103ef90c22.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4qn5"]
-atlas = ExtResource("1_t5jke")
+atlas = SubResource("CompressedTexture2D_80wqs")
 region = Rect2(0, 129, 205, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uktdh"]
-atlas = ExtResource("1_t5jke")
+atlas = SubResource("CompressedTexture2D_80wqs")
 region = Rect2(205, 129, 205, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udir6"]
-atlas = ExtResource("1_t5jke")
+atlas = SubResource("CompressedTexture2D_80wqs")
 region = Rect2(410, 129, 205, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ae2fk"]
-atlas = ExtResource("1_t5jke")
+atlas = SubResource("CompressedTexture2D_80wqs")
 region = Rect2(615, 129, 205, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1nkfi"]
-atlas = ExtResource("1_t5jke")
+atlas = SubResource("CompressedTexture2D_80wqs")
 region = Rect2(820, 129, 205, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ka3sv"]
-atlas = ExtResource("1_t5jke")
+atlas = SubResource("CompressedTexture2D_80wqs")
 region = Rect2(1025, 129, 205, 129)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0qdva"]
@@ -75,55 +75,8 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tjax"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4twrl"]
-atlas = ExtResource("1_t5jke")
-region = Rect2(0, 0, 205, 129)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rtix"]
-atlas = ExtResource("1_t5jke")
-region = Rect2(205, 0, 205, 129)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_durog"]
-atlas = ExtResource("1_t5jke")
-region = Rect2(410, 0, 205, 129)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjoki"]
-atlas = ExtResource("1_t5jke")
-region = Rect2(615, 0, 205, 129)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqout"]
-atlas = ExtResource("1_t5jke")
-region = Rect2(820, 0, 205, 129)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0oo2m"]
-atlas = ExtResource("1_t5jke")
-region = Rect2(1025, 0, 205, 129)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_as570"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4twrl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8rtix")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_durog")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qjoki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqout")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0oo2m")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+animations = []
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igsl4"]
 
@@ -154,7 +107,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_37c2h")
 
 [node name="StartPanel_2" type="Control" parent="."]
 visible = false
@@ -235,7 +187,7 @@ grow_vertical = 2
 position = Vector2(262.628, 156.172)
 scale = Vector2(3.29142, 3.29142)
 sprite_frames = SubResource("SpriteFrames_as570")
-autoplay = "default"
+animation = &""
 
 [node name="NextPage" type="Button" parent="StartPanel_1/AnimatedSprite2D"]
 offset_left = 77.0

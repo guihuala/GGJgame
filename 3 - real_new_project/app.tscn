@@ -1,15 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn6opmlnthn48"]
+[gd_scene load_steps=2 format=3 uid="uid://dn6opmlnthn48"]
 
-[ext_resource type="Shader" path="res://Shaders/shadow.gdshader" id="1_usr57"]
 [ext_resource type="Script" path="res://3 - real_new_project/app.gd" id="2_hvs1r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lil57"]
-shader = ExtResource("1_usr57")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_offset = Vector2(0, 0.05)
-
 [node name="app1" type="TextureRect" node_paths=PackedStringArray("location_list")]
-material = SubResource("ShaderMaterial_lil57")
 custom_minimum_size = Vector2(150, 150)
 size_flags_horizontal = 6
 script = ExtResource("2_hvs1r")

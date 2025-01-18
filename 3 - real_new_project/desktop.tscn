@@ -1,21 +1,18 @@
-[gd_scene load_steps=47 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=50 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
 [ext_resource type="Script" path="res://3 - real_new_project/desktop.gd" id="1_icjmn"]
 [ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_eoe06"]
-[ext_resource type="Texture2D" uid="uid://dmb8es35ysx14" path="res://assets/AppIcons/IMG_0111.png" id="4_6atb4"]
+[ext_resource type="Shader" path="res://Shaders/Chromatic Chaos Distortion.gdshader" id="3_tqqwr"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
 [ext_resource type="PackedScene" uid="uid://bflws4wlq6lka" path="res://3 - real_new_project/Bubble/left_large_bubble.tscn" id="5_g3va0"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
 [ext_resource type="Texture2D" uid="uid://b43j3dwggk2nm" path="res://assets/BubbleTexture/短气泡.png" id="5_xixcm"]
 [ext_resource type="PackedScene" uid="uid://e12c4is2sqjx" path="res://3 - real_new_project/Bubble/left_small_bubble.tscn" id="6_lkpvu"]
-[ext_resource type="Texture2D" uid="uid://c1sp480vi6xgy" path="res://assets/AppIcons/IMG_0112.png" id="6_x3ykp"]
-[ext_resource type="Texture2D" uid="uid://ch2ckieqd3gna" path="res://assets/AppIcons/IMG_0113.png" id="7_q23ud"]
 [ext_resource type="PackedScene" uid="uid://brqyp8papxen" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
 [ext_resource type="PackedScene" uid="uid://d1bnpccjpj0is" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
-[ext_resource type="Texture2D" uid="uid://c7vj201ha076q" path="res://assets/AppIcons/IMG_0114.png" id="12_r674x"]
-[ext_resource type="Texture2D" uid="uid://d0lugbo43q87f" path="res://assets/AppIcons/IMG_0118.png" id="13_l1rpj"]
+[ext_resource type="Texture2D" uid="uid://djgi8vf8fxxsi" path="res://assets/AppIcons/修正版图标.png" id="10_11fhx"]
 [ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="13_lef2j"]
 [ext_resource type="PackedScene" uid="uid://blwgwaefpgajb" path="res://3 - real_new_project/Bubble/left_large_bubble_1.tscn" id="14_5a6qt"]
 [ext_resource type="Script" path="res://3 - real_new_project/bubble_root.gd" id="14_dkx3m"]
@@ -28,7 +25,15 @@
 [ext_resource type="Texture2D" uid="uid://b1pu2hgyst3gf" path="res://assets/Character/生气动画.png" id="23_0ea3b"]
 [ext_resource type="PackedScene" uid="uid://0wgsd7sxd6r6" path="res://3 - real_new_project/Progress/progress_bar.tscn" id="23_kopgg"]
 [ext_resource type="Texture2D" uid="uid://b6c6y73f7wo5u" path="res://assets/Character/人物动画.png" id="24_c5a0h"]
-[ext_resource type="PackedScene" uid="uid://bjavspsika77h" path="res://3 - real_new_project/Tutorial.tscn" id="29_dkftn"]
+[ext_resource type="PackedScene" uid="uid://bd41w1yvtolye" path="res://3 - real_new_project/Ad/PopupAdScene_2.tscn" id="25_eps6j"]
+[ext_resource type="PackedScene" uid="uid://bd71dljjmcagu" path="res://2 - System/Setting/TutorialWindow.tscn" id="26_ogn74"]
+[ext_resource type="VideoStream" path="res://assets/Windows/Ad/1456230770-1-16.ogv" id="27_105wt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72uvr"]
+shader = ExtResource("3_tqqwr")
+shader_parameter/chaos = 0.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
 texture = ExtResource("2_eoe06")
@@ -41,38 +46,25 @@ region_rect = Rect2(0, 128, 33, 27)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bmv5e"]
 texture = ExtResource("5_xixcm")
 
-[sub_resource type="Animation" id="Animation_q1yoq"]
-resource_name = "pop_up"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Label:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Label:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdcrg"]
+atlas = ExtResource("10_11fhx")
+region = Rect2(0, 0, 43, 38)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycdoy"]
-_data = {
-"pop_up": SubResource("Animation_q1yoq")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2koj"]
+atlas = ExtResource("10_11fhx")
+region = Rect2(50, 0, 43, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mex5s"]
+atlas = ExtResource("10_11fhx")
+region = Rect2(77, 45, 45, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iohf"]
+atlas = ExtResource("10_11fhx")
+region = Rect2(102, 0, 43, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnphh"]
+atlas = ExtResource("10_11fhx")
+region = Rect2(151, 1, 43, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 83)
@@ -134,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s2l2u")
 }],
-"loop": true,
+"loop": false,
 "name": &"angry",
 "speed": 5.0
 }, {
@@ -180,11 +172,21 @@ offset_bottom = 40.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_b1pj6")
 
-[node name="BubbleRoot" type="Node" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_72uvr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BubbleRoot" type="Node" parent="." node_paths=PackedStringArray("colorRect")]
 script = ExtResource("14_dkx3m")
+colorRect = NodePath("../Background/ColorRect")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-z_index = 1
+modulate = Color(0.61861, 0.714305, 0.793042, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -194,7 +196,7 @@ anchor_bottom = 1.0
 offset_left = -1280.0
 offset_top = -208.0
 offset_right = 1280.0
-offset_bottom = 8.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4mvi7")
@@ -242,7 +244,7 @@ offset_left = 528.0
 offset_top = 1288.0
 offset_right = 678.0
 offset_bottom = 1438.0
-texture = ExtResource("4_6atb4")
+texture = SubResource("AtlasTexture_jdcrg")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh"), ExtResource("14_5a6qt")])
 impulse_min = 30.0
 impulse_max = 100.0
@@ -253,11 +255,11 @@ bubble_root = NodePath("../BubbleRoot")
 [node name="app2" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
 z_index = 2
 layout_mode = 0
-offset_left = 888.0
-offset_top = 1280.0
-offset_right = 1038.0
-offset_bottom = 1430.0
-texture = ExtResource("6_x3ykp")
+offset_left = 872.0
+offset_top = 1288.0
+offset_right = 1022.0
+offset_bottom = 1438.0
+texture = SubResource("AtlasTexture_x2koj")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
 impulse_min = 30.0
 impulse_max = 100.0
@@ -269,10 +271,10 @@ bubble_root = NodePath("../BubbleRoot")
 z_index = 2
 layout_mode = 0
 offset_left = 1248.0
-offset_top = 1272.0
+offset_top = 1280.0
 offset_right = 1398.0
-offset_bottom = 1422.0
-texture = ExtResource("7_q23ud")
+offset_bottom = 1430.0
+texture = SubResource("AtlasTexture_mex5s")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
 impulse_min = 30.0
 impulse_max = 100.0
@@ -284,10 +286,10 @@ bubble_root = NodePath("../BubbleRoot")
 z_index = 2
 layout_mode = 0
 offset_left = 1592.0
-offset_top = 1264.0
+offset_top = 1288.0
 offset_right = 1742.0
-offset_bottom = 1414.0
-texture = ExtResource("12_r674x")
+offset_bottom = 1438.0
+texture = SubResource("AtlasTexture_0iohf")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("16_vltlk")])
 impulse_min = 30.0
 impulse_max = 100.0
@@ -299,10 +301,10 @@ bubble_root = NodePath("../BubbleRoot")
 z_index = 2
 layout_mode = 2
 offset_left = 1936.0
-offset_top = 1248.0
+offset_top = 1288.0
 offset_right = 2086.0
-offset_bottom = 1424.0
-texture = ExtResource("13_l1rpj")
+offset_bottom = 1438.0
+texture = SubResource("AtlasTexture_mnphh")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
 impulse_min = 30.0
 impulse_max = 100.0
@@ -400,7 +402,7 @@ animation = &"click"
 
 [node name="AdManager" type="Node" parent="."]
 script = ExtResource("14_k3l8w")
-ad_types = Array[PackedScene]([ExtResource("17_ivgs8"), ExtResource("21_akc8i")])
+ad_types = Array[PackedScene]([ExtResource("17_ivgs8"), ExtResource("21_akc8i"), ExtResource("25_eps6j")])
 
 [node name="StartPanel" parent="." instance=ExtResource("17_hbt6g")]
 visible = false
@@ -415,6 +417,27 @@ offset_top = -304.0
 offset_right = 608.0
 offset_bottom = 296.0
 
-[node name="Control" parent="." instance=ExtResource("29_dkftn")]
-visible = false
+[node name="Panel" parent="." instance=ExtResource("26_ogn74")]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." groups=["Video"]]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("27_105wt")
+expand = true
+bus = &"Music"

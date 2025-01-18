@@ -1,9 +1,23 @@
 extends Node
 
 # 最大气泡数量
-@export var max_bubble_count: int = 10
+@export var max_bubble_count: int = 16
+@export var colorRect:ColorRect
 
-func _process(delta: float) -> void:
+# 材质相关变量
+var rect_mat: Material
+var chaos_value:float
+
+func _ready() -> void:
+	# 获取材质
+	rect_mat = colorRect.material
+	
+	if rect_mat:
+		# 确保材质是可编辑的
+		rect_mat = rect_mat.duplicate()
+		colorRect.material = rect_mat
+
+func _process(_delta: float) -> void:
 	_on_check_timer_timeout()
 
 func _on_check_timer_timeout():
@@ -11,10 +25,15 @@ func _on_check_timer_timeout():
 	var current_bubble_count = get_child_count()
 
 	# 如果气泡数量超过最大限制
-	if current_bubble_count > max_bubble_count:
+	if current_bubble_count >= max_bubble_count:
 		GameManager.set_can_spawn_bubble(false)
 	else:
 		GameManager.set_can_spawn_bubble(true)
+	
+	chaos_value = current_bubble_count
+	
+	if rect_mat:
+		rect_mat.set_shader_parameter("chaos",chaos_value)
 
 # 可选：清理超出数量的气泡
 func clean_excess_bubbles():
