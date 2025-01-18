@@ -26,19 +26,19 @@ func update_text() -> void:
 	
 	match current_phase:
 		GamePhase.PREPARE:
-			phase_text = "准备阶段：检查今日工作"
+			phase_text = "准备阶段：\n检查今日工作"
 			phase_color = Color(0.5, 0.5, 1)  # 浅蓝色
 		
 		GamePhase.WORK:
-			phase_text = "工作阶段：开始你的工作"
+			phase_text = "工作阶段：\n开始你的工作"
 			phase_color = Color(0, 1, 0)  # 绿色
 		
 		GamePhase.OVERTIME:
-			phase_text = "加班阶段：小心不要犯错"
+			phase_text = "加班阶段：\n小心不要犯错"
 			phase_color = Color(1, 0.5, 0)  # 橙色
 		
 		GamePhase.SETTLEMENT:
-			phase_text = "结算阶段：查看今日收益"
+			phase_text = "结算阶段：\n查看今日收益"
 			phase_color = Color(1, 0, 0)  # 红色
 		
 		_:

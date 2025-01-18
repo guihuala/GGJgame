@@ -1,12 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://603k3vy4p3f1"]
+[gd_scene load_steps=10 format=3 uid="uid://603k3vy4p3f1"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_5ko4b"]
 [ext_resource type="Script" path="res://2 - System/Setting/settings.gd" id="2_xpasx"]
+[ext_resource type="Texture2D" uid="uid://bx0vflqinjwjk" path="res://assets/Icon/Pause.png" id="3_8o8m8"]
 [ext_resource type="Script" path="res://2 - System/Setting/audio.gd" id="4_cb44x"]
-[ext_resource type="Texture2D" uid="uid://bukh2xqxkak5h" path="res://1 - desktop/desktop/coin.png" id="4_f4oy4"]
-[ext_resource type="Texture2D" uid="uid://im0muy4j6obj" path="res://assets/icon.svg" id="5_qcpfq"]
+[ext_resource type="Texture2D" uid="uid://b551aiabmca47" path="res://assets/Icon/Play.png" id="4_ctmyt"]
+[ext_resource type="Texture2D" uid="uid://bhcp83kfc7qml" path="res://assets/Icon/Music-0.png" id="6_5ejyi"]
+[ext_resource type="Texture2D" uid="uid://bbmxske7kpwki" path="res://assets/Icon/Speaker-0.png" id="6_8erne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6kql"]
+bg_color = Color(0.414066, 0.414066, 0.414066, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eojpe"]
+load_path = "res://.godot/imported/Speaker-Crossed.png-4845d3d70e087868c6d4de317b8084fc.ctex"
 
 [node name="Settings" type="Panel"]
 process_mode = 3
@@ -20,8 +26,8 @@ grow_vertical = 0
 theme = ExtResource("1_5ko4b")
 theme_override_styles/panel = SubResource("StyleBoxFlat_s6kql")
 script = ExtResource("2_xpasx")
-pause_on_texture = ExtResource("5_qcpfq")
-pause_off_texture = ExtResource("4_f4oy4")
+pause_on_texture = ExtResource("3_8o8m8")
+pause_off_texture = ExtResource("4_ctmyt")
 
 [node name="Audio" type="TabBar" parent="."]
 layout_mode = 1
@@ -33,34 +39,34 @@ grow_vertical = 2
 theme = ExtResource("1_5ko4b")
 theme_override_font_sizes/font_size = 20
 script = ExtResource("4_cb44x")
-bgm_on_texture = ExtResource("4_f4oy4")
-bgm_off_texture = ExtResource("5_qcpfq")
-sfx_on_texture = ExtResource("4_f4oy4")
-sfx_off_texture = ExtResource("5_qcpfq")
+bgm_on_texture = ExtResource("6_5ejyi")
+bgm_off_texture = ExtResource("6_5ejyi")
+sfx_on_texture = ExtResource("6_8erne")
+sfx_off_texture = SubResource("CompressedTexture2D_eojpe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Audio"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -48.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 100
 alignment = 2
 
 [node name="BGM" type="TextureButton" parent="Audio/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="sfx" type="TextureButton" parent="Audio/HBoxContainer"]
 layout_mode = 2
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="Pause" type="TextureButton" parent="Audio/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme = ExtResource("1_5ko4b")
-stretch_mode = 3
+stretch_mode = 5
 
 [connection signal="pressed" from="Audio/HBoxContainer/BGM" to="Audio" method="_on_bgm_pressed"]
 [connection signal="pressed" from="Audio/HBoxContainer/sfx" to="Audio" method="_on_sfx_pressed"]
