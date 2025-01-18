@@ -3,6 +3,7 @@ extends Node
 var current_salary: int = 0
 # 通知UI更新的信号
 signal salary_changed(salary:int)
+
 enum GamePhase {
 	PREPARE,    # 准备阶段
 	WORK,       # 正常工作阶段 (9:30-18:30)
@@ -86,9 +87,6 @@ func end_day():
 		pass
 		
 func show_shop():
-	# var shop_scene = preload("res://scenes/shop.tscn").instantiate()
-	# add_child(shop_scene)
-	# await shop_scene.closed
 	pass
 	
 # 任务管理
