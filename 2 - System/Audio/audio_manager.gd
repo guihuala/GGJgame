@@ -16,9 +16,6 @@ var sound_dict: Dictionary = {
 	"tick":preload("res://assets/audio/Sfx/秒针滴滴答答 倒计时 .mp3"),
 }
 
-func _ready():
-	pass # Replace with function body.
-
 # Play a sound effect from the dictionary
 func play_sfx(sound_key: String):
 	if sound_key in sound_dict:

@@ -12,6 +12,8 @@ var press_duration: float = 0.0
 # 物理属性
 @export var bubble_mass: float = 1.0
 @export var bubble_gravity: float = -1
+@export var bounce_factor:float = 1.0
+@export var friction_factor:float = 1.0
 
 func _ready():
 	# 配置刚体属性
