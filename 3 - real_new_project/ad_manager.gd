@@ -7,13 +7,13 @@ extends Node
 var ad_generation_config = {
 	GameManager.GamePhase.WORK: {
 		"interval_min": 1.5,  # 最小间隔时间(小时)
-		"interval_max": 2,  # 最大间隔时间(小时)
-		"chance": 0.8,        # 生成概率
+		"interval_max": 5,  # 最大间隔时间(小时)
+		"chance": 0.6,        # 生成概率
 	},
 	GameManager.GamePhase.OVERTIME: {
 		"interval_min": 1.0,  # 最小间隔时间(小时)
 		"interval_max": 2.5,  # 最大间隔时间(小时)
-		"chance": 0.6,        # 生成概率 
+		"chance": 0.3,        # 生成概率 
 	}
 }
 

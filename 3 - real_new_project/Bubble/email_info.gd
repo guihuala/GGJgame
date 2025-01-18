@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+# 工作邮件
+@export var textList: Array[String]
+
 # 对话内容节点
 @onready var text_label: Label = $Label
 
@@ -18,6 +21,11 @@ func _ready():
 	# 配置刚体属性
 	mass = bubble_mass
 	gravity_scale = bubble_gravity
+	
+	# 在生成时随机设置文本
+	if not textList.is_empty():
+		var random_text = textList[randi() % textList.size()]
+		set_text(random_text)
 
 # 设置对话框文本
 func set_text(text: String):

@@ -1,13 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=44 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
+[ext_resource type="Script" path="res://3 - real_new_project/desktop.gd" id="1_icjmn"]
 [ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_eoe06"]
 [ext_resource type="Texture2D" uid="uid://dmb8es35ysx14" path="res://assets/AppIcons/IMG_0111.png" id="4_6atb4"]
-[ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
 [ext_resource type="PackedScene" uid="uid://bflws4wlq6lka" path="res://3 - real_new_project/Bubble/left_large_bubble.tscn" id="5_g3va0"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
+[ext_resource type="Texture2D" uid="uid://b43j3dwggk2nm" path="res://assets/BubbleTexture/短气泡.png" id="5_xixcm"]
 [ext_resource type="PackedScene" uid="uid://e12c4is2sqjx" path="res://3 - real_new_project/Bubble/left_small_bubble.tscn" id="6_lkpvu"]
 [ext_resource type="Texture2D" uid="uid://c1sp480vi6xgy" path="res://assets/AppIcons/IMG_0112.png" id="6_x3ykp"]
 [ext_resource type="Texture2D" uid="uid://ch2ckieqd3gna" path="res://assets/AppIcons/IMG_0113.png" id="7_q23ud"]
@@ -16,12 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://c7vj201ha076q" path="res://assets/AppIcons/IMG_0114.png" id="12_r674x"]
 [ext_resource type="Texture2D" uid="uid://d0lugbo43q87f" path="res://assets/AppIcons/IMG_0118.png" id="13_l1rpj"]
 [ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="13_lef2j"]
+[ext_resource type="PackedScene" uid="uid://blwgwaefpgajb" path="res://3 - real_new_project/Bubble/left_large_bubble_1.tscn" id="14_5a6qt"]
 [ext_resource type="Script" path="res://3 - real_new_project/bubble_root.gd" id="14_dkx3m"]
 [ext_resource type="Script" path="res://3 - real_new_project/ad_manager.gd" id="14_k3l8w"]
 [ext_resource type="Script" path="res://3 - real_new_project/character.gd" id="15_d8d24"]
+[ext_resource type="PackedScene" uid="uid://dv2rwp0m5n008" path="res://3 - real_new_project/Bubble/Email.tscn" id="16_vltlk"]
 [ext_resource type="PackedScene" uid="uid://dn3cck8idqo2w" path="res://3 - real_new_project/GameStart&Over/start_panel.tscn" id="17_hbt6g"]
 [ext_resource type="PackedScene" uid="uid://by4ydpj64yl0w" path="res://3 - real_new_project/Ad/PopupAdScene.tscn" id="17_ivgs8"]
 [ext_resource type="PackedScene" uid="uid://7bnhcbd0ksj" path="res://3 - real_new_project/Ad/PopupAdScene_1.tscn" id="21_akc8i"]
+[ext_resource type="Texture2D" uid="uid://b1pu2hgyst3gf" path="res://assets/Character/生气动画.png" id="23_0ea3b"]
+[ext_resource type="PackedScene" uid="uid://0wgsd7sxd6r6" path="res://3 - real_new_project/Progress/progress_bar.tscn" id="23_kopgg"]
+[ext_resource type="Texture2D" uid="uid://b6c6y73f7wo5u" path="res://assets/Character/人物动画.png" id="24_c5a0h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
 texture = ExtResource("2_eoe06")
@@ -30,6 +36,9 @@ texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 region_rect = Rect2(0, 128, 33, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bmv5e"]
+texture = ExtResource("5_xixcm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 83)
@@ -40,51 +49,86 @@ size = Vector2(81, 1444)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxgw"]
 size = Vector2(93.25, 1444)
 
-[sub_resource type="Animation" id="Animation_uruys"]
-resource_name = "new_animation"
-length = 0.7
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Character/Sprite2D:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Character/Sprite2D:vframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Character/Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi6hi"]
+atlas = ExtResource("23_0ea3b")
+region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_feeon"]
-_data = {
-"new_animation": SubResource("Animation_uruys")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu8ns"]
+atlas = ExtResource("23_0ea3b")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1po2l"]
+atlas = ExtResource("23_0ea3b")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2l2u"]
+atlas = ExtResource("23_0ea3b")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa6jb"]
+atlas = ExtResource("24_c5a0h")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1gic"]
+atlas = ExtResource("24_c5a0h")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikys4"]
+atlas = ExtResource("24_c5a0h")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qsg4"]
+atlas = ExtResource("24_c5a0h")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm7w8"]
+atlas = ExtResource("24_c5a0h")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ol6v2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi6hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu8ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1po2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2l2u")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa6jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1gic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikys4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qsg4")
+}],
+"loop": false,
+"name": &"click",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm7w8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -93,6 +137,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_icjmn")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -121,6 +166,41 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4mvi7")
 
+[node name="ProgressBar" parent="." instance=ExtResource("23_kopgg")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -304.0
+offset_right = -48.0
+offset_bottom = -304.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="ProgressBar"]
+layout_mode = 0
+offset_left = -280.0
+offset_top = 144.0
+offset_right = -32.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_bmv5e")
+
+[node name="dateLabel" type="Label" parent="ProgressBar/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.882
+offset_bottom = 0.0479965
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_lef2j")
+
 [node name="app1" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
 layout_mode = 0
 offset_left = 528.0
@@ -128,7 +208,7 @@ offset_top = 1288.0
 offset_right = 678.0
 offset_bottom = 1438.0
 texture = ExtResource("4_6atb4")
-bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
+bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh"), ExtResource("14_5a6qt")])
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
@@ -170,7 +250,7 @@ offset_top = 1264.0
 offset_right = 1742.0
 offset_bottom = 1414.0
 texture = ExtResource("12_r674x")
-bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
+bubble_packed_scene_list = Array[PackedScene]([ExtResource("16_vltlk")])
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
@@ -219,21 +299,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_s2ymt")
 
-[node name="dateLabel" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -200.0
-offset_bottom = -112.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 24
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("13_lef2j")
-
 [node name="Wall" type="Node2D" parent="."]
 
 [node name="top" type="RigidBody2D" parent="Wall"]
@@ -263,17 +328,11 @@ shape = SubResource("RectangleShape2D_2dxgw")
 [node name="Character" type="Node2D" parent="." groups=["Character"]]
 script = ExtResource("15_d8d24")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_feeon")
-}
-
-[node name="Sprite2D" type="Sprite2D" parent="Character"]
-position = Vector2(189, 1251)
-scale = Vector2(3.9, 3.9)
-texture = ExtResource("4_ahila")
-hframes = 4
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character"]
+position = Vector2(226.25, 1210.25)
+scale = Vector2(4.685, 4.685)
+sprite_frames = SubResource("SpriteFrames_ol6v2")
+animation = &"click"
 
 [node name="AdManager" type="Node" parent="."]
 script = ExtResource("14_k3l8w")
@@ -290,6 +349,3 @@ offset_left = -592.0
 offset_top = -304.0
 offset_right = 608.0
 offset_bottom = 296.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1272, 696)

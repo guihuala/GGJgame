@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://0wgsd7sxd6r6"]
+
+[ext_resource type="Texture2D" uid="uid://pcynwc6uipyw" path="res://assets/Progress/时间条.png" id="1_mspke"]
+[ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="1_rjstt"]
+[ext_resource type="Script" path="res://3 - real_new_project/Progress/progress_bar.gd" id="3_csw5q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_js136"]
+shader = ExtResource("1_rjstt")
+shader_parameter/influence = 0.5
+shader_parameter/offset = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8c88"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ab507"]
+texture = ExtResource("1_mspke")
+region_rect = Rect2(8, 9.97888, 3, 20.0211)
+modulate_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oc10w"]
+texture = ExtResource("1_mspke")
+region_rect = Rect2(7.88628, 0.885541, 3.11372, 6.21043)
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+material = SubResource("ShaderMaterial_js136")
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 304.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_i8c88")
+theme_override_styles/fill = SubResource("StyleBoxTexture_ab507")
+value = 80.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("3_csw5q")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(16, 288)
+amount = 5
+emission_shape = 2
+emission_sphere_radius = 1.0
+spread = 120.0
+gravity = Vector2(0, -100)
+initial_velocity_max = 20.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 40.0
+offset_bottom = 312.0
+texture = ExtResource("1_mspke")
+region_rect = Rect2(0, 0, 5, 48)
+
+[node name="Panel" type="Panel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oc10w")

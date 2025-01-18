@@ -14,6 +14,7 @@ var current_game_state: GameState = GameState.NOT_STARTED
 
 # 通知UI更新的信号
 signal salary_changed(salary:int)
+signal salary_decrease
 signal game_state_changed(state: GameState)
 signal phase_changed(phase: GamePhase)
 signal day_started(day: int)
@@ -29,7 +30,7 @@ enum GamePhase {
 # 常量
 const WORK_START_TIME = 9.5  # 9:30
 const WORK_END_TIME = 18.5   # 18:30
-const DAY_END_TIME = 21.5    # 21:30
+const DAY_END_TIME = 20.5    # 20:30
 const DAY_DURATION = 180.0   # 3分钟实际时间
 const TOTAL_DAYS = 5         # 总天数
 
@@ -72,7 +73,6 @@ func end_game():
 	print("游戏结束，总薪水：", current_salary)
 
 func set_can_spawn_bubble(value:bool) -> void:
-	print(value)
 	can_spawn_bubble = value
 
 func get_can_spawn_bubble() -> bool:
@@ -158,25 +158,6 @@ func show_shop():
 	# 显示商店的具体实现
 	pass
 
-# 任务管理（保持原有逻辑）
-func spawn_task():
-	match current_phase:
-		GamePhase.WORK:
-			# 正常工作时间的任务，完成获得薪水
-			pass
-		GamePhase.OVERTIME:
-			# 加班时间的任务，失败扣薪水
-			pass
-
-# 任务处理（保持原有逻辑）
-func complete_task(reward: int):
-	if current_phase == GamePhase.WORK:
-		increase_salary(reward)
-
-func fail_task(penalty: int):
-	if current_phase in [GamePhase.WORK, GamePhase.OVERTIME]:
-		decrease_salary(penalty)
-
 # 薪水处理（保持原有逻辑）
 func increase_salary(amount: int):
 	current_salary += amount
@@ -187,6 +168,7 @@ func decrease_salary(amount: int):
 	if current_salary < 0:
 		current_salary = 0
 	emit_signal("salary_changed", current_salary)
+	emit_signal("salary_decrease")
 
 func get_salary() -> int:
 	return current_salary

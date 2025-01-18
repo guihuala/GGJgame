@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://by4ydpj64yl0w"]
+[gd_scene load_steps=20 format=3 uid="uid://by4ydpj64yl0w"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene.gd" id="1_5oh5j"]
 [ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="2_do1gc"]
@@ -12,31 +12,68 @@ shader_parameter/offset = 0.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44aui"]
 texture = ExtResource("3_4ldwe")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju4i4"]
+[sub_resource type="Animation" id="Animation_d14aj"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.28319, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r500o"]
+[sub_resource type="Animation" id="Animation_75ebd"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6, 1.4, 2)
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwgpi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai41c"]
+_data = {
+"RESET": SubResource("Animation_d14aj"),
+"new_animation": SubResource("Animation_75ebd")
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sejy2"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8y2xn"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4icnx"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mgsb"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2ok8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6pv4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqlpi"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv4hi"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyx68"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dao36"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11fof"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2atu7"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh3vm"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_juuxk"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixmdc"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47ps5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydi4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c5o1k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1and"]
 
 [node name="PopupAdScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+rotation = 6.28319
 script = ExtResource("1_5oh5j")
 
 [node name="Panel" type="Panel" parent="."]
@@ -57,43 +94,41 @@ offset_bottom = 248.0
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="CloseButton" type="Button" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ai41c")
+}
+autoplay = "new_animation"
+
+[node name="BuyBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = -160.0
-offset_top = -240.0
-offset_right = -96.0
-offset_bottom = -176.0
-theme_override_colors/font_hover_color = Color(1, 0.49019, 0.422857, 1)
-theme_override_colors/font_pressed_color = Color(0.632225, 1.9493e-06, 3.36915e-07, 1)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
+offset_left = -159.0
+offset_top = -241.0
+offset_right = 157.0
+offset_bottom = 237.0
+theme_override_colors/font_hover_color = Color(1, 0.603481, 0.54429, 1)
+theme_override_colors/font_pressed_color = Color(0.543135, 1.35969e-06, 3.36915e-07, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ju4i4")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_r500o")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_jwgpi")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sejy2")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4icnx")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t2ok8")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_hqlpi")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oyx68")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_11fof")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_eh3vm")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ixmdc")
-text = "x"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8y2xn")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6mgsb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j6pv4")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fv4hi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dao36")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2atu7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_juuxk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_47ps5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ydi4o")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_c5o1k")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w1and")
+text = "
 
-[node name="FloatingLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -176.0
-offset_top = 248.0
-offset_right = 168.0
-offset_bottom = 304.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 24
-text = "11111111111"
-horizontal_alignment = 2
-vertical_alignment = 1
 
-[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+
+
+
+立即下单！"
+
+[connection signal="pressed" from="BuyBtn" to="." method="_on_buy_btn_pressed"]

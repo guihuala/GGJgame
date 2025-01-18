@@ -1,11 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://bflws4wlq6lka"]
+[gd_scene load_steps=18 format=3 uid="uid://dv2rwp0m5n008"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_bi2h8"]
-[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_0nh6u"]
-[ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="3_fdokw"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/email.gd" id="1_3ggo4"]
+[ext_resource type="PackedScene" uid="uid://dkvs6krkpc83" path="res://3 - real_new_project/Bubble/EmailInfo.tscn" id="2_2to24"]
+[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_xcx35"]
+[ext_resource type="Texture2D" uid="uid://dyh1weau53if3" path="res://assets/Email/5c39fc14fc284e621694cc47d9f709d4.png" id="3_pgol5"]
+[ext_resource type="Texture2D" uid="uid://b2aqwxh0ubo38" path="res://assets/Email/3df6323b29e0510de734ca6169f00585.png" id="4_y2pov"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_axw6c"]
-shader = ExtResource("2_0nh6u")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
+shader = ExtResource("2_xcx35")
 shader_parameter/do_abs = false
 shader_parameter/do_quantize = false
 shader_parameter/quantize_to = 1.0
@@ -34,47 +36,26 @@ shader_parameter/sine_speed = Vector2(2, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
 
-[node name="BaseBubble" type="RigidBody2D"]
+[node name="email" type="RigidBody2D"]
 gravity_scale = -1.0
 lock_rotation = true
-script = ExtResource("1_bi2h8")
-bubble_gravity = -0.1
+script = ExtResource("1_3ggo4")
+EmailInfo = Array[PackedScene]([ExtResource("2_2to24")])
 
 [node name="sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_axw6c")
-position = Vector2(-21.4966, -77.3239)
-scale = Vector2(1.04491, 2.16681)
-texture = ExtResource("3_fdokw")
+material = SubResource("ShaderMaterial_vbn76")
+texture = ExtResource("3_pgol5")
 
-[node name="Label" type="Label" parent="."]
+[node name="Button" type="Button" parent="sprite"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -283.0
-offset_top = -201.0
-offset_right = 227.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 42
-text = "你手底下实习生好用不？我项目那边缺人手，借我几个用个两天？"
-autowrap_mode = 1
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-position = Vector2(2495.89, 27.1458)
-scale = Vector2(217.696, 4.89763)
-polygon = PackedVector2Array(-12.7834, -35.353, -12.7466, -46.3787, -12.2367, -48.2163, -10.4131, -45.7662, -10.3855, -17.7935, -10.3947, -3.50084, -12.618, -4.72592, -12.7925, 7.11654)
-
-[node name="Button" type="Button" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -287.0
-offset_top = -203.0
-offset_right = 107.0
-offset_bottom = -29.0
+offset_left = -376.0
+offset_top = -268.0
+offset_right = -108.0
+offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.31149, 1.1958)
@@ -90,4 +71,13 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="sprite2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vbn76")
+texture = ExtResource("4_y2pov")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2495.89, 27.1458)
+scale = Vector2(217.696, 4.89763)
+polygon = PackedVector2Array(-12.2735, -20.2436, -10.7301, -20.2436, -10.6933, 25.4928, -12.2735, 25.4928)
+
+[connection signal="pressed" from="sprite/Button" to="." method="_on_button_pressed"]

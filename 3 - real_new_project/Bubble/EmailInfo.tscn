@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bflws4wlq6lka"]
+[gd_scene load_steps=16 format=3 uid="uid://dkvs6krkpc83"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_bi2h8"]
-[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_0nh6u"]
-[ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="3_fdokw"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/email_info.gd" id="1_bt3ow"]
+[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_03jfe"]
+[ext_resource type="Texture2D" uid="uid://b43j3dwggk2nm" path="res://assets/BubbleTexture/短气泡.png" id="3_44mpb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_axw6c"]
-shader = ExtResource("2_0nh6u")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
+shader = ExtResource("2_03jfe")
 shader_parameter/do_abs = false
 shader_parameter/do_quantize = false
 shader_parameter/quantize_to = 1.0
@@ -34,17 +34,17 @@ shader_parameter/sine_speed = Vector2(2, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
 
-[node name="BaseBubble" type="RigidBody2D"]
+[node name="EmailInfo" type="RigidBody2D"]
 gravity_scale = -1.0
 lock_rotation = true
-script = ExtResource("1_bi2h8")
-bubble_gravity = -0.1
+script = ExtResource("1_bt3ow")
+textList = Array[String](["［实习生考核反馈表］新的一周新人培训报告已完成，请及时确认。", "［项目进度报告］项目进度报告请及时填写。", "［工位采购确认报告］工位新采购了一批电子设备，请及时报备。", "［本月团建活动规划］你是本次团建活动的策划，请及时听取组内意见进行安排。", "［绩效认定］请在系统中对本月的工作绩效进行确认。"])
 
 [node name="sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_axw6c")
-position = Vector2(-21.4966, -77.3239)
-scale = Vector2(1.04491, 2.16681)
-texture = ExtResource("3_fdokw")
+material = SubResource("ShaderMaterial_vbn76")
+position = Vector2(-0.475227, -7.99999)
+scale = Vector2(3.52799, 2.54206)
+texture = ExtResource("3_44mpb")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -52,31 +52,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -283.0
-offset_top = -201.0
-offset_right = 227.0
+offset_left = -232.0
+offset_top = -104.0
+offset_right = 228.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 42
-text = "你手底下实习生好用不？我项目那边缺人手，借我几个用个两天？"
+theme_override_font_sizes/font_size = 40
+text = "［实习生考核反馈表］新的一周新人培训报告已完成，请及时确认。"
 autowrap_mode = 1
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(2495.89, 27.1458)
 scale = Vector2(217.696, 4.89763)
-polygon = PackedVector2Array(-12.7834, -35.353, -12.7466, -46.3787, -12.2367, -48.2163, -10.4131, -45.7662, -10.3855, -17.7935, -10.3947, -3.50084, -12.618, -4.72592, -12.7925, 7.11654)
+polygon = PackedVector2Array(-12.641, -31.6777, -10.3258, -30.0443, -10.2891, 15.6921, -10.5096, 10.7918, -12.6777, 9.15835)
 
 [node name="Button" type="Button" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -287.0
-offset_top = -203.0
-offset_right = 107.0
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -192.0
+offset_top = -34.0
+offset_right = 106.0
+offset_bottom = 24.0
 scale = Vector2(1.31149, 1.1958)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wtbv7")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cg0ji")
@@ -89,5 +85,6 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_71kp6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

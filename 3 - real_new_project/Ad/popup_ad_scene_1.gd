@@ -11,7 +11,10 @@ signal ad_closed(success: bool)
 signal reward_earned(amount: int)
 
 # 节点引用
+@onready var CloseBtn = $CloseButton
+@onready var close_areas: Control = $CloseArea1
 @onready var timer: Timer = $Timer
+@onready var label = $FloatingLabel
 @onready var panel = $Panel
 
 # 材质相关变量
@@ -21,6 +24,7 @@ var offset_value: float = 0.0
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	setup_ad()
+	label.hide()
 	
 	# 获取材质
 	panel_mat = panel.material
@@ -55,16 +59,38 @@ func _process(delta: float):
 		panel_mat.set_shader_parameter("offset", offset_value)
 
 func setup_ad():    
+	# 随机设置关闭按钮位置
+	randomize_close_buttons()
+	
 	# 启动计时器
 	timer.wait_time = duration
 	timer.start()
 
+func randomize_close_buttons():
+	pass
 
 func _on_timer_timeout():
 	# 广告展示时间结束，自动关闭
 	ad_closed.emit(false)
 	queue_free()
 
-func _on_buy_btn_pressed() -> void:
-	GameManager.decrease_salary(reward)
-	queue_free()
+func _on_close_button_pressed():
+	close_attempts += 1
+	
+	# 检查是否超过最大关闭尝试次数
+	if close_attempts >= max_close_attempts:
+		# 成功关闭广告
+		ad_closed.emit(true)
+		
+		# 触发奖励
+		if reward > 0:
+			reward_earned.emit(reward)
+		
+		queue_free()
+	else:
+		label.show()
+		label.text = "需要再点击 %d 次才能关闭广告" % (max_close_attempts - close_attempts)
+
+# 可选：添加一个方法用于外部设置奖励
+func set_reward(amount: int):
+	reward = amount

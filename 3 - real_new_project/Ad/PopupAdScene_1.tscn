@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://7bnhcbd0ksj"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene.gd" id="1_8x28g"]
+[ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene_1.gd" id="1_t0ky6"]
 [ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="2_1gb0f"]
 [ext_resource type="Texture2D" uid="uid://thiqgpi6rjn0" path="res://assets/Windows/Ad/90cdd3f4d96a91ba81c11a96c1dc78d4.png" id="3_n0sqh"]
 
@@ -37,7 +37,7 @@ texture = ExtResource("3_n0sqh")
 [node name="PopupAdScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_8x28g")
+script = ExtResource("1_t0ky6")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_iqjbr")

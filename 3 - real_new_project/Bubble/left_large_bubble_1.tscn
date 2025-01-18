@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bflws4wlq6lka"]
+[gd_scene load_steps=16 format=3 uid="uid://blwgwaefpgajb"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_bi2h8"]
-[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_0nh6u"]
-[ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="3_fdokw"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_s21a0"]
+[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_s45im"]
+[ext_resource type="Texture2D" uid="uid://cql30mqqckluq" path="res://assets/BubbleTexture/23.png" id="3_syb3c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axw6c"]
-shader = ExtResource("2_0nh6u")
+shader = ExtResource("2_s45im")
 shader_parameter/do_abs = false
 shader_parameter/do_quantize = false
 shader_parameter/quantize_to = 1.0
@@ -37,14 +37,14 @@ shader_parameter/sine_speed = Vector2(2, 0)
 [node name="BaseBubble" type="RigidBody2D"]
 gravity_scale = -1.0
 lock_rotation = true
-script = ExtResource("1_bi2h8")
+script = ExtResource("1_s21a0")
 bubble_gravity = -0.1
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_axw6c")
 position = Vector2(-21.4966, -77.3239)
 scale = Vector2(1.04491, 2.16681)
-texture = ExtResource("3_fdokw")
+texture = ExtResource("3_syb3c")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -52,14 +52,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -283.0
-offset_top = -201.0
+offset_left = -256.0
+offset_top = -168.0
 offset_right = 227.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
-text = "你手底下实习生好用不？我项目那边缺人手，借我几个用个两天？"
+text = "叫财务把今年的流水账单发给我。"
 autowrap_mode = 1
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
