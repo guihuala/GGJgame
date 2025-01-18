@@ -121,7 +121,7 @@ bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResour
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
-interval_max = 3.0
+interval_max = 4.0
 
 [node name="app2" parent="." instance=ExtResource("2_6bklj")]
 layout_mode = 0
@@ -134,7 +134,7 @@ bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResour
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
-interval_max = 3.0
+interval_max = 4.0
 
 [node name="app3" parent="." instance=ExtResource("2_6bklj")]
 layout_mode = 0
@@ -147,7 +147,7 @@ bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResour
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 2.0
-interval_max = 3.0
+interval_max = 4.0
 
 [node name="Settings" parent="." instance=ExtResource("4_n1bes")]
 layout_mode = 1

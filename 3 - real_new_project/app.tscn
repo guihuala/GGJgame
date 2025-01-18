@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn6opmlnthn48"]
+[gd_scene load_steps=2 format=3 uid="uid://dn6opmlnthn48"]
 
-[ext_resource type="Texture2D" uid="uid://bukh2xqxkak5h" path="res://1 - desktop/desktop/coin.png" id="1_shwt5"]
 [ext_resource type="Script" path="res://3 - real_new_project/app.gd" id="2_hvs1r"]
 
 [node name="app1" type="TextureRect" node_paths=PackedStringArray("location_list")]
 custom_minimum_size = Vector2(150, 150)
 size_flags_horizontal = 6
-texture = ExtResource("1_shwt5")
 script = ExtResource("2_hvs1r")
 location_list = [NodePath("Marker2D2"), NodePath("Marker2D4"), NodePath("Marker2D3")]
 

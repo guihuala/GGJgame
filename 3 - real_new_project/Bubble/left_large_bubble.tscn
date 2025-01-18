@@ -64,11 +64,13 @@ text = "你手底下实习生好用不？我项目那边缺人手，借我几个
 autowrap_mode = 1
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(2495.89, 27.1458)
 scale = Vector2(217.696, 4.89763)
 polygon = PackedVector2Array(-12.7834, -35.353, -12.7466, -46.3787, -12.2367, -48.2163, -10.4131, -45.7662, -10.3855, -17.7935, -10.3947, -3.50084, -12.618, -4.72592, -12.7925, 7.11654)
 
 [node name="Button" type="Button" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
