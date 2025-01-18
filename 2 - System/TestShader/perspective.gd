@@ -26,7 +26,7 @@ func _ready():
 		sprite_bounds.size + margin * 2
 	)
 
-func _process(_delta):
+func _process(delta):
 	# 如果鼠标不在区域内，逐渐恢复到原始状态
 	if !is_mouse_in_area:
 		var current_y_rot = material.get_shader_parameter("y_rot")

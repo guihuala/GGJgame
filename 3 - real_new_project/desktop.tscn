@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_eoe06"]
 [ext_resource type="PackedScene" uid="uid://phbxth3014fd" path="res://3 - real_new_project/Bubble/BaseBubble.tscn" id="2_yp7xp"]
-[ext_resource type="Texture2D" uid="uid://cxapjnpedfsah" path="res://assets/AppIcons/weichat.png" id="4_6atb4"]
+[ext_resource type="Texture2D" path="res://assets/AppIcons/weichat.png" id="4_6atb4"]
 [ext_resource type="Texture2D" uid="uid://cs1qgl1qqee4q" path="res://3 - real_new_project/assets/人物动画.png" id="4_ahila"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
 [ext_resource type="Script" path="res://3 - real_new_project/game_manager.gd" id="5_3hqm3"]
 [ext_resource type="PackedScene" uid="uid://bflws4wlq6lka" path="res://3 - real_new_project/Bubble/left_large_bubble.tscn" id="5_g3va0"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
 [ext_resource type="PackedScene" uid="uid://e12c4is2sqjx" path="res://3 - real_new_project/Bubble/left_small_bubble.tscn" id="6_lkpvu"]
-[ext_resource type="Texture2D" uid="uid://c1nc403l81055" path="res://assets/AppIcons/dingding.png" id="6_x3ykp"]
-[ext_resource type="Texture2D" uid="uid://ctt0hgply58li" path="res://assets/AppIcons/email.png" id="7_q23ud"]
+[ext_resource type="Texture2D" path="res://assets/AppIcons/dingding.png" id="6_x3ykp"]
+[ext_resource type="Texture2D" path="res://assets/AppIcons/email.png" id="7_q23ud"]
 [ext_resource type="PackedScene" uid="uid://cetswwanemk58" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
 [ext_resource type="PackedScene" uid="uid://xsubd8vmq53m" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
 
@@ -87,8 +87,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BubbleRoot" type="Node" parent="."]
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -180,37 +178,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_s2ymt")
 
-[node name="TimeLabel" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -216.0
-offset_bottom = -128.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "11111111"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("10_q6dft")
-
-[node name="Windows" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="StartPanel" parent="Windows" instance=ExtResource("11_dsg00")]
-layout_mode = 1
-anchor_left = 14.6
-anchor_top = 6.6
-anchor_right = 51.0
-anchor_bottom = 29.2
-offset_right = -0.00012207
-offset_bottom = 16.0
-
 [node name="Wall" type="Node2D" parent="."]
+visible = false
 
 [node name="top" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
