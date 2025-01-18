@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=45 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
 [ext_resource type="Script" path="res://3 - real_new_project/desktop.gd" id="1_icjmn"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b1pu2hgyst3gf" path="res://assets/Character/生气动画.png" id="23_0ea3b"]
 [ext_resource type="PackedScene" uid="uid://0wgsd7sxd6r6" path="res://3 - real_new_project/Progress/progress_bar.tscn" id="23_kopgg"]
 [ext_resource type="Texture2D" uid="uid://b6c6y73f7wo5u" path="res://assets/Character/人物动画.png" id="24_c5a0h"]
+[ext_resource type="PackedScene" uid="uid://bjavspsika77h" path="res://3 - real_new_project/Tutorial.tscn" id="29_dkftn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
 texture = ExtResource("2_eoe06")
@@ -149,9 +150,8 @@ texture = ExtResource("1_b1pj6")
 [node name="BubbleRoot" type="Node" parent="."]
 script = ExtResource("14_dkx3m")
 
-[node name="ShakeScreen" type="Node" parent="."]
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -167,6 +167,7 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4mvi7")
 
 [node name="ProgressBar" parent="." instance=ExtResource("23_kopgg")]
+z_index = 2
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -202,6 +203,7 @@ vertical_alignment = 1
 script = ExtResource("13_lef2j")
 
 [node name="app1" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
+z_index = 2
 layout_mode = 0
 offset_left = 528.0
 offset_top = 1288.0
@@ -216,6 +218,7 @@ interval_max = 4.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app2" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
+z_index = 2
 layout_mode = 0
 offset_left = 888.0
 offset_top = 1280.0
@@ -230,6 +233,7 @@ interval_max = 4.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app3" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
+z_index = 2
 layout_mode = 0
 offset_left = 1248.0
 offset_top = 1272.0
@@ -244,6 +248,7 @@ interval_max = 4.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app4" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
+z_index = 2
 layout_mode = 0
 offset_left = 1592.0
 offset_top = 1264.0
@@ -258,6 +263,7 @@ interval_max = 4.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app5" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
+z_index = 2
 layout_mode = 2
 offset_left = 1936.0
 offset_top = 1248.0
@@ -329,6 +335,7 @@ shape = SubResource("RectangleShape2D_2dxgw")
 script = ExtResource("15_d8d24")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character"]
+z_index = 10
 position = Vector2(226.25, 1210.25)
 scale = Vector2(4.685, 4.685)
 sprite_frames = SubResource("SpriteFrames_ol6v2")
@@ -349,3 +356,6 @@ offset_left = -592.0
 offset_top = -304.0
 offset_right = 608.0
 offset_bottom = 296.0
+
+[node name="Control" parent="." instance=ExtResource("29_dkftn")]
+layout_mode = 1

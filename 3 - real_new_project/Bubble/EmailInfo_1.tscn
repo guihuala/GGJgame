@@ -1,0 +1,91 @@
+[gd_scene load_steps=16 format=3 uid="uid://omb64w5o33x4"]
+
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/email_info_1.gd" id="1_o7d5y"]
+[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_ho46c"]
+[ext_resource type="Texture2D" uid="uid://b43j3dwggk2nm" path="res://assets/BubbleTexture/短气泡.png" id="3_npyf3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
+shader = ExtResource("2_ho46c")
+shader_parameter/do_abs = false
+shader_parameter/do_quantize = false
+shader_parameter/quantize_to = 1.0
+shader_parameter/sine_amplitude = Vector2(2, 0)
+shader_parameter/sine_speed = Vector2(2, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtbv7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg0ji"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1eam0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sakyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymjd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vhs3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edu4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71kp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ui0ad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2fdl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
+
+[node name="EmailInfo" type="RigidBody2D"]
+gravity_scale = -1.0
+lock_rotation = true
+script = ExtResource("1_o7d5y")
+textList = Array[String](["【重要通知】您的电脑感染病毒，请立即点击这里下载我们的防病毒软件，否则将被锁定！", "只需服用本产品，每天减重5公斤，彻底告别肥胖，立刻拥有完美身材！", "【超级优惠】现在购买享受50%折扣！快来抢购！【超级优惠】现在购买享受50%折扣！", "【免费领取】点击这里立即获取价值999元的豪华大礼包！名额有限，先到先得！", "想要一夜暴富？加入我们的投资计划，保证你的财富在7天内翻倍！绝无风险，立即注册！"])
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(0.997667, 0.668354, 0.736019, 1)
+material = SubResource("ShaderMaterial_vbn76")
+position = Vector2(-0.475227, -7.99999)
+scale = Vector2(3.52799, 2.54206)
+texture = ExtResource("3_npyf3")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -104.0
+offset_right = 228.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "［实习生考核反馈表］新的一周新人培训报告已完成，请及时确认。"
+autowrap_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2495.89, 27.1458)
+scale = Vector2(217.696, 4.89763)
+polygon = PackedVector2Array(-12.641, -31.6777, -10.3258, -30.0443, -10.2891, 15.6921, -10.5096, 10.7918, -12.6777, 9.15835)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -192.0
+offset_top = -34.0
+offset_right = 106.0
+offset_bottom = 24.0
+scale = Vector2(1.31149, 1.1958)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wtbv7")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cg0ji")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1eam0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sakyw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ymjd0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1vhs3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_edu4f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_71kp6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

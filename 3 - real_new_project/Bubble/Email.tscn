@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv2rwp0m5n008"]
+[gd_scene load_steps=19 format=3 uid="uid://dv2rwp0m5n008"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/email.gd" id="1_3ggo4"]
 [ext_resource type="PackedScene" uid="uid://dkvs6krkpc83" path="res://3 - real_new_project/Bubble/EmailInfo.tscn" id="2_2to24"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_xcx35"]
 [ext_resource type="Texture2D" uid="uid://dyh1weau53if3" path="res://assets/Email/5c39fc14fc284e621694cc47d9f709d4.png" id="3_pgol5"]
+[ext_resource type="PackedScene" uid="uid://omb64w5o33x4" path="res://3 - real_new_project/Bubble/EmailInfo_1.tscn" id="3_xlj2q"]
 [ext_resource type="Texture2D" uid="uid://b2aqwxh0ubo38" path="res://assets/Email/3df6323b29e0510de734ca6169f00585.png" id="4_y2pov"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
@@ -40,7 +41,7 @@ shader_parameter/sine_speed = Vector2(2, 0)
 gravity_scale = -1.0
 lock_rotation = true
 script = ExtResource("1_3ggo4")
-EmailInfo = Array[PackedScene]([ExtResource("2_2to24")])
+EmailInfo = Array[PackedScene]([ExtResource("2_2to24"), ExtResource("3_xlj2q")])
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_vbn76")

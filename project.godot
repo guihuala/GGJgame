@@ -10,11 +10,10 @@ config_version=5
 
 [application]
 
-config/name="gamejam"
-run/main_scene="res://3 - real_new_project/desktop.tscn"
+config/name="社畜笑传之戳戳Bubble"
+run/main_scene="res://4 - mainmanu/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Game_icon.png"
-boot_splash/icon="res://icon.svg"
 
 [audio]
 
@@ -24,6 +23,8 @@ buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 AudioManager="*res://2 - System/Audio/audio_manager.tscn"
 GameManager="*res://3 - real_new_project/game_manager.gd"
+Loading="*res://2 - System/Loading/loading.tscn"
+Utilities="*res://2 - System/Global/utilities.tscn"
 
 [display]
 

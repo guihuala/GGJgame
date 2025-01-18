@@ -1,27 +1,27 @@
 extends WindowBase
 
-@onready var GameTitle = $title
 @onready var GameResult = $Result
 
 func _ready() -> void:
-	GameResult.hide()
+	hide()
 	GameManager.game_state_changed.connect(update_info)
 
 func update_info(stage) -> void:
-	GameResult.hide()
-	GameTitle.hide()
+	hide()
 	
 	match stage:
 		GameManager.GameState.NOT_STARTED:
-			GameTitle.show()
-			
-		GameManager.GameState.NOT_STARTED:
 			pass
-			
+		
+		GameManager.GameState.RUNNING:
+			# 可以添加游戏运行时的逻辑，如果需要
+			hide()
+		
 		GameManager.GameState.FINISHED:
+			# 弹出窗口并显示结果
 			popup()
 			GameResult.show()
 
 func _on_start_game_btn_pressed() -> void:
 	hide_window()
-	GameManager.start_game()
+	Utilities.switch_scene("GameScene")

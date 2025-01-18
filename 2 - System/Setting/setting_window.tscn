@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://doro1aad8i0ch"]
+
+[ext_resource type="PackedScene" uid="uid://iuxldiq8fnbw" path="res://3 - real_new_project/Windows/base_window.tscn" id="1_mha87"]
+[ext_resource type="Script" path="res://2 - System/Setting/setting_window.gd" id="2_b4815"]
+[ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="3_48yg2"]
+[ext_resource type="Script" path="res://2 - System/Setting/audio.gd" id="4_cno07"]
+[ext_resource type="Texture2D" uid="uid://bhcp83kfc7qml" path="res://assets/Icon/Music-0.png" id="5_sdh64"]
+[ext_resource type="Texture2D" uid="uid://bbmxske7kpwki" path="res://assets/Icon/Speaker-0.png" id="6_6kol3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qkr1d"]
+load_path = "res://.godot/imported/Speaker-Crossed.png-4845d3d70e087868c6d4de317b8084fc.ctex"
+
+[node name="SettingWindow" instance=ExtResource("1_mha87")]
+script = ExtResource("2_b4815")
+
+[node name="Button" parent="." index="0"]
+offset_left = -92.0
+
+[node name="Audio" type="TabBar" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_48yg2")
+theme_override_font_sizes/font_size = 20
+script = ExtResource("4_cno07")
+bgm_on_texture = ExtResource("5_sdh64")
+bgm_off_texture = ExtResource("5_sdh64")
+sfx_on_texture = ExtResource("6_6kol3")
+sfx_off_texture = SubResource("CompressedTexture2D_qkr1d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="BGM" type="TextureButton" parent="Audio/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 3
+
+[node name="sfx" type="TextureButton" parent="Audio/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 3
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Audio/HBoxContainer/BGM" to="Audio" method="_on_bgm_pressed"]
+[connection signal="pressed" from="Audio/HBoxContainer/sfx" to="Audio" method="_on_sfx_pressed"]

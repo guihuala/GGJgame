@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://3 - real_new_project/desktop.gd" id="1_g572a"]
 [ext_resource type="Texture2D" uid="uid://cj8ibf1m7df33" path="res://assets/WallPaper/壁纸_XP蓝天白云草地.png" id="2_elo2e"]
-[ext_resource type="Texture2D" uid="uid://bukh2xqxkak5h" path="res://1 - desktop/desktop/coin.png" id="5_5ksxy"]
+[ext_resource type="Texture2D" uid="uid://bukh2xqxkak5h" path="res://assets/coin.png" id="5_5ksxy"]
 [ext_resource type="PackedScene" uid="uid://iuxldiq8fnbw" path="res://3 - real_new_project/Windows/base_window.tscn" id="5_31nq1"]
 
 [node name="Desktop" type="Control"]
