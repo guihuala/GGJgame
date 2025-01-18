@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://brqyp8papxen"]
+[gd_scene load_steps=33 format=3 uid="uid://brqyp8papxen"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_8b1f4"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_inxbh"]
 [ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="3_pk460"]
+[ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_avi0b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_av2ap"]
 shader = ExtResource("2_inxbh")
@@ -34,12 +35,126 @@ shader_parameter/sine_speed = Vector2(2, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sh4e7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7qq6"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8dba"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nrab"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok5rl"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8cj2"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3v26"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg2yf"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6np3"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nofii"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5co0"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bopdo"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc6im"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b5cn"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyaxy"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwvb8"]
+atlas = ExtResource("4_avi0b")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufi26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7qq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8dba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nrab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok5rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8cj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3v26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg2yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6np3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nofii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5co0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bopdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc6im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b5cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyaxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwvb8")
+}],
+"loop": false,
+"name": &"loading",
+"speed": 10.0
+}]
+
 [node name="BaseBubble" type="RigidBody2D"]
-modulate = Color(0.737271, 0.47449, 0.961629, 1)
+modulate = Color(0.715001, 0.505648, 0.893742, 1)
 gravity_scale = -1.0
 lock_rotation = true
 script = ExtResource("1_8b1f4")
 bubble_gravity = -0.1
+probabilty = 0.4
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_av2ap")
@@ -93,4 +208,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ui0ad")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m2fdl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sh4e7")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(239, -10)
+sprite_frames = SubResource("SpriteFrames_ufi26")
+animation = &"loading"
