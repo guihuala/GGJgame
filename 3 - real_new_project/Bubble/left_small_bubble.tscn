@@ -1,17 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://e12c4is2sqjx"]
+[gd_scene load_steps=16 format=3 uid="uid://e12c4is2sqjx"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_i8kkw"]
-[ext_resource type="Shader" path="res://Shaders/2D-perspective.gdshader" id="2_8wudm"]
+[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_n755n"]
 [ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="3_rkfy6"]
-[ext_resource type="Script" path="res://2 - System/TestShader/perspective.gd" id="4_3k2mb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vbn76"]
-shader = ExtResource("2_8wudm")
-shader_parameter/fov = 90.0
-shader_parameter/cull_back = true
-shader_parameter/y_rot = 0.0
-shader_parameter/x_rot = 0.0
-shader_parameter/inset = 0.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeq7"]
+shader = ExtResource("2_n755n")
+shader_parameter/do_abs = false
+shader_parameter/do_quantize = false
+shader_parameter/quantize_to = 1.0
+shader_parameter/sine_amplitude = Vector2(2, 0)
+shader_parameter/sine_speed = Vector2(2, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtbv7"]
 
@@ -37,14 +36,14 @@ shader_parameter/inset = 0.0
 
 [node name="BaseBubble" type="RigidBody2D"]
 gravity_scale = -1.0
+lock_rotation = true
 script = ExtResource("1_i8kkw")
 bubble_gravity = -0.1
 
 [node name="sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_vbn76")
+material = SubResource("ShaderMaterial_ijeq7")
 scale = Vector2(1.12888, 0.958628)
 texture = ExtResource("3_rkfy6")
-script = ExtResource("4_3k2mb")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8

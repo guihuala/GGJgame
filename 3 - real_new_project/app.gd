@@ -16,7 +16,7 @@ func _ready() -> void:
 	interval = randf_range(interval_min, interval_max)
 
 func _process(delta: float) -> void:
-	if GameManager.current_game_state != GameManager.GameState.RUNNING and GameManager.get_can_spawn_bubble():
+	if GameManager.current_game_state != GameManager.GameState.RUNNING or GameManager.get_can_spawn_bubble() == false:
 		return
 	
 	interval -= delta
@@ -38,3 +38,6 @@ func _process(delta: float) -> void:
 		var radian = deg_to_rad(angle)  # 将角度转换为弧度
 		var direction = Vector2(cos(radian), sin(radian))  #用cos和sin来获得单位方向向量
 		bubble_scene.apply_impulse(-direction * randf_range(impulse_min, impulse_max))
+
+func spawn_bubble_anim() -> void:
+	pass

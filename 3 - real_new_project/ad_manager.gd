@@ -128,8 +128,8 @@ func setup_ad_properties(ad: Node, phase: GameManager.GamePhase):
 		var margin_y = ad.size.y
 		
 		# 随机生成 x 和 y 坐标
-		var random_x = randf_range(margin_x, viewport_size.x - margin_x)
-		var random_y = randf_range(margin_y, viewport_size.y - margin_y)
+		var random_x = randf_range(margin_x, viewport_size.x - 350)
+		var random_y = randf_range(margin_y, viewport_size.y - 250)
 		
 		# 设置广告位置
 		ad.position = Vector2(

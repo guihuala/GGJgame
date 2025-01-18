@@ -3,19 +3,8 @@ extends Node
 # 最大气泡数量
 @export var max_bubble_count: int = 10
 
-# 检查气泡数量的频率（秒）
-@export var check_interval: float = 1.0
-
-# 计时器
-var check_timer: Timer
-
-func _ready():
-	# 创建并设置计时器
-	check_timer = Timer.new()
-	add_child(check_timer)
-	check_timer.wait_time = check_interval
-	check_timer.timeout.connect(_on_check_timer_timeout)
-	check_timer.start()
+func _process(delta: float) -> void:
+	_on_check_timer_timeout()
 
 func _on_check_timer_timeout():
 	# 检查当前子节点数量

@@ -2,12 +2,17 @@ extends RigidBody2D
 
 # 对话内容节点
 @onready var text_label: Label = $Label
+
 # 鼠标是否在气泡的判断区域内，如果在就可以戳破
 var is_in_area: bool = false
 
 # 物理属性
 @export var bubble_mass: float = 1.0
 @export var bubble_gravity: float = -1
+
+# 薪水范围
+@export var min_salary: int = 10
+@export var max_salary: int = 50
 
 func _ready():
 	# 配置刚体属性
@@ -18,9 +23,28 @@ func _ready():
 func set_text(text: String):
 	text_label.text = text
 
+# 销毁气泡
 func on_destroy_bubble() -> void:
-	#AudioManager.play_sfx("bubble")
+	# 查找场景中第一个 character 组的节点
+	var character = get_tree().get_nodes_in_group("Character")[0]
+	
+	# 检查节点是否存在且有方法可调用
+	if character and character.has_method("play_animation"):
+		character.play_animation()
+	
+	# 播放音效
+	AudioManager.play_sfx("bubble")
+	
+	# 销毁气泡
 	queue_free()
 
+# 按钮点击事件
 func _on_button_pressed() -> void:
+	# 生成随机薪水
+	var random_salary = randi_range(min_salary, max_salary)
+	
+	# 增加随机数额的薪水
+	GameManager.increase_salary(random_salary)
+	
+	# 播放销毁特效
 	on_destroy_bubble()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=29 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
 [ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
@@ -11,13 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://e12c4is2sqjx" path="res://3 - real_new_project/Bubble/left_small_bubble.tscn" id="6_lkpvu"]
 [ext_resource type="Texture2D" uid="uid://c1sp480vi6xgy" path="res://assets/AppIcons/IMG_0112.png" id="6_x3ykp"]
 [ext_resource type="Texture2D" uid="uid://ch2ckieqd3gna" path="res://assets/AppIcons/IMG_0113.png" id="7_q23ud"]
-[ext_resource type="PackedScene" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
-[ext_resource type="PackedScene" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
+[ext_resource type="PackedScene" uid="uid://brqyp8papxen" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
+[ext_resource type="PackedScene" uid="uid://d1bnpccjpj0is" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
+[ext_resource type="Texture2D" uid="uid://c7vj201ha076q" path="res://assets/AppIcons/IMG_0114.png" id="12_r674x"]
+[ext_resource type="Texture2D" uid="uid://d0lugbo43q87f" path="res://assets/AppIcons/IMG_0118.png" id="13_l1rpj"]
 [ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="13_lef2j"]
 [ext_resource type="Script" path="res://3 - real_new_project/bubble_root.gd" id="14_dkx3m"]
 [ext_resource type="Script" path="res://3 - real_new_project/ad_manager.gd" id="14_k3l8w"]
+[ext_resource type="Script" path="res://3 - real_new_project/character.gd" id="15_d8d24"]
 [ext_resource type="PackedScene" uid="uid://dn3cck8idqo2w" path="res://3 - real_new_project/GameStart&Over/start_panel.tscn" id="17_hbt6g"]
 [ext_resource type="PackedScene" uid="uid://by4ydpj64yl0w" path="res://3 - real_new_project/Ad/PopupAdScene.tscn" id="17_ivgs8"]
+[ext_resource type="PackedScene" uid="uid://7bnhcbd0ksj" path="res://3 - real_new_project/Ad/PopupAdScene_1.tscn" id="21_akc8i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
 texture = ExtResource("2_eoe06")
@@ -38,13 +42,12 @@ size = Vector2(93.25, 1444)
 
 [sub_resource type="Animation" id="Animation_uruys"]
 resource_name = "new_animation"
-length = 1.5
-loop_mode = 1
+length = 0.7
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Char/Sprite2D:hframes")
+tracks/0/path = NodePath("Character/Sprite2D:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,7 +59,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Char/Sprite2D:vframes")
+tracks/1/path = NodePath("Character/Sprite2D:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,7 +71,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Char/Sprite2D:frame")
+tracks/2/path = NodePath("Character/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -101,6 +104,8 @@ texture = ExtResource("1_b1pj6")
 [node name="BubbleRoot" type="Node" parent="."]
 script = ExtResource("14_dkx3m")
 
+[node name="ShakeScreen" type="Node" parent="."]
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -132,10 +137,10 @@ bubble_root = NodePath("../BubbleRoot")
 
 [node name="app2" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
 layout_mode = 0
-offset_left = 1040.0
-offset_top = 1288.0
-offset_right = 1190.0
-offset_bottom = 1438.0
+offset_left = 888.0
+offset_top = 1280.0
+offset_right = 1038.0
+offset_bottom = 1430.0
 texture = ExtResource("6_x3ykp")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
 impulse_min = 30.0
@@ -146,11 +151,39 @@ bubble_root = NodePath("../BubbleRoot")
 
 [node name="app3" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
 layout_mode = 0
-offset_left = 1536.0
-offset_top = 1288.0
-offset_right = 1686.0
-offset_bottom = 1438.0
+offset_left = 1248.0
+offset_top = 1272.0
+offset_right = 1398.0
+offset_bottom = 1422.0
 texture = ExtResource("7_q23ud")
+bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
+impulse_min = 30.0
+impulse_max = 100.0
+interval_min = 2.0
+interval_max = 4.0
+bubble_root = NodePath("../BubbleRoot")
+
+[node name="app4" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
+layout_mode = 0
+offset_left = 1592.0
+offset_top = 1264.0
+offset_right = 1742.0
+offset_bottom = 1414.0
+texture = ExtResource("12_r674x")
+bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
+impulse_min = 30.0
+impulse_max = 100.0
+interval_min = 2.0
+interval_max = 4.0
+bubble_root = NodePath("../BubbleRoot")
+
+[node name="app5" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
+layout_mode = 2
+offset_left = 1936.0
+offset_top = 1248.0
+offset_right = 2086.0
+offset_bottom = 1424.0
+texture = ExtResource("13_l1rpj")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
 impulse_min = 30.0
 impulse_max = 100.0
@@ -227,24 +260,24 @@ freeze = true
 position = Vector2(2601.38, 716)
 shape = SubResource("RectangleShape2D_2dxgw")
 
-[node name="Char" type="Node2D" parent="."]
+[node name="Character" type="Node2D" parent="." groups=["Character"]]
+script = ExtResource("15_d8d24")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Char"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_feeon")
 }
-autoplay = "new_animation"
 
-[node name="Sprite2D" type="Sprite2D" parent="Char"]
-position = Vector2(144, 1296)
-scale = Vector2(3, 3)
+[node name="Sprite2D" type="Sprite2D" parent="Character"]
+position = Vector2(189, 1251)
+scale = Vector2(3.9, 3.9)
 texture = ExtResource("4_ahila")
 hframes = 4
 
 [node name="AdManager" type="Node" parent="."]
 script = ExtResource("14_k3l8w")
-ad_types = Array[PackedScene]([ExtResource("17_ivgs8")])
+ad_types = Array[PackedScene]([ExtResource("17_ivgs8"), ExtResource("21_akc8i")])
 
 [node name="StartPanel" parent="." instance=ExtResource("17_hbt6g")]
 layout_mode = 1
@@ -257,3 +290,6 @@ offset_left = -592.0
 offset_top = -304.0
 offset_right = 608.0
 offset_bottom = 296.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1272, 696)

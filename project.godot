@@ -13,8 +13,8 @@ config_version=5
 config/name="gamejam"
 run/main_scene="res://3 - real_new_project/desktop.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://assets/WallPaper/壁纸_XP蓝天白云草地.png"
 config/icon="res://Game_icon.png"
+boot_splash/icon="res://icon.svg"
 
 [audio]
 

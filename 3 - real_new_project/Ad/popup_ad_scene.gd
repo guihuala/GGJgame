@@ -1,5 +1,4 @@
 extends Control
-
 # 广告数据
 var close_attempts: int = 0
 var max_close_attempts: int = 3
@@ -16,11 +15,23 @@ signal reward_earned(amount: int)
 @onready var close_areas: Control = $CloseArea1
 @onready var timer: Timer = $Timer
 @onready var label = $FloatingLabel
+@onready var panel = $Panel
+
+# 材质相关变量
+var panel_mat: Material
+var offset_value: float = 0.0
 
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	setup_ad()
 	label.hide()
+	
+	# 获取材质
+	panel_mat = panel.material
+	if panel_mat:
+		# 确保材质是可编辑的
+		panel_mat = panel_mat.duplicate()
+		panel.material = panel_mat
 
 # 设置广告属性的方法，由广告生成器调用
 func set_ad_properties(properties: Dictionary):
@@ -36,6 +47,16 @@ func set_ad_properties(properties: Dictionary):
 	
 	if properties.has("phase"):
 		current_phase = properties["phase"]
+
+func _process(delta: float):
+	# 如果材质存在，持续更新偏移值
+	if panel_mat:
+		# 更新偏移值，使其循环
+		offset_value += delta * 50.0  # 控制旋转速度
+		offset_value = fmod(offset_value, 360.0)
+		
+		# 设置材质的 offset 属性
+		panel_mat.set_shader_parameter("offset", offset_value)
 
 func setup_ad():    
 	# 随机设置关闭按钮位置

@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn3cck8idqo2w"]
+[gd_scene load_steps=5 format=3 uid="uid://dn3cck8idqo2w"]
 
 [ext_resource type="PackedScene" uid="uid://iuxldiq8fnbw" path="res://3 - real_new_project/Windows/base_window.tscn" id="1_cflgh"]
+[ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_6b6h2"]
 [ext_resource type="Script" path="res://3 - real_new_project/GameStart&Over/start_panel.gd" id="2_fuude"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hrt8y"]
+shader = ExtResource("2_6b6h2")
+shader_parameter/do_abs = null
+shader_parameter/do_quantize = null
+shader_parameter/quantize_to = 1.0
+shader_parameter/sine_amplitude = Vector2(1, 0)
+shader_parameter/sine_speed = Vector2(1, 0)
+
 [node name="StartPanel" instance=ExtResource("1_cflgh")]
+material = SubResource("ShaderMaterial_hrt8y")
 script = ExtResource("2_fuude")
 
 [node name="StartGameBtn" type="Button" parent="." index="1"]

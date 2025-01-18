@@ -72,6 +72,7 @@ func end_game():
 	print("游戏结束，总薪水：", current_salary)
 
 func set_can_spawn_bubble(value:bool) -> void:
+	print(value)
 	can_spawn_bubble = value
 
 func get_can_spawn_bubble() -> bool:

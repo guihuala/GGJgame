@@ -1,16 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://by4ydpj64yl0w"]
+[gd_scene load_steps=17 format=3 uid="uid://7bnhcbd0ksj"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene.gd" id="1_5oh5j"]
-[ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="2_do1gc"]
-[ext_resource type="Texture2D" uid="uid://c3o5asxcj2j74" path="res://assets/Windows/Ad/advertisement3.png" id="3_4ldwe"]
+[ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene.gd" id="1_8x28g"]
+[ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="2_1gb0f"]
+[ext_resource type="Texture2D" uid="uid://thiqgpi6rjn0" path="res://assets/Windows/Ad/90cdd3f4d96a91ba81c11a96c1dc78d4.png" id="3_n0sqh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iqjbr"]
-shader = ExtResource("2_do1gc")
+shader = ExtResource("2_1gb0f")
 shader_parameter/influence = 0.5
 shader_parameter/offset = 0.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44aui"]
-texture = ExtResource("3_4ldwe")
+texture = ExtResource("3_n0sqh")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju4i4"]
 
@@ -37,32 +37,32 @@ texture = ExtResource("3_4ldwe")
 [node name="PopupAdScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_5oh5j")
+script = ExtResource("1_8x28g")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_iqjbr")
 layout_mode = 0
-offset_left = -176.0
-offset_top = -256.0
-offset_right = 168.0
-offset_bottom = 250.0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = 304.0
+offset_bottom = 208.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_44aui")
 
 [node name="CloseArea1" type="Control" parent="."]
 anchors_preset = 0
-offset_left = -176.0
-offset_top = -256.0
-offset_right = 168.0
-offset_bottom = 248.0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = -8.0
+offset_bottom = 8.0
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -160.0
-offset_top = -240.0
-offset_right = -96.0
-offset_bottom = -176.0
+offset_left = 240.0
+offset_top = 144.0
+offset_right = 304.0
+offset_bottom = 208.0
 theme_override_colors/font_hover_color = Color(1, 0.49019, 0.422857, 1)
 theme_override_colors/font_pressed_color = Color(0.632225, 1.9493e-06, 3.36915e-07, 1)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -84,10 +84,10 @@ text = "x"
 
 [node name="FloatingLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -176.0
-offset_top = 248.0
-offset_right = 168.0
-offset_bottom = 304.0
+offset_left = -272.0
+offset_top = 216.0
+offset_right = 304.0
+offset_bottom = 272.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
