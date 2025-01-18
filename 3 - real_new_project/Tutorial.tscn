@@ -1,7 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://bjavspsika77h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_80wqs"]
-load_path = "res://.godot/imported/演示动画 (1).png-b49e203dcfd4df907d8790103ef90c22.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4qn5"]
 atlas = SubResource("CompressedTexture2D_80wqs")
