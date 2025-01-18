@@ -11,7 +11,10 @@ extends Panel
 var is_paused: bool = false
 
 # 引用游戏管理器（假设存在）
-@export var game_manager:Node
+@export var game_manager: Node
+
+# 保存暂停前的场景树状态
+var previous_process_mode: Node.ProcessMode = Node.PROCESS_MODE_INHERIT
 
 func _ready():
 	# 初始化按钮纹理
@@ -36,22 +39,27 @@ func _on_pause_pressed() -> void:
 	AudioManager.play_sfx("button_click")
 
 func pause_game():
-	# 暂停游戏逻辑
+	# 保存当前场景的处理模式
+	previous_process_mode = get_tree().root.process_mode
+	
+	# 停止游戏逻辑，但不影响音频
+	get_tree().root.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	# 停止游戏计时器
 	if game_manager and game_manager.has_method("pause_timer"):
 		game_manager.pause_timer()
 	
-	# 可以添加其他暂停相关的逻辑
-	get_tree().paused = true
+	# 可以添加暂停菜单显示等其他逻辑
+	# 例如：显示暂停界面
+	# show_pause_menu()
 
 func resume_game():
-	# 恢复游戏逻辑
+	# 恢复场景树的处理模式
+	get_tree().root.process_mode = previous_process_mode
+	
 	# 重新启动游戏计时器
 	if game_manager and game_manager.has_method("resume_timer"):
 		game_manager.resume_timer()
-	
-	# 可以添加其他恢复游戏的逻辑
-	get_tree().paused = false
 
 func update_pause_button_texture():
 	if pause_button:

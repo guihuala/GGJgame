@@ -9,6 +9,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6kql"]
 
 [node name="Settings" type="Panel"]
+process_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -19,7 +20,7 @@ grow_vertical = 0
 theme = ExtResource("1_5ko4b")
 theme_override_styles/panel = SubResource("StyleBoxFlat_s6kql")
 script = ExtResource("2_xpasx")
-pause_on_texture = ExtResource("4_f4oy4")
+pause_on_texture = ExtResource("5_qcpfq")
 pause_off_texture = ExtResource("4_f4oy4")
 
 [node name="Audio" type="TabBar" parent="."]
