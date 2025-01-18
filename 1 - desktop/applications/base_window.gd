@@ -19,7 +19,8 @@ var offset: Vector2
 
 
 func _ready() -> void:
-	hide()
+	#hide()
+	pass
 
 func _on_button_pressed() -> void:
 	hide()
