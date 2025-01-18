@@ -13,9 +13,6 @@ shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q31j"]
-size = Vector2(231.5, 49)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtbv7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg0ji"]
@@ -41,6 +38,7 @@ size = Vector2(231.5, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khy01"]
 
 [node name="BaseBubble" type="RigidBody2D"]
+scale = Vector2(2, 2)
 gravity_scale = -1.0
 script = ExtResource("1_w3cyc")
 bubble_gravity = -0.1
@@ -68,6 +66,8 @@ text = "123123"
 vertical_alignment = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(12.0322, 9.83333)
+scale = Vector2(0.504032, 0.541667)
 polygon = PackedVector2Array(-256, -56, 232, -56, 232, -56, 240, 64, 208, 40, -256, 40)
 
 [node name="Button" type="Button" parent="."]
