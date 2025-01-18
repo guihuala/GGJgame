@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmrrejkw005q3"]
+[gd_scene load_steps=12 format=3 uid="uid://cmrrejkw005q3"]
 
 [ext_resource type="Script" path="res://1 - desktop/desktop/desktop.gd" id="1_g572a"]
 [ext_resource type="PackedScene" uid="uid://dcjycov8dp3xm" path="res://1 - desktop/applications/app_icon.tscn" id="2_6xwoy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://1 - desktop/desktop/game_manager.gd" id="8_b1wi6"]
 [ext_resource type="Script" path="res://1 - desktop/desktop/time_label.gd" id="8_x5tuh"]
 [ext_resource type="Script" path="res://1 - desktop/desktop/task_spawner.gd" id="10_hieam"]
+[ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="11_r8e5p"]
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -126,6 +127,11 @@ script = ExtResource("8_b1wi6")
 [node name="TaskSpawner" type="Node" parent="GameManager" node_paths=PackedStringArray("GameManager")]
 script = ExtResource("10_hieam")
 GameManager = NodePath("..")
+
+[node name="Settings" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("11_r8e5p")]
+layout_mode = 1
+offset_top = -112.0
+game_manager = NodePath("../GameManager")
 
 [connection signal="day_started" from="GameManager" to="Label" method="_on_game_manager_day_started"]
 [connection signal="phase_changed" from="GameManager" to="Label" method="_on_game_manager_phase_changed"]

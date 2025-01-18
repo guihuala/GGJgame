@@ -67,4 +67,5 @@ func try_spawn_random_task():
 
 # 创建任务
 func create_task(task_name):
+	AudioManager.play_sfx("buzz")
 	print("事件：" + task_name)
