@@ -7,6 +7,8 @@ const CONFIG_PATH = "user://game_config.cfg"
 @onready var video_player = $VideoStreamPlayer
 @onready var setting_window = $SettingWindow
 
+var is_info_show: bool = false
+
 func _ready():
 	setting_window.hide()
 	
@@ -53,5 +55,10 @@ func _on_play_btn_pressed() -> void:
 func _on_setting_btn_pressed() -> void:
 	setting_window.show()
 
-func _on_quit_btn_pressed() -> void:
-	get_tree().quit()
+func _on_texture_button_pressed() -> void:
+	if !is_info_show:
+		$AnimationPlayer.play("info")
+	else :
+		$AnimationPlayer.play_backwards("info")
+	
+	is_info_show = !is_info_show
