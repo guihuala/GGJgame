@@ -80,4 +80,4 @@ func _on_sfx_pressed() -> void:
 			sfx_button.texture_normal = sfx_off_texture
 	
 	# 播放按钮点击音效
-	# AudioManager.play_sfx("button_click")
+	AudioManager.play_sfx("button_click")

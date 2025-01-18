@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://by4ydpj64yl0w"]
+
+[ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene.gd" id="1_5oh5j"]
+[ext_resource type="Texture2D" uid="uid://thiqgpi6rjn0" path="res://assets/Windows/Ad/90cdd3f4d96a91ba81c11a96c1dc78d4.png" id="2_w0ht6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44aui"]
+texture = ExtResource("2_w0ht6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju4i4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r500o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwgpi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sejy2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4icnx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2ok8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqlpi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyx68"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11fof"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eh3vm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixmdc"]
+
+[node name="PopupAdScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5oh5j")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = 304.0
+offset_bottom = 208.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_44aui")
+
+[node name="CloseArea1" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -272.0
+offset_top = -168.0
+offset_right = -8.0
+offset_bottom = 8.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 144.0
+offset_right = 304.0
+offset_bottom = 208.0
+theme_override_colors/font_hover_color = Color(1, 0.49019, 0.422857, 1)
+theme_override_colors/font_pressed_color = Color(0.632225, 1.9493e-06, 3.36915e-07, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ju4i4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_r500o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jwgpi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sejy2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4icnx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t2ok8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hqlpi")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oyx68")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_11fof")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_eh3vm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ixmdc")
+text = "x"
+
+[node name="FloatingLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -272.0
+offset_top = 216.0
+offset_right = 304.0
+offset_bottom = 272.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+text = "11111111111"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

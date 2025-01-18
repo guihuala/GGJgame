@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxapjnpedfsah"
-path="res://.godot/imported/weichat.png-9ed0948e7b9e1c83236ce7ba2d89774a.ctex"
+uid="uid://ch2ckieqd3gna"
+path="res://.godot/imported/IMG_0113.png-dc0781fac1c1ea5dc1ea88a62d40c22a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/AppIcons/weichat.png"
-dest_files=["res://.godot/imported/weichat.png-9ed0948e7b9e1c83236ce7ba2d89774a.ctex"]
+source_file="res://assets/AppIcons/IMG_0113.png"
+dest_files=["res://.godot/imported/IMG_0113.png-dc0781fac1c1ea5dc1ea88a62d40c22a.ctex"]
 
 [params]
 

@@ -10,14 +10,19 @@ config_version=5
 
 [application]
 
-config/name="gamejam"
+config/name="重启！牛马人生！"
 run/main_scene="res://3 - real_new_project/desktop.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Game_icon.png"
+
+[audio]
+
+buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 [autoload]
 
 AudioManager="*res://2 - System/Audio/audio_manager.tscn"
+GameManager="*res://3 - real_new_project/game_manager.gd"
 
 [display]
 
