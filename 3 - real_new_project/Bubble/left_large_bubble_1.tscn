@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://blwgwaefpgajb"]
+[gd_scene load_steps=34 format=3 uid="uid://blwgwaefpgajb"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_s21a0"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_s45im"]
 [ext_resource type="Texture2D" uid="uid://cql30mqqckluq" path="res://assets/BubbleTexture/23.png" id="3_syb3c"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_ttkq0"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/large_bubble.gd" id="4_wro07"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axw6c"]
 shader = ExtResource("2_s45im")
@@ -176,6 +177,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
 text = "叫财务把今年的流水账单发给我。"
 autowrap_mode = 1
+script = ExtResource("4_wro07")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 visible = false

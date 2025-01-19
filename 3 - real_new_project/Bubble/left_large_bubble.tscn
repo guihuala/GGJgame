@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://bflws4wlq6lka"]
+[gd_scene load_steps=34 format=3 uid="uid://bflws4wlq6lka"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_bi2h8"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_0nh6u"]
 [ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="3_fdokw"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/large_bubble.gd" id="4_40e7t"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_li03q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axw6c"]
@@ -177,6 +178,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
 text = "你手底下实习生好用不？我项目那边缺人手，借我几个用个两天？"
 autowrap_mode = 1
+script = ExtResource("4_40e7t")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 visible = false

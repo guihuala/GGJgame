@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://d1bnpccjpj0is"]
+[gd_scene load_steps=34 format=3 uid="uid://d1bnpccjpj0is"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_pyl3x"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_jc00i"]
 [ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="3_326y4"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/small_bubble.gd" id="4_gwc0v"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_j3nsg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ui85y"]
@@ -178,6 +179,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 39
 text = "老大！总结报告写完发你了，能帮我看看嘛"
 autowrap_mode = 1
+script = ExtResource("4_gwc0v")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 visible = false

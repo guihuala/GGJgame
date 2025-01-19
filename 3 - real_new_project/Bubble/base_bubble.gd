@@ -32,10 +32,7 @@ func _ready():
 	if randf() < probabilty:
 		animated_sprite_2d.visible = true
 		is_long_press_bubble = true
-
-# 设置对话框文本
-func set_text(text: String):
-	text_label.text = text
+		
 
 # 销毁气泡
 func on_destroy_bubble() -> void:
@@ -57,16 +54,6 @@ func on_destroy_bubble() -> void:
 	# 销毁气泡
 	queue_free()
 
-## 按钮点击事件
-#func _on_button_pressed() -> void:
-	## 生成随机薪水
-	#var random_salary = randi_range(min_salary, max_salary)
-	#
-	## 增加随机数额的薪水
-	#GameManager.increase_salary(random_salary)
-	#
-	## 播放销毁特效
-	#on_destroy_bubble()
 
 func _on_button_button_down() -> void:
 	if is_long_press_bubble:

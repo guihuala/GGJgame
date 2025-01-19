@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://e12c4is2sqjx"]
+[gd_scene load_steps=34 format=3 uid="uid://e12c4is2sqjx"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_i8kkw"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_n755n"]
 [ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="3_rkfy6"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/small_bubble.gd" id="4_5ndqe"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_7i2i6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeq7"]
@@ -176,6 +177,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "小x，明天早上十三点A总要来，你负责安排接待下"
 autowrap_mode = 1
+script = ExtResource("4_5ndqe")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 visible = false

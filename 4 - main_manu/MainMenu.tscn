@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://7vlhtarjc6k"]
+[gd_scene load_steps=20 format=3 uid="uid://7vlhtarjc6k"]
 
 [ext_resource type="Script" path="res://4 - main_manu/main_menu.gd" id="1_6d4fq"]
 [ext_resource type="Texture2D" uid="uid://cjun3b8d01den" path="res://assets/MainMenu/menu_bg.png" id="2_dp0bl"]
@@ -9,46 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://6ninq3rnbssp" path="res://assets/MainMenu/menu_i.png" id="7_qh8hl"]
 [ext_resource type="Texture2D" uid="uid://cvu51ug6sbc8q" path="res://assets/MainMenu/menu_title.png" id="7_wx5cg"]
 [ext_resource type="VideoStream" path="res://assets/Tutorial/mv.ogv" id="9_g2x3s"]
-[ext_resource type="Shader" path="res://Shaders/shadow.gdshader" id="9_iecm4"]
 [ext_resource type="PackedScene" uid="uid://doro1aad8i0ch" path="res://2 - System/Setting/setting_window.tscn" id="10_4qq7t"]
-[ext_resource type="Texture2D" uid="uid://bkou2etrmx7oo" path="res://assets/MainMenu/GGJ_Info.png" id="10_8v4tf"]
-
-[sub_resource type="Animation" id="Animation_lulhs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/GgjInfo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(434, -517)]
-}
-
-[sub_resource type="Animation" id="Animation_2hr87"]
-resource_name = "info"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/GgjInfo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(434, -517), Vector2(434, 434)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xi8df"]
-_data = {
-"RESET": SubResource("Animation_lulhs"),
-"info": SubResource("Animation_2hr87")
-}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkl8b"]
 texture = ExtResource("2_dp0bl")
@@ -96,11 +57,6 @@ shader_parameter/quantize_to = 1.0
 shader_parameter/sine_amplitude = Vector2(1, 0)
 shader_parameter/sine_speed = Vector2(1, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlkwx"]
-shader = ExtResource("9_iecm4")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_offset = Vector2(0, 0.1)
-
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -109,11 +65,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6d4fq")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_xi8df")
-}
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -205,12 +156,6 @@ material = SubResource("ShaderMaterial_tp202")
 position = Vector2(624, 1144)
 texture = ExtResource("7_wx5cg")
 
-[node name="GgjInfo" type="Sprite2D" parent="Panel"]
-material = SubResource("ShaderMaterial_dlkwx")
-position = Vector2(434, -517)
-scale = Vector2(0.738824, 0.738824)
-texture = ExtResource("10_8v4tf")
-
 [node name="SettingWindow" parent="." instance=ExtResource("10_4qq7t")]
 visible = false
 layout_mode = 1
@@ -221,7 +166,6 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -234,4 +178,3 @@ expand = true
 [connection signal="pressed" from="Panel/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Panel/SettingBtn" to="." method="_on_setting_btn_pressed"]
 [connection signal="pressed" from="Panel/PlayBtn" to="." method="_on_play_btn_pressed"]
-[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://brqyp8papxen"]
+[gd_scene load_steps=34 format=3 uid="uid://brqyp8papxen"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_8b1f4"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_inxbh"]
 [ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="3_pk460"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_avi0b"]
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/large_bubble.gd" id="4_rjclx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_av2ap"]
 shader = ExtResource("2_inxbh")
@@ -178,6 +179,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 39
 text = "你不是一直想要这个外派培训的机会嘛，公司有意让你去，明天前把资料整理一下发给人事"
 autowrap_mode = 1
+script = ExtResource("4_rjclx")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 visible = false
