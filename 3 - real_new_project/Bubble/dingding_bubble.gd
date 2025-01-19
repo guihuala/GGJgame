@@ -33,7 +33,7 @@ func on_destroy_bubble() -> void:
 		character.play_animation_click()
 	
 	# 播放音效
-	AudioManager.play_sfx("bubble")
+	AudioManager.play_sfx("Warn")
 	
 	# 销毁气泡
 	queue_free()

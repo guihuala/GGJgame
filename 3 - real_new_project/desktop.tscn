@@ -347,6 +347,7 @@ interval_max = 5.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="Settings" parent="." instance=ExtResource("4_n1bes")]
+z_index = 1
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0

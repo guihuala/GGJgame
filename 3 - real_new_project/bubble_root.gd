@@ -21,12 +21,13 @@ func _ready() -> void:
 		rect_mat = rect_mat.duplicate()
 		colorRect.material = rect_mat
 
-func process(delta: float) -> void:
-	on_check_timer_timeout()
+func _process(delta: float) -> void:
+	on_check_()
 
-func on_check_timer_timeout():
+func on_check_():
 	# 检查当前子节点数量
 	var current_bubble_count = get_child_count()
+	print(current_bubble_count)
 	
 	# 如果气泡数量超过最大限制
 	if current_bubble_count >= max_bubble_count:
@@ -34,7 +35,6 @@ func on_check_timer_timeout():
 	else:
 		GameManager.set_can_spawn_bubble(true)
 	
-	# 更新混沌值
 	chaos_value = current_bubble_count
 	
 	# 根据气泡数量动态调整时间流速
