@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://3 - real_new_project/desktop.gd" id="1_icjmn"]
 [ext_resource type="PackedScene" uid="uid://dn6opmlnthn48" path="res://3 - real_new_project/app.tscn" id="2_6bklj"]
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_eoe06"]
-[ext_resource type="Shader" path="res://Shaders/crt.gdshader" id="3_wa5sm"]
+[ext_resource type="Shader" path="res://Shaders/Chromatic Chaos Distortion.gdshader" id="3_tqqwr"]
 [ext_resource type="PackedScene" uid="uid://603k3vy4p3f1" path="res://2 - System/Setting/settings.tscn" id="4_n1bes"]
 [ext_resource type="PackedScene" uid="uid://bflws4wlq6lka" path="res://3 - real_new_project/Bubble/left_large_bubble.tscn" id="5_g3va0"]
 [ext_resource type="Script" path="res://3 - real_new_project/salary_label.gd" id="5_s2ymt"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://brqyp8papxen" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
 [ext_resource type="PackedScene" uid="uid://d1bnpccjpj0is" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
 [ext_resource type="Texture2D" uid="uid://bukh2xqxkak5h" path="res://assets/coin.png" id="10_6s5u2"]
-[ext_resource type="Texture2D" uid="uid://dl3qup4rpvagw" path="res://assets/AppIcons/software loges-export.png" id="12_3j61f"]
+[ext_resource type="Texture2D" uid="uid://djgi8vf8fxxsi" path="res://assets/AppIcons/修正版图标.png" id="10_11fhx"]
 [ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="13_lef2j"]
 [ext_resource type="PackedScene" uid="uid://blwgwaefpgajb" path="res://3 - real_new_project/Bubble/left_large_bubble_1.tscn" id="14_5a6qt"]
 [ext_resource type="Script" path="res://3 - real_new_project/bubble_root.gd" id="14_dkx3m"]
@@ -31,11 +31,10 @@
 [ext_resource type="VideoStream" path="res://assets/Windows/Ad/1456230770-1-16.ogv" id="27_105wt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_72uvr"]
-shader = ExtResource("3_wa5sm")
-shader_parameter/curvature = 0.0
-shader_parameter/scanline_intensity = 1.0
-shader_parameter/vignette_strength = 0.0
-shader_parameter/resolution = null
+shader = ExtResource("3_tqqwr")
+shader_parameter/chaos = 0.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mvi7"]
 texture = ExtResource("2_eoe06")
@@ -83,24 +82,24 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdcrg"]
-atlas = ExtResource("12_3j61f")
-region = Rect2(3, 64, 41, 37)
+atlas = ExtResource("10_11fhx")
+region = Rect2(0, 0, 43, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2koj"]
-atlas = ExtResource("12_3j61f")
-region = Rect2(48, 64, 41, 37)
+atlas = ExtResource("10_11fhx")
+region = Rect2(50, 0, 43, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mex5s"]
-atlas = ExtResource("12_3j61f")
-region = Rect2(197, 60, 47, 41)
+atlas = ExtResource("10_11fhx")
+region = Rect2(77, 45, 45, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0iohf"]
-atlas = ExtResource("12_3j61f")
-region = Rect2(100, 64, 41, 37)
+atlas = ExtResource("10_11fhx")
+region = Rect2(102, 0, 43, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnphh"]
-atlas = ExtResource("12_3j61f")
-region = Rect2(255, 63, 41, 37)
+atlas = ExtResource("10_11fhx")
+region = Rect2(151, 1, 43, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 83)
@@ -209,15 +208,6 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_b1pj6")
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-material = SubResource("ShaderMaterial_72uvr")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect2" type="ColorRect" parent="Background"]
 material = SubResource("ShaderMaterial_72uvr")
 layout_mode = 1
 anchors_preset = 15
@@ -429,42 +419,6 @@ offset_bottom = 232.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="salaryLabel" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -84.0
-offset_right = -2.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.240017, 0.744392, 0.352978, 1)
-theme_override_font_sizes/font_size = 45
-text = "当前薪水：500"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("5_s2ymt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Settings"]
-root_node = NodePath("../salaryLabel")
-libraries = {
-"": SubResource("AnimationLibrary_l227o")
-}
-
-[node name="Label" type="Label" parent="Settings"]
-layout_mode = 0
-offset_left = 402.0
-offset_top = 169.0
-offset_right = 475.0
-offset_bottom = 224.0
-theme_override_colors/font_color = Color(0.316706, 0.293737, 0.293737, 1)
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Wall" type="Node2D" parent="."]
 visible = false
 
@@ -508,6 +462,7 @@ ad_types = Array[PackedScene]([ExtResource("17_ivgs8"), ExtResource("21_akc8i"),
 
 [node name="StartPanel" parent="." instance=ExtResource("17_hbt6g")]
 visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

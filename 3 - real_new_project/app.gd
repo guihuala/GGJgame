@@ -1,7 +1,7 @@
 extends TextureRect
 
-@export var bubble_packed_scene_list:Array[PackedScene]
-@export var location_list:Array[Marker2D]
+@export var bubble_packed_scene_list: Array[PackedScene]
+@export var location_list: Array[Marker2D]
 @export var impulse_min: float
 @export var impulse_max: float
  
@@ -11,7 +11,8 @@ extends TextureRect
 @export var interval_min: float
 @export var interval_max: float
 var interval: float
-@export var bubble_root:Node
+@export var bubble_root: Node
+
 var spawn_tween: Tween
 
 func _ready() -> void:
@@ -41,35 +42,22 @@ func _process(delta: float) -> void:
 		var direction = Vector2(cos(radian), sin(radian))  #用cos和sin来获得单位方向向量
 		bubble_scene.apply_impulse(-direction * randf_range(impulse_min, impulse_max))
 		
-		# 播放生成动画
-		spawn_bubble_anim()
+		play_anim()
 
-# 生成气泡的弹跳动画
-func spawn_bubble_anim() -> void:
-	# 如果有正在进行的动画，先停止
-	if spawn_tween and spawn_tween.is_valid():
-		spawn_tween.kill()
+func play_anim() -> void:
+	# 创建一个新的补间动画
+	var tween = create_tween()
 	
-	# 创建新的 Tween
-	spawn_tween = create_tween()
+	# 设置动画为循环往复
+	tween.set_loops(2)
 	
-	# 明确设置为并行
-	spawn_tween.set_parallel(true)
+	# X轴抖动动画
+	tween.tween_property(self, "position:x", self.position.x + 5, 0.1)
+	tween.tween_property(self, "position:x", self.position.x - 5, 0.1)
 	
-	# 记录原始缩放和位置
-	var original_scale = scale
-	var original_position = position
+	# Y轴抖动动画
+	tween.tween_property(self, "position:y", self.position.y + 5, 0.1)
+	tween.tween_property(self, "position:y", self.position.y - 5, 0.1)
 	
-	# 缩放动画（微微缩小）
-	spawn_tween.tween_property(self, "scale", original_scale * 0.9, 0.1)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	
-	# 位置动画（轻微下沉）
-	spawn_tween.tween_property(self, "position:y", original_position.y + 10, 0.1)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	
-	# 恢复原始状态
-	spawn_tween.tween_property(self, "scale", original_scale, 0.1)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	spawn_tween.tween_property(self, "position:y", original_position.y, 0.1)\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	# 结束时返回原始位置
+	tween.tween_property(self, "position", self.position, 0.1)

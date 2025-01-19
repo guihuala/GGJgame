@@ -24,4 +24,4 @@ func update_info(stage) -> void:
 
 func _on_start_game_btn_pressed() -> void:
 	hide_window()
-	Utilities.switch_scene("GameScene")
+	Utilities.switch_scene("MainMenu")
