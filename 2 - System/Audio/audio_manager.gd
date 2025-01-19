@@ -18,7 +18,8 @@ var sound_dict: Dictionary = {
 	"tick":preload("res://assets/audio/Sfx/秒针滴滴答答 倒计时 .mp3"),
 	"start":preload("res://assets/audio/Sfx/开机声音.mp3"),
 	"end":preload("res://assets/audio/Sfx/电脑关机.mp3"),
-	"Warn":preload("res://assets/audio/Sfx/warning-sound.mp3")
+	"Warn":preload("res://assets/audio/Sfx/warning-sound.mp3"),
+	"long_press": preload("res://assets/audio/Sfx/长按音效.mp3")
 }
 
 func _ready():

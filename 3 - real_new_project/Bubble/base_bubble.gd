@@ -81,10 +81,15 @@ func on_destroy_bubble() -> void:
 
 func _on_button_button_down() -> void:
 	if is_long_press_bubble:
+		
 		animated_sprite_2d.play("loading")
+		AudioManager.play_sfx("long_press")
 		is_long_pressing = true
+		
 		await animated_sprite_2d.animation_finished
+		
 		on_destroy_bubble()
+		AudioManager.sound_player.stream = null
 		is_long_pressing = false
 	else:
 		on_destroy_bubble()
