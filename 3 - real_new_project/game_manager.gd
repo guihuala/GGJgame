@@ -181,7 +181,7 @@ func get_salary() -> int:
 
 func set_salary(amount: int):
 	current_salary = amount
-	emit_signal("salary_changed", current_salary)
+	emit_signal("salary_changed", current_salary, amount)
 
 func _on_play_video():
 	var character = get_tree().get_nodes_in_group("Character")[0]

@@ -38,7 +38,6 @@ func on_check_():
 	
 	# 根据气泡数量动态调整时间流速
 	var time_speed = calculate_time_speed(current_bubble_count)
-	GameManager.change_time_speed(time_speed)
 	
 	# 更新着色器参数
 	if rect_mat:

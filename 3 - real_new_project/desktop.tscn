@@ -283,7 +283,7 @@ bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResour
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 3.0
-interval_max = 5.0
+interval_max = 7.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app2" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
@@ -298,7 +298,7 @@ bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResour
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 3.0
-interval_max = 5.0
+interval_max = 7.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app3" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
@@ -313,7 +313,7 @@ bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResour
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 3.0
-interval_max = 5.0
+interval_max = 7.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app4" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
@@ -327,8 +327,8 @@ texture = SubResource("AtlasTexture_0iohf")
 bubble_packed_scene_list = Array[PackedScene]([ExtResource("16_vltlk")])
 impulse_min = 30.0
 impulse_max = 100.0
-interval_min = 2.0
-interval_max = 4.0
+interval_min = 3.0
+interval_max = 7.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="app5" parent="." node_paths=PackedStringArray("bubble_root") instance=ExtResource("2_6bklj")]
@@ -343,7 +343,7 @@ bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResour
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 3.0
-interval_max = 5.0
+interval_max = 7.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="Settings" parent="." instance=ExtResource("4_n1bes")]
@@ -452,15 +452,10 @@ offset_bottom = 296.0
 
 [node name="Panel" parent="." instance=ExtResource("26_ogn74")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -200.0
-offset_right = 300.0
-offset_bottom = 200.0
+anchor_left = 0.307031
+anchor_top = 0.278472
+anchor_right = 0.695313
+anchor_bottom = 0.675
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." groups=["Video"]]
 visible = false
