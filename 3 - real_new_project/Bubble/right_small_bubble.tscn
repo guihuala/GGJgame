@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://d1bnpccjpj0is"]
+[gd_scene load_steps=35 format=3 uid="uid://d1bnpccjpj0is"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_pyl3x"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_jc00i"]
 [ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="3_326y4"]
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/small_bubble.gd" id="4_gwc0v"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_j3nsg"]
+[ext_resource type="PackedScene" uid="uid://da0fecp7i2da" path="res://3 - real_new_project/Windows/bubble_shake_component.tscn" id="6_4ow2u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ui85y"]
 shader = ExtResource("2_jc00i")
@@ -155,7 +156,6 @@ gravity_scale = -1.0
 lock_rotation = true
 script = ExtResource("1_pyl3x")
 bubble_gravity = -0.1
-probabilty = 0.3
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ui85y")
@@ -182,10 +182,9 @@ autowrap_mode = 1
 script = ExtResource("4_gwc0v")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(2495.89, 27.1458)
 scale = Vector2(217.696, 4.89763)
-polygon = PackedVector2Array(-12.7865, -7.5, -12.7865, -16.2242, -10.2395, -16.6958, -10.2135, -13.8663, -10.2018, 1.80785, -10.2661, 1.80785, -10.3694, 1.69579, -12.78, 1.69579, -12.7865, -2.31263)
+polygon = PackedVector2Array(-12.7865, -7.5, -12.7834, -18.2018, -10.2661, -19.4269, -10.2135, -13.8663, -10.2018, 1.80785, -10.1926, 7.72909, -10.358, 1.19531, -12.78, 1.69579, -12.7865, -2.31263)
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 6
@@ -217,3 +216,6 @@ position = Vector2(237, 19)
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_jgwcs")
 animation = &"loading"
+
+[node name="BubbleShakeComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_4ow2u")]
+target = NodePath("..")

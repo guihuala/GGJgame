@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bd41w1yvtolye" path="res://3 - real_new_project/Ad/PopupAdScene_2.tscn" id="25_eps6j"]
 [ext_resource type="PackedScene" uid="uid://bd71dljjmcagu" path="res://2 - System/Setting/TutorialWindow.tscn" id="26_ogn74"]
 [ext_resource type="VideoStream" path="res://assets/Windows/Ad/1456230770-1-16.ogv" id="27_105wt"]
-[ext_resource type="PackedScene" uid="uid://bftp2oc2wal0d" path="res://3 - real_new_project/Windows/shake_component.tscn" id="30_ldqnn"]
+[ext_resource type="PackedScene" uid="uid://bftp2oc2wal0d" path="res://3 - real_new_project/Windows/screen_shake_component.tscn" id="30_ldqnn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_72uvr"]
 shader = ExtResource("3_tqqwr")
@@ -505,4 +505,4 @@ offset_bottom = 368.0
 [node name="ShakeComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("30_ldqnn")]
 target = NodePath("../BubbleRoot")
 shake_intensity = 5.0
-threshold = 12
+threshold = 13

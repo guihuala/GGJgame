@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://da0fecp7i2da"]
+
+[ext_resource type="Script" path="res://3 - real_new_project/Windows/bubble_shake_component.gd" id="1_oi7bi"]
+
+[node name="BubbleShakeComponent" type="Node2D"]
+script = ExtResource("1_oi7bi")

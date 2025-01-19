@@ -20,6 +20,8 @@ var drag_offset: Vector2 = Vector2.ZERO
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var button: Button = $Button
 
+var is_long_pressing: bool
+
 func _ready():
 	# 配置刚体属性
 	mass = bubble_mass
@@ -80,8 +82,10 @@ func on_destroy_bubble() -> void:
 func _on_button_button_down() -> void:
 	if is_long_press_bubble:
 		animated_sprite_2d.play("loading")
+		is_long_pressing = true
 		await animated_sprite_2d.animation_finished
 		on_destroy_bubble()
+		is_long_pressing = false
 	else:
 		on_destroy_bubble()
 

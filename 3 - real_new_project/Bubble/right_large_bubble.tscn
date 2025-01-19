@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://brqyp8papxen"]
+[gd_scene load_steps=35 format=3 uid="uid://brqyp8papxen"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_8b1f4"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_inxbh"]
 [ext_resource type="Texture2D" uid="uid://b6ad16t24dln0" path="res://assets/BubbleTexture/2844b7440f213a3a4d3d78f2156e1831.png" id="3_pk460"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_avi0b"]
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/large_bubble.gd" id="4_rjclx"]
+[ext_resource type="PackedScene" uid="uid://da0fecp7i2da" path="res://3 - real_new_project/Windows/bubble_shake_component.tscn" id="6_oimcp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_av2ap"]
 shader = ExtResource("2_inxbh")
@@ -155,7 +156,6 @@ gravity_scale = -1.0
 lock_rotation = true
 script = ExtResource("1_8b1f4")
 bubble_gravity = -0.1
-probabilty = 0.3
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_av2ap")
@@ -182,7 +182,6 @@ autowrap_mode = 1
 script = ExtResource("4_rjclx")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(2523.38, -6.01428)
 scale = Vector2(220.829, 9.45137)
 polygon = PackedVector2Array(-12.885, -7.40482, -12.885, -17.4563, -10.7476, -18.3027, -10.254, -17.8795, -10.1997, -13.8589, -10.1951, -3.59585, -10.1906, 7.09043, -10.2721, 4.76272, -10.3694, 1.69579, -12.8669, 1.69439, -12.894, -1.69137)
@@ -215,3 +214,6 @@ position = Vector2(239, -10)
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ufi26")
 animation = &"loading"
+
+[node name="BubbleShakeComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_oimcp")]
+target = NodePath("..")

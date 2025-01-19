@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://bflws4wlq6lka"]
+[gd_scene load_steps=35 format=3 uid="uid://bflws4wlq6lka"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/base_bubble.gd" id="1_bi2h8"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_0nh6u"]
 [ext_resource type="Texture2D" uid="uid://balcr35rx7ngh" path="res://3 - real_new_project/assets/bubble_1.png" id="3_fdokw"]
 [ext_resource type="Script" path="res://3 - real_new_project/Bubble/sentences_lib/large_bubble.gd" id="4_40e7t"]
 [ext_resource type="Texture2D" uid="uid://bte32peeqck5t" path="res://assets/BubbleTexture/loadingcircle.png" id="4_li03q"]
+[ext_resource type="PackedScene" uid="uid://da0fecp7i2da" path="res://3 - real_new_project/Windows/bubble_shake_component.tscn" id="6_ofqji"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axw6c"]
 shader = ExtResource("2_0nh6u")
@@ -180,7 +181,6 @@ autowrap_mode = 1
 script = ExtResource("4_40e7t")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(2495.89, 27.1458)
 scale = Vector2(217.696, 4.89763)
 polygon = PackedVector2Array(-12.7834, -35.353, -12.7466, -46.3787, -12.2367, -48.2163, -10.4131, -45.7662, -10.3855, -17.7935, -10.3947, -3.50084, -12.618, -4.72592, -12.7925, 7.11654)
@@ -213,3 +213,6 @@ position = Vector2(172, -42)
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_iamvc")
 animation = &"loading"
+
+[node name="BubbleShakeComponent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_ofqji")]
+target = NodePath("..")
