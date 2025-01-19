@@ -14,7 +14,7 @@ var is_in_area: bool = false
 @export var min_salary: int = 10
 @export var max_salary: int = 50
 
-@export var probabilty: float
+@export var probabilty: float = 0.3
 var is_long_press_bubble: bool = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

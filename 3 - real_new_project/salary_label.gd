@@ -8,6 +8,8 @@ func _ready() -> void:
 	
 func _on_game_manager_salary_changed(salary: int, amount: int) -> void:
 	text = "当前薪水: " + str(salary)
-	label.text = str(amount)
-	
+	if sign(amount) == 1:
+		label.text = "+" + str(amount)
+	else:
+		label.text = str(amount)
 	animation_player.play("pop_up")
