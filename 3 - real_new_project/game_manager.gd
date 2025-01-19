@@ -68,6 +68,9 @@ const MIN_TIME_SPEED = 0.5      # 最小时间流速
 # 时间流速变量
 var current_time_speed: float = DEFAULT_TIME_SPEED
 
+# 每日新闻
+var random_index = 0
+
 # 每日统计数据结构
 class DailyStatistics:
 	var day: int
@@ -120,6 +123,9 @@ func update_daily_statistics():
 	
 	# 传入工资和专注度计算绩效等级
 	daily_stat.grade = calculate_daily_grade(daily_stat.focus, daily_stat.salary)
+	
+	random_index = randi_range(0,3)
+	
 # 根据专注度和工资计算每日等级
 func calculate_daily_grade(focus: float, salary: int) -> DailyGrade:
 	# 定义工资和专注度的权重

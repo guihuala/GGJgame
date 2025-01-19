@@ -6,6 +6,8 @@ const CONFIG_PATH = "user://game_config.cfg"
 # 播放视频的场景
 @onready var setting_window = $SettingWindow
 
+var is_info_show
+
 func _ready():
 	setting_window.hide()
 	AudioManager.play_BGM("BGM2")
@@ -40,3 +42,10 @@ func _on_setting_btn_pressed() -> void:
 
 func _on_quit_btn_pressed() -> void:
 	get_tree().quit()
+
+func _on_texture_button_pressed() -> void:
+	if !is_info_show:
+		$AnimationPlayer.play("new_animation")
+	else :
+		$AnimationPlayer.play_backwards("new_animation")
+	is_info_show = !is_info_show

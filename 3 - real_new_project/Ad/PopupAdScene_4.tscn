@@ -1,17 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://bd41w1yvtolye"]
+[gd_scene load_steps=20 format=3 uid="uid://cvmk8bx33vfrk"]
 
-[ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene.gd" id="1_h54i0"]
-[ext_resource type="Shader" path="res://Shaders/2D-Squish.gdshader" id="2_26ihv"]
-[ext_resource type="Texture2D" uid="uid://p74xwnu6pcvu" path="res://assets/Windows/Ad/IMG_0123.png" id="3_auk6u"]
+[ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene_2.gd" id="1_njle3"]
+[ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="2_5wnkf"]
+[ext_resource type="Texture2D" uid="uid://dhqiwv4e3ctcg" path="res://assets/Windows/Ad/pixel.png" id="3_gab35"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iqjbr"]
-shader = ExtResource("2_26ihv")
-shader_parameter/uv_mode = false
-shader_parameter/x_factor = 1.0
-shader_parameter/bulge = -0.084
+shader = ExtResource("2_5wnkf")
+shader_parameter/influence = 0.5
+shader_parameter/offset = 0.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44aui"]
-texture = ExtResource("3_auk6u")
+texture = ExtResource("3_gab35")
 
 [sub_resource type="Animation" id="Animation_d14aj"]
 length = 0.001
@@ -27,22 +26,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:material:shader_parameter/bulge")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.084]
-}
 
 [sub_resource type="Animation" id="Animation_75ebd"]
 resource_name = "new_animation"
-length = 0.8
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -51,22 +38,10 @@ tracks/0/path = NodePath("Panel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
+"times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:material:shader_parameter/bulge")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.084, 0.00600005, -0.084]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ai41c"]
@@ -100,7 +75,7 @@ _data = {
 [node name="PopupAdScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_h54i0")
+script = ExtResource("1_njle3")
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_iqjbr")
@@ -110,20 +85,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -209.0
-offset_top = -185.0
-offset_right = 210.0
-offset_bottom = 272.0
+offset_left = -209.5
+offset_top = -192.5
+offset_right = 209.5
+offset_bottom = 192.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_44aui")
 
 [node name="CloseArea1" type="Control" parent="."]
 anchors_preset = 0
-offset_left = -211.0
-offset_top = -190.0
-offset_right = 209.0
-offset_bottom = 194.0
+offset_left = -176.0
+offset_top = -256.0
+offset_right = 168.0
+offset_bottom = 248.0
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -133,12 +108,12 @@ libraries = {
 }
 autoplay = "new_animation"
 
-[node name="BuyBtn" type="Button" parent="."]
+[node name="OpenBtn]" type="Button" parent="."]
 layout_mode = 0
-offset_left = -168.0
-offset_top = -144.0
-offset_right = 175.0
-offset_bottom = 243.0
+offset_left = -204.0
+offset_top = -220.0
+offset_right = 206.0
+offset_bottom = 159.0
 theme_override_colors/font_hover_color = Color(1, 0.603481, 0.54429, 1)
 theme_override_colors/font_pressed_color = Color(0.543135, 1.35969e-06, 3.36915e-07, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -157,4 +132,4 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ydi4o")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_c5o1k")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w1and")
 
-[connection signal="pressed" from="BuyBtn" to="." method="_on_buy_btn_pressed"]
+[connection signal="pressed" from="OpenBtn]" to="." method="_on_open_btn_pressed"]

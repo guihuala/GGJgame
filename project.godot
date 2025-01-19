@@ -25,18 +25,11 @@ AudioManager="*res://2 - System/Audio/audio_manager.tscn"
 GameManager="*res://3 - real_new_project/game_manager.gd"
 Loading="*res://2 - System/Loading/loading.tscn"
 Utilities="*res://2 - System/Global/utilities.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-SmallSentencesLib="*res://3 - real_new_project/Bubble/sentences_lib/small_sentences_lib.gd"
-LargeSentencesLib="*res://3 - real_new_project/Bubble/sentences_lib/large_sentences_lib.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"player": "res://5 - dialogue/Dialogic/player.dch"
-}
-directories/dtl_directory={
-"Dialogue_1": "res://5 - dialogue/Dialogic/Dialogue_1.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 variables={}
 layout/style_list=[""]
 layout/default_style=""
