@@ -31,3 +31,8 @@ func _on_video_stream_player_2_finished() -> void:
 
 func _on_video_stream_player_3_finished() -> void:
 	Utilities.switch_scene("GameScene")
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("skip"):
+		Utilities.switch_scene("GameScene")

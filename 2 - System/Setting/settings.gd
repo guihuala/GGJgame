@@ -20,6 +20,8 @@ func _ready():
 	# 初始化按钮纹理
 	if pause_button:
 		pause_button.texture_normal = pause_off_texture
+		
+	panel.hide()
 
 func _on_pause_pressed() -> void:
 	is_paused = !is_paused
@@ -62,3 +64,20 @@ func update_pause_button_texture():
 			pause_button.texture_normal = pause_on_texture
 		else:
 			pause_button.texture_normal = pause_off_texture
+
+
+@onready var panel: Panel = $"../Panel"
+@export var scene: PackedScene
+
+func _on_button_pressed() -> void:
+	panel.show()
+	get_tree().paused = true
+	
+func _on_确定_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(scene)
+
+func _on_取消_pressed() -> void:
+	get_tree().paused = false
+	panel.hide()
+	

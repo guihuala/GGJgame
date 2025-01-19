@@ -59,15 +59,13 @@ region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
 texture = ExtResource("2_esk3t")
 region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xhxm"]
-texture = ExtResource("2_esk3t")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2vhog"]
 texture = ExtResource("2_st0kn")
-texture_margin_left = 12.5548
-texture_margin_top = 2.47792
-region_rect = Rect2(65.3395, 136.142, 47.5762, 13.1129)
+region_rect = Rect2(223, 80, 27, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7qqt"]
+atlas = ExtResource("2_st0kn")
+region = Rect2(102, 140, 10, 10)
 
 [node name="Settings" type="Panel"]
 process_mode = 3
@@ -129,18 +127,19 @@ size_flags_horizontal = 3
 stretch_mode = 3
 
 [node name="Button" type="Button" parent="."]
+modulate = Color(0.111986, 0.729432, 1, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.982
 anchor_top = 0.023
 anchor_right = 0.982
 anchor_bottom = 0.023
-offset_left = -117.936
-offset_top = -6.992
-offset_right = -3.93604
-offset_bottom = 24.008
+offset_left = -142.936
+offset_top = -8.992
+offset_right = -2.936
+offset_bottom = 40.008
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxTexture_kp5cv")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_k4e3n")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_qg4b4")
@@ -150,8 +149,17 @@ theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_yf1q8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vuups")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_1qw5x")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7bkks")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_4xhxm")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2vhog")
+text = " quit"
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 3.0
+offset_right = 426.0
+offset_bottom = 43.0
+texture = SubResource("AtlasTexture_r7qqt")
 
 [connection signal="pressed" from="Audio/HBoxContainer/BGM" to="Audio" method="_on_bgm_pressed"]
 [connection signal="pressed" from="Audio/HBoxContainer/sfx" to="Audio" method="_on_sfx_pressed"]

@@ -85,6 +85,16 @@ grow_vertical = 2
 stream = ExtResource("5_5blcw")
 expand = true
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2363.0
+offset_top = 1401.0
+offset_right = 2552.0
+offset_bottom = 1435.0
+theme_override_colors/font_color = Color(0.506789, 0.226731, 0.226731, 1)
+theme_override_font_sizes/font_size = 28
+text = "单击 ESC 跳过"
+
 [connection signal="gui_input" from="TextureRect/TextEdit" to="." method="_on_text_edit_gui_input"]
 [connection signal="text_set" from="TextureRect/TextEdit" to="." method="_on_text_edit_text_set"]
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
