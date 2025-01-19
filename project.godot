@@ -25,8 +25,14 @@ AudioManager="*res://2 - System/Audio/audio_manager.tscn"
 GameManager="*res://3 - real_new_project/game_manager.gd"
 Loading="*res://2 - System/Loading/loading.tscn"
 Utilities="*res://2 - System/Global/utilities.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SmallSentencesLib="*res://3 - real_new_project/Bubble/sentences_lib/small_sentences_lib.gd"
 LargeSentencesLib="*res://3 - real_new_project/Bubble/sentences_lib/large_sentences_lib.gd"
+
+[dialogic]
+
+directories/dch_directory={}
+directories/dtl_directory={}
 
 [display]
 

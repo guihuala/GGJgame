@@ -19,18 +19,33 @@ var is_music_muted: bool = false
 var is_sfx_muted: bool = false
 
 func _ready():
-	# 初始化按钮纹理
-	if bgm_button:
-		bgm_button.texture_normal = bgm_on_texture
-	if sfx_button:
-		sfx_button.texture_normal = sfx_on_texture
+	# 检查并初始化BGM音量状态
+	var current_music_volume = AudioServer.get_bus_volume_db(1)
+	is_music_muted = (current_music_volume <= -80)  # AudioServer的最小值通常为-80dB
 	
-	set_volume(1,music_original_value)
-	set_volume(2,sound_effect_original_value)
+	# 检查并初始化音效音量状态
+	var current_sfx_volume = AudioServer.get_bus_volume_db(2)
+	is_sfx_muted = (current_sfx_volume <= -80)
+	
+	# 根据当前状态更新BGM按钮纹理
+	if bgm_button:
+		if  is_music_muted:
+			bgm_button.texture_normal = bgm_off_texture
+		else :
+			bgm_button.texture_normal = bgm_on_texture
+	
+	# 根据当前状态更新音效按钮纹理
+	if sfx_button:
+		if is_sfx_muted:
+			sfx_button.texture_normal = sfx_off_texture
+		else:
+			sfx_button.texture_normal = sfx_on_texture
+
 
 func set_volume(idx: int, value: float):
 	# 设置音量
 	AudioServer.set_bus_volume_db(idx, linear_to_db(value))
+
 
 func _on_bgm_pressed() -> void:
 	# 切换BGM音量
@@ -43,10 +58,6 @@ func _on_bgm_pressed() -> void:
 		if bgm_button and bgm_on_texture:
 			bgm_button.texture_normal = bgm_on_texture
 	else:
-		# 记录当前音量并静音
-		if music_original_value == 1.0:
-			music_original_value = AudioServer.get_bus_volume_db(1)
-		
 		set_volume(1, 0)
 		is_music_muted = true
 		
@@ -55,7 +66,8 @@ func _on_bgm_pressed() -> void:
 			bgm_button.texture_normal = bgm_off_texture
 	
 	# 播放按钮点击音效
-	# AudioManager.play_sfx("button_click")
+	AudioManager.play_sfx("bubble2")
+
 
 func _on_sfx_pressed() -> void:
 	# 切换音效音量
@@ -68,10 +80,6 @@ func _on_sfx_pressed() -> void:
 		if sfx_button and sfx_on_texture:
 			sfx_button.texture_normal = sfx_on_texture
 	else:
-		# 记录当前音量并静音
-		if sound_effect_original_value == 1.0:
-			sound_effect_original_value = AudioServer.get_bus_volume_db(2)
-		
 		set_volume(2, 0)
 		is_sfx_muted = true
 		
@@ -80,4 +88,4 @@ func _on_sfx_pressed() -> void:
 			sfx_button.texture_normal = sfx_off_texture
 	
 	# 播放按钮点击音效
-	AudioManager.play_sfx("button_click")
+	AudioManager.play_sfx("bubble2")
