@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://7vlhtarjc6k"]
+[gd_scene load_steps=19 format=3 uid="uid://7vlhtarjc6k"]
 
 [ext_resource type="Script" path="res://4 - main_manu/main_menu.gd" id="1_6d4fq"]
 [ext_resource type="Texture2D" uid="uid://cjun3b8d01den" path="res://assets/MainMenu/menu_bg.png" id="2_dp0bl"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://day3pc601wild" path="res://assets/MainMenu/menu_play.png" id="6_q0amu"]
 [ext_resource type="Texture2D" uid="uid://6ninq3rnbssp" path="res://assets/MainMenu/menu_i.png" id="7_qh8hl"]
 [ext_resource type="Texture2D" uid="uid://cvu51ug6sbc8q" path="res://assets/MainMenu/menu_title.png" id="7_wx5cg"]
-[ext_resource type="VideoStream" path="res://assets/Tutorial/mv.ogv" id="9_g2x3s"]
 [ext_resource type="PackedScene" uid="uid://doro1aad8i0ch" path="res://2 - System/Setting/setting_window.tscn" id="10_4qq7t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkl8b"]
@@ -164,16 +163,6 @@ anchor_right = 0.74375
 anchor_bottom = 0.561111
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stream = ExtResource("9_g2x3s")
-expand = true
 
 [connection signal="pressed" from="Panel/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Panel/SettingBtn" to="." method="_on_setting_btn_pressed"]
