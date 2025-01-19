@@ -35,7 +35,7 @@ func _on_pause_pressed() -> void:
 	update_pause_button_texture()
 	
 	# 播放按钮点击音效
-	AudioManager.play_sfx("bubble2")
+	AudioManager.play_sfx("bubble")
 
 func pause_game():
 	# 保存当前场景的处理模式

@@ -347,7 +347,6 @@ interval_max = 5.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="Settings" parent="." instance=ExtResource("4_n1bes")]
-z_index = 1
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0
@@ -360,6 +359,42 @@ offset_right = 360.0
 offset_bottom = 232.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="salaryLabel" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -84.0
+offset_right = -2.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.240017, 0.744392, 0.352978, 1)
+theme_override_font_sizes/font_size = 45
+text = "当前薪水：500"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_s2ymt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Settings"]
+root_node = NodePath("../salaryLabel")
+libraries = {
+"": SubResource("AnimationLibrary_l227o")
+}
+
+[node name="Label" type="Label" parent="Settings"]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 169.0
+offset_right = 475.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.316706, 0.293737, 0.293737, 1)
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Wall" type="Node2D" parent="."]
 visible = false
