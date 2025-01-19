@@ -7,12 +7,7 @@ func _ready() -> void:
 	GameManager.salary_changed.connect(_on_game_manager_salary_changed)
 	
 func _on_game_manager_salary_changed(salary: int, amount: int) -> void:
-	text = "当前薪水: " + str(salary)
+	text = str(salary)
 	label.text = str(amount)
-	
-	create_tween().tween_property(label,"global_position",Vector2(
-		randf_range(-10,10),
-		randf_range(-8, -15)
-	),1.2).as_relative()
 	
 	animation_player.play("pop_up")

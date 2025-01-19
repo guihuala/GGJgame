@@ -93,4 +93,6 @@ position = Vector2(2495.89, 27.1458)
 scale = Vector2(217.696, 4.89763)
 polygon = PackedVector2Array(-12.641, -31.6777, -10.3258, -30.0443, -10.2891, 15.6921, -10.5096, 10.7918, -12.6777, 9.15835)
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]
