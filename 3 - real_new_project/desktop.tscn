@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://brqyp8papxen" path="res://3 - real_new_project/Bubble/right_large_bubble.tscn" id="7_w8w6h"]
 [ext_resource type="PackedScene" uid="uid://d1bnpccjpj0is" path="res://3 - real_new_project/Bubble/right_small_bubble.tscn" id="8_4iqeh"]
 [ext_resource type="Texture2D" uid="uid://bukh2xqxkak5h" path="res://assets/coin.png" id="10_6s5u2"]
-[ext_resource type="Texture2D" uid="uid://djgi8vf8fxxsi" path="res://assets/AppIcons/修正版图标.png" id="10_11fhx"]
+[ext_resource type="PackedScene" uid="uid://cssyrjc0c3xqh" path="res://3 - real_new_project/Bubble/DingdingBubble.tscn" id="11_wjb8b"]
+[ext_resource type="Texture2D" uid="uid://dl3qup4rpvagw" path="res://assets/AppIcons/software loges-export.png" id="12_3j61f"]
 [ext_resource type="Script" path="res://3 - real_new_project/time_label.gd" id="13_lef2j"]
 [ext_resource type="PackedScene" uid="uid://blwgwaefpgajb" path="res://3 - real_new_project/Bubble/left_large_bubble_1.tscn" id="14_5a6qt"]
 [ext_resource type="Script" path="res://3 - real_new_project/bubble_root.gd" id="14_dkx3m"]
@@ -83,24 +84,24 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdcrg"]
-atlas = ExtResource("10_11fhx")
-region = Rect2(0, 0, 43, 38)
+atlas = ExtResource("12_3j61f")
+region = Rect2(3, 64, 41, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2koj"]
-atlas = ExtResource("10_11fhx")
-region = Rect2(50, 0, 43, 38)
+atlas = ExtResource("12_3j61f")
+region = Rect2(48, 64, 41, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mex5s"]
-atlas = ExtResource("10_11fhx")
-region = Rect2(77, 45, 45, 38)
+atlas = ExtResource("12_3j61f")
+region = Rect2(197, 60, 47, 41)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0iohf"]
-atlas = ExtResource("10_11fhx")
-region = Rect2(102, 0, 43, 38)
+atlas = ExtResource("12_3j61f")
+region = Rect2(100, 64, 41, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnphh"]
-atlas = ExtResource("10_11fhx")
-region = Rect2(151, 1, 43, 39)
+atlas = ExtResource("12_3j61f")
+region = Rect2(255, 63, 41, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
 size = Vector2(2557, 83)
@@ -417,6 +418,7 @@ interval_max = 5.0
 bubble_root = NodePath("../BubbleRoot")
 
 [node name="Settings" parent="." instance=ExtResource("4_n1bes")]
+z_index = 1
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0
