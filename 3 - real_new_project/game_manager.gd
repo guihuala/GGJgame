@@ -95,7 +95,6 @@ func reset_daily_statistics():
 	for i in range(1, TOTAL_DAYS + 1):
 		daily_statistics.append(DailyStatistics.new(i))
 
-# 更新当前天的统计数据
 func update_daily_statistics():
 	if current_day < 1 or current_day > TOTAL_DAYS:
 		print("无效的天数")
@@ -104,27 +103,54 @@ func update_daily_statistics():
 	# 获取当前天的统计对象
 	var daily_stat = daily_statistics[current_day - 1]
 	
-	# 更新数据
-	daily_stat.salary = daily_salary
+	# 修改薪水计算逻辑
+	if current_day == 1:
+		# 第一天直接使用当前薪水
+		daily_stat.salary = current_salary
+	else:
+		# 后续天数计算与前一天的差值
+		daily_stat.salary = current_salary - daily_statistics[current_day - 2].salary
+
+	# 其他代码保持不变
 	daily_stat.solved_bubble_num = solved_bubble_num
 	daily_stat.unfocus_num = unfocus_num
 	
-	# 计算专注度
 	var total_bubbles = solved_bubble_num + unfocus_num
 	daily_stat.focus = 0.0 if total_bubbles == 0 else float(solved_bubble_num) / total_bubbles
 	
-	# 根据专注度评定等级
-	daily_stat.grade = calculate_daily_grade(daily_stat.focus)
-
-# 根据专注度计算每日等级
-func calculate_daily_grade(focus: float) -> DailyGrade:
-	if focus >= 0.9:
+	# 传入工资和专注度计算绩效等级
+	daily_stat.grade = calculate_daily_grade(daily_stat.focus, daily_stat.salary)
+# 根据专注度和工资计算每日等级
+func calculate_daily_grade(focus: float, salary: int) -> DailyGrade:
+	# 定义工资和专注度的权重
+	var focus_weight = 0.6  # 专注度权重
+	var salary_weight = 0.4  # 工资权重
+	
+	# 定义每个等级的工资和专注度阈值
+	var grade_thresholds = {
+		"A": {"focus": 0.9, "salary": 300},
+		"B": {"focus": 0.7, "salary": 200},
+		"C": {"focus": 0.5, "salary": 150},
+		"D": {"focus": 0.3, "salary": 100},
+		"E": {"focus": 0.0, "salary": 0}
+	}
+	
+	# 计算归一化的专注度和工资分数
+	var normalized_focus = clamp(focus, 0.0, 1.0)
+	var max_expected_salary = 500.0  # 设置一个合理的最大期望薪水
+	var normalized_salary = clamp(salary / max_expected_salary, 0.0, 1.0)
+	
+	# 计算综合得分
+	var combined_score = (normalized_focus * focus_weight) + (normalized_salary * salary_weight)
+	
+	# 根据综合得分确定等级
+	if combined_score >= 0.9:
 		return DailyGrade.A
-	elif focus >= 0.7:
+	elif combined_score >= 0.7:
 		return DailyGrade.B
-	elif focus >= 0.5:
+	elif combined_score >= 0.5:
 		return DailyGrade.C
-	elif focus >= 0.3:
+	elif combined_score >= 0.3:
 		return DailyGrade.D
 	else:
 		return DailyGrade.E
@@ -170,20 +196,28 @@ func start_game():
 	
 	VideoPlayer = get_tree().get_nodes_in_group("Video")[0]
 
-# 重写 end_day 方法，添加统计数据更新
 func end_day():
 	# 更新当前天的统计数据
 	update_daily_statistics()
 	
 	# 停止计时器
-	timer.stop()
+	if timer:
+		timer.stop()
+	
+	# 设置阶段为结算阶段
 	current_phase = GamePhase.SETTLEMENT
 	emit_signal("phase_changed", current_phase)
+	emit_signal("day_ended", current_day)
 	
-	# 显示商店界面
-	show_daily_summary()
-	
+	# 重置时间流速
 	reset_time_speed()
+
+# 新增方法：开始下一天
+func start_next_day():
+	# 只有在结算阶段才能开始下一天
+	if current_phase != GamePhase.SETTLEMENT:
+		print("只能在结算阶段开始下一天")
+		return
 	
 	# 进入下一天或结束游戏
 	current_day += 1
@@ -202,30 +236,13 @@ func end_game():
 	# 设置游戏状态为已结束
 	change_game_state(GameState.FINISHED)
 	
-	# 打印总体统计信息
-	print("游戏结束，总薪水：", current_salary)
-	print_game_summary()
-
-# 打印游戏总结
-func print_game_summary():
-	print("=== 游戏总结 ===")
-	for stat in daily_statistics:
-		print("第 %d 天:" % stat.day)
-		print("  薪水: %d" % stat.salary)
-		print("  绩效等级: %s" % DailyGrade.keys()[stat.grade])
-		print("  处理信息数: %d" % stat.solved_bubble_num)
-		print("  无效点击数: %d" % stat.unfocus_num)
-		print("  专注度: %.2f" % stat.focus)
-		print()
 
 # 改变时间流速的方法
 func change_time_speed(speed: float) -> bool:
 	# 检查速度是否在允许的范围内
 	if speed < MIN_TIME_SPEED or speed > MAX_TIME_SPEED:
-		print("时间流速必须在 %.1f 到 %.1f 之间" % [MIN_TIME_SPEED, MAX_TIME_SPEED])
 		return false
-	
-	# 更新时间流速
+
 	current_time_speed = speed
 	
 	# 如果计时器存在，调整其等待时间
@@ -327,11 +344,7 @@ func _on_timer_timeout():
 		current_phase = GamePhase.OVERTIME
 		emit_signal("phase_changed", current_phase)
 
-func show_daily_summary():
-	# 显示每日总结
-	pass
 
-# 薪水处理（保持原有逻辑）
 func increase_salary(amount: int):
 	current_salary += amount
 	emit_signal("salary_changed", current_salary,amount)

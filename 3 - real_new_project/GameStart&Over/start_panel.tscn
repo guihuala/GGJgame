@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dn3cck8idqo2w"]
+[gd_scene load_steps=18 format=3 uid="uid://dn3cck8idqo2w"]
 
 [ext_resource type="PackedScene" uid="uid://iuxldiq8fnbw" path="res://3 - real_new_project/Windows/base_window.tscn" id="1_cflgh"]
 [ext_resource type="Shader" path="res://Shaders/Wave.gdshader" id="2_6b6h2"]
 [ext_resource type="Script" path="res://3 - real_new_project/GameStart&Over/start_panel.gd" id="2_fuude"]
 [ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="4_glk0v"]
-[ext_resource type="Texture2D" uid="uid://c8i41bvr3iet5" path="res://assets/ResultIcon/结算界面.png" id="4_hvh4y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hrt8y"]
 shader = ExtResource("2_6b6h2")
@@ -88,10 +87,5 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_cadlq")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_7qd1a")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_sh3uh")
 text = "再次开启一周的社畜生活！"
-
-[node name="结算界面" type="Sprite2D" parent="." index="2"]
-position = Vector2(300, 186)
-scale = Vector2(1.63793, 1.63793)
-texture = ExtResource("4_hvh4y")
 
 [connection signal="pressed" from="Result/StartGameBtn_1" to="." method="_on_start_game_btn_pressed"]
