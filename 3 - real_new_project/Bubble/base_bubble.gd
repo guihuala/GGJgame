@@ -2,20 +2,20 @@ extends RigidBody2D
 
 # 对话内容节点
 @onready var text_label: Label = $Label
-
 # 鼠标是否在气泡的判断区域内，如果在就可以戳破
 var is_in_area: bool = false
 
 # 物理属性
 @export var bubble_mass: float = 1.0
 @export var bubble_gravity: float = -1
-
 # 薪水范围
 @export var min_salary: int = 10
 @export var max_salary: int = 50
 
 @export var probabilty: float = 0.3
 var is_long_press_bubble: bool = false
+var is_dragging: bool = false
+var drag_offset: Vector2 = Vector2.ZERO
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var button: Button = $Button
@@ -32,7 +32,29 @@ func _ready():
 	if randf() < probabilty:
 		animated_sprite_2d.visible = true
 		is_long_press_bubble = true
-		
+
+# 处理拖拽输入
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		# 鼠标左键按下
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			# 检查鼠标是否在气泡上
+			if button.get_global_rect().has_point(event.position):
+				if event.pressed:
+					# 开始拖拽
+					is_dragging = true
+					# 计算鼠标位置和气泡位置的偏移
+					drag_offset = global_position - event.position
+				else:
+					# 结束拖拽
+					is_dragging = false
+	
+	# 鼠标移动事件
+	elif event is InputEventMouseMotion and is_dragging:
+		# 更新气泡位置
+		global_position = event.position + drag_offset
+		# 拖拽时停止物理模拟
+		freeze = true
 
 # 销毁气泡
 func on_destroy_bubble() -> void:
@@ -41,6 +63,7 @@ func on_destroy_bubble() -> void:
 	
 	# 增加随机数额的薪水
 	GameManager.increase_salary(random_salary)
+	
 	# 查找场景中第一个 character 组的节点
 	var character = get_tree().get_nodes_in_group("Character")[0]
 	
@@ -54,7 +77,6 @@ func on_destroy_bubble() -> void:
 	# 销毁气泡
 	queue_free()
 
-
 func _on_button_button_down() -> void:
 	if is_long_press_bubble:
 		animated_sprite_2d.play("loading")
@@ -64,4 +86,10 @@ func _on_button_button_down() -> void:
 		on_destroy_bubble()
 
 func _on_button_button_up() -> void:
+	# 结束拖拽
+	is_dragging = false
+	# 恢复物理模拟
+	freeze = false
+	
+	# 停止长按动画
 	animated_sprite_2d.stop()

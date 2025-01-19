@@ -123,7 +123,7 @@ func start_game():
 	current_time_speed = DEFAULT_TIME_SPEED
 	
 	# 设置初始薪水
-	set_salary(500)
+	set_salary(0)
 	
 	# 设置游戏状态为进行中
 	change_game_state(GameState.RUNNING)
