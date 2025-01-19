@@ -241,6 +241,7 @@ func end_game():
 	
 	# 设置游戏状态为已结束
 	change_game_state(GameState.FINISHED)
+	Utilities.switch_scene("ed")
 	
 
 # 改变时间流速的方法

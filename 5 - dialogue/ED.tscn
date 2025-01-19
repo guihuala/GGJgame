@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://2alm411ot2mf"]
+
+[ext_resource type="VideoStream" path="res://assets/Tutorial/1月19日 (2).ogv" id="1_m4yql"]
+[ext_resource type="Script" path="res://5 - dialogue/ed.gd" id="1_mxvky"]
+
+[node name="Ed" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mxvky")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_m4yql")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
