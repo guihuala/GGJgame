@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dtvgq2opbysf8"]
+[gd_scene load_steps=58 format=3 uid="uid://dtvgq2opbysf8"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1i88ko61ge" path="res://3 - real_new_project/assets/壁纸_XP蓝天白云草地.png" id="1_b1pj6"]
 [ext_resource type="Script" path="res://3 - real_new_project/desktop.gd" id="1_icjmn"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dv2rwp0m5n008" path="res://3 - real_new_project/Bubble/Email.tscn" id="16_vltlk"]
 [ext_resource type="PackedScene" uid="uid://dn3cck8idqo2w" path="res://3 - real_new_project/GameStart&Over/start_panel.tscn" id="17_hbt6g"]
 [ext_resource type="PackedScene" uid="uid://by4ydpj64yl0w" path="res://3 - real_new_project/Ad/PopupAdScene.tscn" id="17_ivgs8"]
+[ext_resource type="PackedScene" uid="uid://c7y5vfj1hvmjq" path="res://3 - real_new_project/Bubble/News.tscn" id="19_8p556"]
 [ext_resource type="PackedScene" uid="uid://7bnhcbd0ksj" path="res://3 - real_new_project/Ad/PopupAdScene_1.tscn" id="21_akc8i"]
 [ext_resource type="Texture2D" uid="uid://b1pu2hgyst3gf" path="res://assets/Character/生气动画.png" id="23_0ea3b"]
 [ext_resource type="PackedScene" uid="uid://0wgsd7sxd6r6" path="res://3 - real_new_project/Progress/progress_bar.tscn" id="23_kopgg"]
@@ -29,7 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://bd41w1yvtolye" path="res://3 - real_new_project/Ad/PopupAdScene_2.tscn" id="25_eps6j"]
 [ext_resource type="PackedScene" uid="uid://bd71dljjmcagu" path="res://2 - System/Setting/TutorialWindow.tscn" id="26_ogn74"]
 [ext_resource type="VideoStream" path="res://assets/Windows/Ad/1456230770-1-16.ogv" id="27_105wt"]
-[ext_resource type="PackedScene" uid="uid://bftp2oc2wal0d" path="res://3 - real_new_project/Windows/screen_shake_component.tscn" id="30_ldqnn"]
+[ext_resource type="PackedScene" uid="uid://bcwguaiy2em2q" path="res://3 - real_new_project/Ad/PopupAdScene_3.tscn" id="27_qrpj1"]
+[ext_resource type="PackedScene" uid="uid://cvmk8bx33vfrk" path="res://3 - real_new_project/Ad/PopupAdScene_4.tscn" id="28_0hyc5"]
+[ext_resource type="PackedScene" path="res://3 - real_new_project/Windows/screen_shake_component.tscn" id="30_ldqnn"]
 [ext_resource type="PackedScene" uid="uid://on58323r6012" path="res://3 - real_new_project/Windows/daily_summary.tscn" id="31_d53jn"]
 [ext_resource type="Texture2D" uid="uid://ccvefufpnfudc" path="res://assets/Character/大量员工描边加粗.PNG" id="32_0re8j"]
 [ext_resource type="Script" path="res://3 - real_new_project/staff/staff.gd" id="33_cng7s"]
@@ -692,7 +695,7 @@ offset_top = 1288.0
 offset_right = 2086.0
 offset_bottom = 1438.0
 texture = SubResource("AtlasTexture_mnphh")
-bubble_packed_scene_list = Array[PackedScene]([ExtResource("5_g3va0"), ExtResource("6_lkpvu"), ExtResource("7_w8w6h"), ExtResource("8_4iqeh")])
+bubble_packed_scene_list = Array[PackedScene]([ExtResource("19_8p556")])
 impulse_min = 30.0
 impulse_max = 100.0
 interval_min = 3.0
@@ -753,7 +756,7 @@ animation = &"click"
 
 [node name="AdManager" type="Node" parent="."]
 script = ExtResource("14_k3l8w")
-ad_types = Array[PackedScene]([ExtResource("17_ivgs8"), ExtResource("21_akc8i"), ExtResource("25_eps6j")])
+ad_types = Array[PackedScene]([ExtResource("17_ivgs8"), ExtResource("21_akc8i"), ExtResource("25_eps6j"), ExtResource("27_qrpj1"), ExtResource("28_0hyc5")])
 
 [node name="StartPanel" parent="." instance=ExtResource("17_hbt6g")]
 visible = false

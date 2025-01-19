@@ -1,12 +1,6 @@
 extends RigidBody2D
 
-# 工作邮件
-@export var textList: Array[String]
 
-# 对话内容节点
-@onready var text_label: Label = $Label
-
-# 鼠标是否在气泡的判断区域内，如果在就可以戳破
 var is_in_area: bool = false
 
 # 物理属性
@@ -15,10 +9,19 @@ var is_in_area: bool = false
 
 # 薪水范围
 @export var min_salary: int = 10
-@export var max_salary: int = 50
+@export var max_salary: int = 30
 
 var duration: float = 3.0  # 持续时间
 @onready var timer: Timer = $Timer
+@onready var animation = $AnimatedSprite2D
+
+# 预定义动画名称数组
+var animation_names: Array[String] = [
+	"anim_1", 
+	"anim_2", 
+	"anim_3", 
+	"anim_4"
+]
 
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
@@ -29,16 +32,14 @@ func _ready():
 	mass = bubble_mass
 	gravity_scale = bubble_gravity
 	
-	# 在生成时随机设置文本
-	if not textList.is_empty():
-		var random_text = textList[randi() % textList.size()]
-		set_text(random_text)
-	
-	
+	# 通过索引播放动画
+	play_animation_by_index(GameManager.random_index)
 
-# 设置对话框文本
-func set_text(text: String):
-	text_label.text = text
+# 通过索引播放动画的方法
+func play_animation_by_index(index: int):
+	# 确保索引在有效范围内
+	if index >= 0 and index < animation_names.size():
+		animation.play(animation_names[index])
 
 # 销毁气泡
 func on_destroy_bubble() -> void:

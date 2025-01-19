@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://c7y5vfj1hvmjq"]
+
+[ext_resource type="Script" path="res://3 - real_new_project/Bubble/news.gd" id="1_mfnxv"]
+[ext_resource type="Texture2D" uid="uid://dfq76i83a7uid" path="res://assets/Windows/Ad/1_p2.png" id="2_jn8eg"]
+[ext_resource type="Texture2D" uid="uid://crbrrb0q3xeil" path="res://assets/Windows/Ad/p1.png" id="3_p31q1"]
+[ext_resource type="Texture2D" uid="uid://c31avpck6vdhk" path="res://assets/Windows/Ad/头条2奶牛猫篡权.png" id="4_cvtju"]
+[ext_resource type="Texture2D" uid="uid://b45q2i3yuidfi" path="res://assets/Windows/Ad/头条2奶牛猫篡权_p2.png" id="5_72ljp"]
+[ext_resource type="Texture2D" uid="uid://dlqn1md5bd6mk" path="res://assets/Windows/Ad/头条3荧光小鼠点亮城市p1.png" id="6_xjl31"]
+[ext_resource type="Texture2D" uid="uid://dxoo41n6v42rq" path="res://assets/Windows/Ad/头条3荧光小鼠点亮城市p2.png" id="7_rc852"]
+[ext_resource type="Texture2D" uid="uid://cu06vgob5bwgx" path="res://assets/Windows/Ad/头条4北极企鹅帝国p1.png" id="8_kyofg"]
+[ext_resource type="Texture2D" uid="uid://mfk7ddpdj7tj" path="res://assets/Windows/Ad/头条4北极企鹅帝国p2.png" id="9_paj0d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tk43b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jn8eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p31q1")
+}],
+"loop": true,
+"name": &"anim_1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cvtju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_72ljp")
+}],
+"loop": true,
+"name": &"anim_2",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xjl31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rc852")
+}],
+"loop": true,
+"name": &"anim_3",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kyofg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_paj0d")
+}],
+"loop": true,
+"name": &"anim_4",
+"speed": 2.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjmqx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmqws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_soera"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iva5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l62te"]
+
+[node name="EmailInfo" type="RigidBody2D"]
+gravity_scale = -1.0
+lock_rotation = true
+script = ExtResource("1_mfnxv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tk43b")
+animation = &"anim_3"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2495.89, 27.1458)
+scale = Vector2(217.696, 4.89763)
+polygon = PackedVector2Array(-12.3378, -33.3112, -10.6014, -32.0861, -10.5739, 23.451, -12.3378, 22.2259)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -188.0
+offset_top = -127.0
+offset_right = 185.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjmqx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mmqws")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_soera")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iva5c")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l62te")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

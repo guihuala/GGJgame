@@ -1,16 +1,27 @@
 [gd_scene load_steps=20 format=3 uid="uid://by4ydpj64yl0w"]
 
 [ext_resource type="Script" path="res://3 - real_new_project/Ad/popup_ad_scene.gd" id="1_5oh5j"]
-[ext_resource type="Shader" path="res://Shaders/Rainbow.gdshader" id="2_do1gc"]
-[ext_resource type="Texture2D" uid="uid://c3o5asxcj2j74" path="res://assets/Windows/Ad/advertisement3.png" id="3_4ldwe"]
+[ext_resource type="Shader" path="res://Shaders/wobbly.gdshader" id="2_eh0rv"]
+[ext_resource type="Texture2D" uid="uid://sue4pfkhk2fx" path="res://assets/Windows/Ad/IMG_0122.png" id="3_xsk2u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iqjbr"]
-shader = ExtResource("2_do1gc")
-shader_parameter/influence = 0.5
-shader_parameter/offset = 0.0
+shader = ExtResource("2_eh0rv")
+shader_parameter/alpha_tresh = 0.75
+shader_parameter/shrink = 2.0
+shader_parameter/offset_mul = 2.0
+shader_parameter/coff_angle = 0.0
+shader_parameter/coff_mul = 0.5
+shader_parameter/coff_std = 0.2
+shader_parameter/amp1 = 1.405
+shader_parameter/freq1 = 4.0
+shader_parameter/speed1 = 5.0
+shader_parameter/amp2 = 0.125
+shader_parameter/freq2 = 9.0
+shader_parameter/speed2 = 1.46
+shader_parameter/cols = ExtResource("3_xsk2u")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44aui"]
-texture = ExtResource("3_4ldwe")
+texture = ExtResource("3_xsk2u")
 
 [sub_resource type="Animation" id="Animation_d14aj"]
 length = 0.001
@@ -79,18 +90,18 @@ script = ExtResource("1_5oh5j")
 [node name="Panel" type="Panel" parent="."]
 material = SubResource("ShaderMaterial_iqjbr")
 layout_mode = 0
-offset_left = -176.0
-offset_top = -256.0
-offset_right = 168.0
-offset_bottom = 250.0
+offset_left = -200.001
+offset_top = -204.999
+offset_right = 199.999
+offset_bottom = 195.001
 theme_override_styles/panel = SubResource("StyleBoxTexture_44aui")
 
 [node name="CloseArea1" type="Control" parent="."]
 anchors_preset = 0
-offset_left = -176.0
-offset_top = -256.0
-offset_right = 168.0
-offset_bottom = 248.0
+offset_left = -190.0
+offset_top = -190.0
+offset_right = 186.0
+offset_bottom = 183.0
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -102,10 +113,10 @@ autoplay = "new_animation"
 
 [node name="BuyBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = -159.0
-offset_top = -241.0
-offset_right = 157.0
-offset_bottom = 237.0
+offset_left = -193.0
+offset_top = -195.0
+offset_right = 190.0
+offset_bottom = 197.0
 theme_override_colors/font_hover_color = Color(1, 0.603481, 0.54429, 1)
 theme_override_colors/font_pressed_color = Color(0.543135, 1.35969e-06, 3.36915e-07, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -123,12 +134,5 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_47ps5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ydi4o")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_c5o1k")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_w1and")
-text = "
-
-
-
-
-
-立即下单！"
 
 [connection signal="pressed" from="BuyBtn" to="." method="_on_buy_btn_pressed"]
