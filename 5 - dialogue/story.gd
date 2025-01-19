@@ -19,6 +19,7 @@ func on_text_edit_text_set() -> void:
 	if not text_edit.text.is_empty():
 		video_stream_player2.show()
 		video_stream_player2.play()
+		$TextureRect.hide()
 		
 func _on_video_stream_player_finished() -> void:
 	video_stream_player.hide()
@@ -29,4 +30,4 @@ func _on_video_stream_player_2_finished() -> void:
 	video_stream_player3.play()
 
 func _on_video_stream_player_3_finished() -> void:
-	Utilities.switch_scene("MainScene")
+	Utilities.switch_scene("GameScene")

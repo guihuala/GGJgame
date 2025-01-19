@@ -4,18 +4,12 @@ extends Control
 const CONFIG_PATH = "user://game_config.cfg"
 
 # 播放视频的场景
-@onready var video_player = $VideoStreamPlayer
 @onready var setting_window = $SettingWindow
 
 func _ready():
 	setting_window.hide()
-	
-	# 检查是否是第一次启动游戏
-	if is_first_time():
-		# 播放介绍视频
-		play_intro_video()
-	else:
-		_on_video_finished()
+	AudioManager.play_BGM("BGM2")
+
 
 # 检查是否是第一次启动
 func is_first_time() -> bool:
@@ -32,23 +26,11 @@ func is_first_time() -> bool:
 	# 返回是否是第一次启动
 	return config.get_value("game", "first_launch", true)
 
-# 播放介绍视频
-func play_intro_video():
-	# 连接视频播放完成信号
-	video_player.connect("finished", _on_video_finished)
-	
-	# 显示并播放视频
-	video_player.visible = true
-	video_player.play()
-	
-
-# 视频播放完成后的回调
-func _on_video_finished():
-	# 隐藏视频播放器
-	video_player.visible = false
-
 func _on_play_btn_pressed() -> void:
-	Utilities.switch_scene("GameScene")
+	if is_first_time():
+		Utilities.switch_scene("Story")
+	else :
+		Utilities.switch_scene("GameScene")
 
 func _on_setting_btn_pressed() -> void:
 	if setting_window.visible == true:
