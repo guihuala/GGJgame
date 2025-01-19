@@ -67,4 +67,5 @@ func _on_timer_timeout():
 
 func _on_open_btn_pressed() -> void:
 	GameManager._on_play_video()
+	GameManager.unfocus_num += 1
 	queue_free()

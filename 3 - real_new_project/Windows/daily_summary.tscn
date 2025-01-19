@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://on58323r6012"]
+[gd_scene load_steps=26 format=3 uid="uid://on58323r6012"]
 
 [ext_resource type="Texture2D" uid="uid://bl27ogk0x4oli" path="res://assets/Windows/结算框.png" id="1_joigx"]
 [ext_resource type="Texture2D" uid="uid://bucv5j1q70vva" path="res://assets/Icon/结算界面图标动画.png" id="2_31btb"]
+[ext_resource type="Script" path="res://3 - real_new_project/Windows/daily_summary.gd" id="2_d350v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xe2r8"]
 texture = ExtResource("1_joigx")
@@ -167,6 +168,7 @@ anchor_bottom = 0.722222
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xe2r8")
+script = ExtResource("2_d350v")
 metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="."]

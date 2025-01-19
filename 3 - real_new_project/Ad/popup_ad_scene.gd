@@ -67,4 +67,5 @@ func _on_timer_timeout():
 
 func _on_buy_btn_pressed() -> void:
 	GameManager.decrease_salary(reward)
+	GameManager.unfocus_num += 1
 	queue_free()

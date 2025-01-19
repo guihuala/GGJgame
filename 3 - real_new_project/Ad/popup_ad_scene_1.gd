@@ -86,6 +86,7 @@ func _on_close_button_pressed():
 		if reward > 0:
 			reward_earned.emit(reward)
 		
+		GameManager.unfocus_num += 1
 		queue_free()
 	else:
 		label.show()

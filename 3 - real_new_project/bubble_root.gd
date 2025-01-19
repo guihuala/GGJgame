@@ -22,7 +22,16 @@ func _ready() -> void:
 		# 确保材质是可编辑的
 		rect_mat = rect_mat.duplicate()
 		colorRect.material = rect_mat
+	
+	# 连接游戏阶段变化信号
+	GameManager.phase_changed.connect(_on_phase_changed)
 
+# 新增方法：处理阶段变化
+func _on_phase_changed(phase):
+	if phase == GameManager.GamePhase.SETTLEMENT:
+		remove_all_children()
+
+# 之前的方法保持不变
 func _process(delta: float) -> void:
 	on_check_()
 
@@ -58,12 +67,7 @@ func calculate_time_speed(bubble_count: int) -> float:
 	# 确保时间流速不低于最小值
 	return max(time_speed, MIN_TIME_SPEED)
 
-# 可选：清理超出数量的气泡
-func clean_excess_bubbles():
-	var bubbles = get_children()
-	
-	# 按添加顺序删除多余的气泡
-	while get_child_count() > max_bubble_count:
-		var oldest_bubble = bubbles.pop_front()
-		if oldest_bubble:
-			oldest_bubble.queue_free()
+func remove_all_children():
+	# 遍历并标记所有子节点为待删除
+	for child in get_children():
+		child.queue_free()

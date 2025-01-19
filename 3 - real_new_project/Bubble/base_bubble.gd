@@ -77,6 +77,7 @@ func on_destroy_bubble() -> void:
 	AudioManager.play_sfx("bubble")
 	
 	# 销毁气泡
+	GameManager.solved_bubble_num += 1
 	queue_free()
 
 func _on_button_button_down() -> void:
