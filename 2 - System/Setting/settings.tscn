@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://603k3vy4p3f1"]
+[gd_scene load_steps=25 format=3 uid="uid://603k3vy4p3f1"]
 
 [ext_resource type="Theme" uid="uid://cb2tqos08yhkd" path="res://assets/MinimalUI/MinimalUI.tres" id="1_5ko4b"]
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="2_esk3t"]
@@ -9,11 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://b551aiabmca47" path="res://assets/Icon/Play.png" id="4_ctmyt"]
 [ext_resource type="Texture2D" uid="uid://bhcp83kfc7qml" path="res://assets/Icon/Music-0.png" id="6_5ejyi"]
 [ext_resource type="Texture2D" uid="uid://bbmxske7kpwki" path="res://assets/Icon/Speaker-0.png" id="6_8erne"]
+[ext_resource type="Texture2D" uid="uid://dgswkyttwaymi" path="res://assets/Icon/设置UI.png" id="8_0jkjs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7v83"]
 texture = ExtResource("2_st0kn")
 region_rect = Rect2(280.088, 0, 113.912, 101.074)
 modulate_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6y55"]
+atlas = ExtResource("8_0jkjs")
+region = Rect2(102, 0, 55, 56)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eojpe"]
 load_path = "res://.godot/imported/Speaker-Crossed.png-4845d3d70e087868c6d4de317b8084fc.ctex"
@@ -94,7 +99,7 @@ theme = ExtResource("1_5ko4b")
 theme_override_font_sizes/font_size = 20
 script = ExtResource("4_cb44x")
 bgm_on_texture = ExtResource("6_5ejyi")
-bgm_off_texture = ExtResource("6_5ejyi")
+bgm_off_texture = SubResource("AtlasTexture_a6y55")
 sfx_on_texture = ExtResource("6_8erne")
 sfx_off_texture = SubResource("CompressedTexture2D_eojpe")
 

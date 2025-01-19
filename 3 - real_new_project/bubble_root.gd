@@ -27,7 +27,6 @@ func _process(delta: float) -> void:
 func on_check_():
 	# 检查当前子节点数量
 	var current_bubble_count = get_child_count()
-	print(current_bubble_count)
 	
 	# 如果气泡数量超过最大限制
 	if current_bubble_count >= max_bubble_count:
