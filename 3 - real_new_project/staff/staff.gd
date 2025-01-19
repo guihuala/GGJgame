@@ -11,7 +11,7 @@ func _ready() -> void:
 	area_2d.body_entered.connect(_body_entered)
 	animated_sprite_2d.visible = false
 	
-func _body_entered(bubble: RigidBody2D):
+func _body_entered(bubble: Bubble):
 	if not is_busy:
 		if bubble.should_staff_handle:
 			is_busy = true

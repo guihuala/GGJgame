@@ -110,13 +110,13 @@ atlas = ExtResource("10_11fhx")
 region = Rect2(151, 1, 43, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
-size = Vector2(2557, 2115)
+size = Vector2(2557, 2653)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nieyc"]
-size = Vector2(1310, 4092)
+size = Vector2(2632, 4092)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxgw"]
-size = Vector2(1654.24, 4267)
+size = Vector2(2823.24, 4267)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi6hi"]
 atlas = ExtResource("23_0ea3b")
@@ -725,7 +725,7 @@ freeze = true
 freeze_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/top"]
-position = Vector2(1278.5, -1046.5)
+position = Vector2(1278.5, -1315.5)
 shape = SubResource("RectangleShape2D_vueqy")
 
 [node name="left" type="RigidBody2D" parent="Wall"]
@@ -733,7 +733,7 @@ gravity_scale = 0.0
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/left"]
-position = Vector2(-649, 496)
+position = Vector2(-1310, 496)
 shape = SubResource("RectangleShape2D_nieyc")
 
 [node name="right" type="RigidBody2D" parent="Wall"]
@@ -741,7 +741,7 @@ gravity_scale = 0.0
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/right"]
-position = Vector2(3381.88, 398.5)
+position = Vector2(3966.38, 398.5)
 shape = SubResource("RectangleShape2D_2dxgw")
 
 [node name="Character" type="Node2D" parent="." groups=["Character"]]
@@ -832,6 +832,7 @@ position = Vector2(46, 34.8)
 shape = SubResource("CircleShape2D_o8fo6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Staff/Staff1"]
+modulate = Color(0, 1, 0.194615, 1)
 position = Vector2(63.6, 68.8)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uebxy")
@@ -854,6 +855,7 @@ position = Vector2(46, 34.8)
 shape = SubResource("CircleShape2D_o8fo6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Staff/Staff2"]
+modulate = Color(0, 1, 0.196078, 1)
 position = Vector2(65.2, 74.8)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_p5psv")
@@ -875,6 +877,7 @@ position = Vector2(41.2, 43.2)
 shape = SubResource("CircleShape2D_o8fo6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Staff/Staff3"]
+modulate = Color(0, 1, 0.196078, 1)
 position = Vector2(67.6, 90)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ykrdg")

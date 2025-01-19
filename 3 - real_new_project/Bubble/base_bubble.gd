@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Bubble
 
 # 对话内容节点
 @onready var text_label: Label = $Label
