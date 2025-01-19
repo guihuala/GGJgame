@@ -1,44 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c74aw4nyyylpf"]
+[gd_scene load_steps=9 format=3 uid="uid://c74aw4nyyylpf"]
 
 [ext_resource type="Script" path="res://5 - dialogue/story.gd" id="1_kfeil"]
-[ext_resource type="VideoStream" path="res://assets/Tutorial/绝望的毕业生.ogv" id="1_s1r6v"]
 [ext_resource type="Texture2D" uid="uid://clukbulxw6sog" path="res://assets/Tutorial/新建画布aassd.png" id="2_g4167"]
+[ext_resource type="VideoStream" path="res://assets/Tutorial/绝望的毕业生（new）.ogv" id="3_ouqo6"]
+[ext_resource type="VideoStream" path="res://assets/Tutorial/1月19日_(1).ogv" id="4_bjrg1"]
+[ext_resource type="VideoStream" path="res://assets/Tutorial/mv.ogv" id="5_5blcw"]
 
-[sub_resource type="Animation" id="Animation_on12k"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.0497766, 0.0497766, 0.0497766, 1), Color(1, 1, 1, 1)]
-}
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajqop"]
 
-[sub_resource type="Animation" id="Animation_h38ub"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.0497766, 0.0497766, 0.0497766, 1)]
-}
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g38hs"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yihn5"]
-_data = {
-"RESET": SubResource("Animation_h38ub"),
-"fade_out": SubResource("Animation_on12k")
-}
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxkji"]
 
 [node name="Story" type="Control"]
 layout_mode = 3
@@ -49,13 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kfeil")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_yihn5")
-}
-
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.0497766, 0.0497766, 0.0497766, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,6 +30,28 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_g4167")
 
+[node name="TextEdit" type="TextEdit" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -825.0
+offset_top = -199.0
+offset_right = -350.0
+offset_bottom = -134.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/current_line_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.542982, 0.542982, 0.542982, 1)
+theme_override_colors/font_color = Color(0.113049, 0.113049, 0.113049, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ajqop")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g38hs")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_hxkji")
+placeholder_text = "按下回车确认"
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -71,8 +59,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("1_s1r6v")
+stream = ExtResource("3_ouqo6")
 autoplay = true
 expand = true
 
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("4_bjrg1")
+expand = true
+
+[node name="VideoStreamPlayer3" type="VideoStreamPlayer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("5_5blcw")
+expand = true
+
+[connection signal="gui_input" from="TextureRect/TextEdit" to="." method="_on_text_edit_gui_input"]
+[connection signal="text_set" from="TextureRect/TextEdit" to="." method="_on_text_edit_text_set"]
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="VideoStreamPlayer2" to="." method="_on_video_stream_player_2_finished"]
+[connection signal="finished" from="VideoStreamPlayer3" to="." method="_on_video_stream_player_3_finished"]

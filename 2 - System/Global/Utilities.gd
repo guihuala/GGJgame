@@ -3,7 +3,8 @@ extends Node
 # 场景映射
 var scene_map: Dictionary = {
 	"GameScene": ("res://3 - real_new_project/desktop.tscn"),
-	"MainMenu": ("res://4 - mainmanu/MainMenu.tscn")
+	"MainMenu": ("res://4 - mainmanu/MainMenu.tscn"),
+	"Story":("res://5 - dialogue/Story.tscn"),
 }
 
 var current_scene: Node = null
