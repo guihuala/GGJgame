@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bftp2oc2wal0d"]
+
+[ext_resource type="Script" path="res://3 - real_new_project/Windows/shake_component.gd" id="1_6qsnu"]
+
+[node name="ShakeComponent" type="Camera2D"]
+position = Vector2(1280, 720)
+process_callback = 0
+script = ExtResource("1_6qsnu")

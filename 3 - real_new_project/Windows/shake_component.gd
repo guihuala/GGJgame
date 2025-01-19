@@ -1,11 +1,14 @@
-extends Control
+extends Camera2D
+
+@export var target: Node
 
 #var should_drag: bool = false
 #var offset: Vector2
 #
 #@export var time: float = 15
 @export var shake_intensity: float = 0
-@export var shake_time: float
+@export var threshold: int
+#@export var shake_time: float
 #@export_group("1")
 #@export var time_1: float = 8
 #@export var shake_intensity_1: float = 2
@@ -16,17 +19,19 @@ extends Control
 #@export var time_3: float = 3
 #@export var shake_intensity_3: float = 6
 
-
 func _ready() -> void:
 	#hide()
 	pass
 
 func _physics_process(delta: float) -> void:
 	#time -= delta
-	global_position = Vector2(
-		randf_range(global_position.x - shake_intensity, global_position.x + shake_intensity),
-		randf_range(global_position.y - shake_intensity, global_position.y + shake_intensity)
-	)
+	if target.current_bubble_count >= threshold:
+		offset = Vector2(
+			randf_range(- shake_intensity,  + shake_intensity),
+			randf_range(- shake_intensity,  + shake_intensity)
+		)
+	else:
+		offset = Vector2(0,0)
 	#if time < time_1:
 		#shake_intensity = shake_intensity_1
 	#if time < time_2:

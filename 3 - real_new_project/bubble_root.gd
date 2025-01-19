@@ -12,6 +12,8 @@ var chaos_value: float
 const MIN_TIME_SPEED: float = 1.0
 const MAX_TIME_SPEED: float = 3.0
 
+var current_bubble_count: int
+
 func _ready() -> void:
 	# 获取材质
 	rect_mat = colorRect.material
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
 
 func on_check_():
 	# 检查当前子节点数量
-	var current_bubble_count = get_child_count()
+	current_bubble_count = get_child_count()
 	
 	# 如果气泡数量超过最大限制
 	if current_bubble_count >= max_bubble_count:

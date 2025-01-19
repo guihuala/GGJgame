@@ -213,5 +213,3 @@ position = Vector2(172, -42)
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_iamvc")
 animation = &"loading"
-frame = 14
-frame_progress = 1.0
