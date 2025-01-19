@@ -10,7 +10,7 @@ var popup_tween: Tween
 var is_animating: bool = false
 
 # 拖拽逻辑
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if should_drag:
 		# 更新位置并检查窗口边缘
 		var new_pos = get_global_mouse_position() - offset

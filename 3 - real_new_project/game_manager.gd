@@ -12,6 +12,21 @@ var current_salary: int = 0
 # 当前游戏状态
 var current_game_state: GameState = GameState.NOT_STARTED
 
+enum DailyGrade {
+	A,
+	B,
+	C,
+	D,
+	E
+}
+# 分别统计每天的游戏数据
+var daily_salary:int
+var daily_grade: DailyGrade #每日绩效 根据专注度推出
+var daily_focus # 专注度 根据处理的有效信息和点击到的无效信息计算
+
+var solved_bubble_num:int # 每日处理的有效信息
+var unfocus_num:int # 点到了广告或者垃圾邮件
+
 # 通知UI更新的信号
 signal salary_changed(salary:int,amount: int)
 signal salary_decrease
@@ -52,6 +67,156 @@ const MIN_TIME_SPEED = 0.5      # 最小时间流速
 
 # 时间流速变量
 var current_time_speed: float = DEFAULT_TIME_SPEED
+
+# 每日统计数据结构
+class DailyStatistics:
+	var day: int
+	var salary: int
+	var grade: DailyGrade
+	var focus: float
+	var solved_bubble_num: int
+	var unfocus_num: int
+	
+	func _init(p_day: int):
+		day = p_day
+		salary = 0
+		grade = DailyGrade.E
+		focus = 0.0
+		solved_bubble_num = 0
+		unfocus_num = 0
+
+# 存储每日统计数据的数组
+var daily_statistics: Array[DailyStatistics] = []
+
+# 重置每日统计数据
+func reset_daily_statistics():
+	daily_statistics.clear()
+	# 为每一天创建统计对象
+	for i in range(1, TOTAL_DAYS + 1):
+		daily_statistics.append(DailyStatistics.new(i))
+
+# 更新当前天的统计数据
+func update_daily_statistics():
+	if current_day < 1 or current_day > TOTAL_DAYS:
+		print("无效的天数")
+		return
+	
+	# 获取当前天的统计对象
+	var daily_stat = daily_statistics[current_day - 1]
+	
+	# 更新数据
+	daily_stat.salary = daily_salary
+	daily_stat.solved_bubble_num = solved_bubble_num
+	daily_stat.unfocus_num = unfocus_num
+	
+	# 计算专注度
+	var total_bubbles = solved_bubble_num + unfocus_num
+	daily_stat.focus = 0.0 if total_bubbles == 0 else float(solved_bubble_num) / total_bubbles
+	
+	# 根据专注度评定等级
+	daily_stat.grade = calculate_daily_grade(daily_stat.focus)
+
+# 根据专注度计算每日等级
+func calculate_daily_grade(focus: float) -> DailyGrade:
+	if focus >= 0.9:
+		return DailyGrade.A
+	elif focus >= 0.7:
+		return DailyGrade.B
+	elif focus >= 0.5:
+		return DailyGrade.C
+	elif focus >= 0.3:
+		return DailyGrade.D
+	else:
+		return DailyGrade.E
+
+# 获取特定天的统计数据
+func get_daily_statistics(day: int) -> DailyStatistics:
+	if day < 1 or day > TOTAL_DAYS:
+		print("无效的天数")
+		return null
+	return daily_statistics[day - 1]
+
+# 获取所有每日统计数据
+func get_all_daily_statistics() -> Array[DailyStatistics]:
+	return daily_statistics
+
+func start_game():
+	# 重置每日统计数据
+	reset_daily_statistics()
+	
+	current_day = 1
+	current_game_time = WORK_START_TIME
+	current_phase = GamePhase.PREPARE
+	
+	# 重置时间流速到默认值
+	current_time_speed = DEFAULT_TIME_SPEED
+	
+	# 重置每日数据
+	daily_salary = 0
+	solved_bubble_num = 0
+	unfocus_num = 0
+	
+	# 设置初始薪水
+	set_salary(0)
+	
+	# 设置游戏状态为进行中
+	change_game_state(GameState.RUNNING)
+	
+	# 设置计时器
+	setup_timer()
+	
+	# 开始第一天
+	start_day()
+	
+	VideoPlayer = get_tree().get_nodes_in_group("Video")[0]
+
+# 重写 end_day 方法，添加统计数据更新
+func end_day():
+	# 更新当前天的统计数据
+	update_daily_statistics()
+	
+	# 停止计时器
+	timer.stop()
+	current_phase = GamePhase.SETTLEMENT
+	emit_signal("phase_changed", current_phase)
+	
+	# 显示商店界面
+	show_daily_summary()
+	
+	reset_time_speed()
+	
+	# 进入下一天或结束游戏
+	current_day += 1
+	if current_day <= TOTAL_DAYS:
+		current_game_time = WORK_START_TIME
+		start_day()
+	else:
+		# 达到总天数，结束游戏
+		end_game()
+
+func end_game():
+	# 停止计时器
+	if timer:
+		timer.stop()
+	
+	# 设置游戏状态为已结束
+	change_game_state(GameState.FINISHED)
+	
+	# 打印总体统计信息
+	print("游戏结束，总薪水：", current_salary)
+	print_game_summary()
+
+# 打印游戏总结
+func print_game_summary():
+	print("=== 游戏总结 ===")
+	for stat in daily_statistics:
+		print("第 %d 天:" % stat.day)
+		print("  薪水: %d" % stat.salary)
+		print("  绩效等级: %s" % DailyGrade.keys()[stat.grade])
+		print("  处理信息数: %d" % stat.solved_bubble_num)
+		print("  无效点击数: %d" % stat.unfocus_num)
+		print("  专注度: %.2f" % stat.focus)
+		print()
 
 # 改变时间流速的方法
 func change_time_speed(speed: float) -> bool:
@@ -111,43 +276,6 @@ func setup_timer():
 			emit_signal("phase_changed", current_phase)
 	)
 
-
-# 开始游戏
-func start_game():
-	# 重置游戏状态
-	current_day = 1
-	current_game_time = WORK_START_TIME
-	current_phase = GamePhase.PREPARE
-	
-		# 重置时间流速到默认值
-	current_time_speed = DEFAULT_TIME_SPEED
-	
-	# 设置初始薪水
-	set_salary(0)
-	
-	# 设置游戏状态为进行中
-	change_game_state(GameState.RUNNING)
-	
-	# 设置计时器
-	setup_timer()
-	
-	# 开始第一天
-	start_day()
-	
-	VideoPlayer = get_tree().get_nodes_in_group("Video")[0]
-
-# 结束游戏
-func end_game():
-	# 停止计时器
-	if timer:
-		timer.stop()
-	
-	# 设置游戏状态为已结束
-	change_game_state(GameState.FINISHED)
-	
-	# 可以添加游戏结束的其他逻辑，如显示总成绩等
-	print("游戏结束，总薪水：", current_salary)
-
 func set_can_spawn_bubble(value:bool) -> void:
 	can_spawn_bubble = value
 
@@ -199,28 +327,8 @@ func _on_timer_timeout():
 		current_phase = GamePhase.OVERTIME
 		emit_signal("phase_changed", current_phase)
 
-func end_day():
-	# 停止计时器
-	timer.stop()
-	current_phase = GamePhase.SETTLEMENT
-	emit_signal("phase_changed", current_phase)
-	
-	# 显示商店界面
-	show_shop()
-	
-	reset_time_speed()
-	
-	# 进入下一天或结束游戏
-	current_day += 1
-	if current_day <= TOTAL_DAYS:
-		current_game_time = WORK_START_TIME
-		start_day()
-	else:
-		# 达到总天数，结束游戏
-		end_game()
-
-func show_shop():
-	# 显示商店的具体实现
+func show_daily_summary():
+	# 显示每日总结
 	pass
 
 # 薪水处理（保持原有逻辑）

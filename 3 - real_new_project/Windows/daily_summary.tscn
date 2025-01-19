@@ -1,0 +1,279 @@
+[gd_scene load_steps=25 format=3 uid="uid://on58323r6012"]
+
+[ext_resource type="Texture2D" uid="uid://bl27ogk0x4oli" path="res://assets/Windows/结算框.png" id="1_joigx"]
+[ext_resource type="Texture2D" uid="uid://bucv5j1q70vva" path="res://assets/Icon/结算界面图标动画.png" id="2_31btb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xe2r8"]
+texture = ExtResource("1_joigx")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgfxh"]
+atlas = ExtResource("2_31btb")
+region = Rect2(0, 60, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20c76"]
+atlas = ExtResource("2_31btb")
+region = Rect2(34, 60, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6by05"]
+atlas = ExtResource("2_31btb")
+region = Rect2(68, 60, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1p2n"]
+atlas = ExtResource("2_31btb")
+region = Rect2(102, 60, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgl5h"]
+atlas = ExtResource("2_31btb")
+region = Rect2(136, 60, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlomb"]
+atlas = ExtResource("2_31btb")
+region = Rect2(170, 60, 34, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3nl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgfxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20c76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6by05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1p2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgl5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlomb")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uni0i"]
+atlas = ExtResource("2_31btb")
+region = Rect2(0, 2, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0gd8"]
+atlas = ExtResource("2_31btb")
+region = Rect2(34, 2, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7d1o"]
+atlas = ExtResource("2_31btb")
+region = Rect2(68, 2, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oofxq"]
+atlas = ExtResource("2_31btb")
+region = Rect2(102, 2, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7mhp"]
+atlas = ExtResource("2_31btb")
+region = Rect2(136, 2, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47h0a"]
+atlas = ExtResource("2_31btb")
+region = Rect2(170, 2, 34, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kv32q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uni0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0gd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7d1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oofxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7mhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47h0a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p3xt"]
+atlas = ExtResource("2_31btb")
+region = Rect2(0, 31, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amwff"]
+atlas = ExtResource("2_31btb")
+region = Rect2(34, 31, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snf54"]
+atlas = ExtResource("2_31btb")
+region = Rect2(68, 31, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uhal"]
+atlas = ExtResource("2_31btb")
+region = Rect2(102, 31, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu4kw"]
+atlas = ExtResource("2_31btb")
+region = Rect2(136, 31, 34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k85pr"]
+atlas = ExtResource("2_31btb")
+region = Rect2(170, 31, 34, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8b77q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p3xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amwff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snf54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uhal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu4kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k85pr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="DailySummary" type="Panel"]
+z_index = 1
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = -1
+anchor_left = 0.382813
+anchor_top = 0.361111
+anchor_right = 0.617188
+anchor_bottom = 0.722222
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xe2r8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+offset_left = 13.0
+offset_right = 206.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 36
+text = "结算"
+vertical_alignment = 1
+
+[node name="Day" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -143.0
+offset_right = -53.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.345946, 0.345946, 0.345946, 1)
+theme_override_font_sizes/font_size = 32
+text = "Day-1"
+vertical_alignment = 1
+
+[node name="FocusAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(135.223, 328.755)
+scale = Vector2(2.18966, 2.18966)
+sprite_frames = SubResource("SpriteFrames_c3nl7")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="SalaryAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(140.223, 238.755)
+scale = Vector2(2.19, 2.19)
+sprite_frames = SubResource("SpriteFrames_kv32q")
+autoplay = "default"
+
+[node name="GradeAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(138.223, 420.755)
+scale = Vector2(2.19, 2.19)
+sprite_frames = SubResource("SpriteFrames_8b77q")
+autoplay = "default"
+frame_progress = 0.640049
+
+[node name="Text" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Salary" type="Label" parent="Text"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0012
+offset_top = -46.9998
+offset_right = 109.999
+offset_bottom = 3.00018
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.345946, 0.345946, 0.345946, 1)
+theme_override_font_sizes/font_size = 36
+text = "工资：1111"
+vertical_alignment = 1
+
+[node name="Focus" type="Label" parent="Text"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0012
+offset_top = 50.0002
+offset_right = 144.999
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.345946, 0.345946, 0.345946, 1)
+theme_override_font_sizes/font_size = 36
+text = "分心率：80%"
+vertical_alignment = 1
+
+[node name="Grade" type="Label" parent="Text"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0012
+offset_top = 140.0
+offset_right = 189.999
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.345946, 0.345946, 0.345946, 1)
+theme_override_font_sizes/font_size = 36
+text = "绩效评估：1111"
+vertical_alignment = 1

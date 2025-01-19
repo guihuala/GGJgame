@@ -3,7 +3,7 @@ extends WindowBase
 @onready var GameResult = $Result
 
 func _ready() -> void:
-	hide()
+
 	GameManager.game_state_changed.connect(update_info)
 
 func update_info(stage) -> void:
@@ -24,4 +24,4 @@ func update_info(stage) -> void:
 
 func _on_start_game_btn_pressed() -> void:
 	hide_window()
-	Utilities.switch_scene("MainMenu")
+	Utilities.switch_scene("GameScene")
