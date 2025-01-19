@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+# 对话内容节点
+@onready var text_label: Label = $Label
 
 # 鼠标是否在气泡的判断区域内，如果在就可以戳破
 var is_in_area: bool = false
@@ -12,17 +14,14 @@ var is_in_area: bool = false
 @export var min_salary: int = 10
 @export var max_salary: int = 50
 
-@onready var timer: Timer = $Timer
-var duration: float = 3.0  # 持续时间
-
 func _ready():
-	timer.timeout.connect(_on_timer_timeout)
-	timer.wait_time = duration
-	timer.start()
-	
 	# 配置刚体属性
 	mass = bubble_mass
 	gravity_scale = bubble_gravity
+
+# 设置对话框文本
+func set_text(text: String):
+	text_label.text = text
 
 # 销毁气泡
 func on_destroy_bubble() -> void:
@@ -44,10 +43,8 @@ func _on_button_pressed() -> void:
 	# 生成随机薪水
 	var random_salary = randi_range(min_salary, max_salary)
 	
+	# 增加随机数额的薪水
 	GameManager.decrease_salary(random_salary)
 	
 	# 播放销毁特效
 	on_destroy_bubble()
-
-func _on_timer_timeout():
-	queue_free()
