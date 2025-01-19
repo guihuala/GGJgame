@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://iuxldiq8fnbw"]
+[gd_scene load_steps=4 format=3 uid="uid://iuxldiq8fnbw"]
 
 [ext_resource type="Texture2D" uid="uid://bocooeh4xtcsm" path="res://assets/Windows/粉窗.png" id="1_e037m"]
 [ext_resource type="Script" path="res://3 - real_new_project/Windows/base_window.gd" id="1_nrbke"]
@@ -10,50 +10,6 @@ texture_margin_top = 10.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 region_rect = Rect2(232.788, 103.019, 161.212, 90.9814)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3xbu"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trm4g"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klstq"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thk7n"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rros2"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o36lc"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4rvwp"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljdu8"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfde1"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ry418"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6rvj"]
-texture = ExtResource("1_e037m")
-region_rect = Rect2(65.3395, 136.142, 34.7847, 13.1129)
 
 [node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(600, 400)
@@ -67,26 +23,3 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3t8ms")
 script = ExtResource("1_nrbke")
 metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 0.1
-offset_left = -84.0
-offset_right = -4.0
-offset_bottom = -8.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxTexture_c3xbu")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_trm4g")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_klstq")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_thk7n")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_rros2")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_o36lc")
-theme_override_styles/hover = SubResource("StyleBoxTexture_4rvwp")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_ljdu8")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_gfde1")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_ry418")
-theme_override_styles/normal = SubResource("StyleBoxTexture_f6rvj")

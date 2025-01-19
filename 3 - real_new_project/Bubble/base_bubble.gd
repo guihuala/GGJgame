@@ -12,15 +12,17 @@ var is_in_area: bool = false
 @export var min_salary: int = 10
 @export var max_salary: int = 50
 
-@export var probabilty: float = 0.3
+@export var probabilty: float = 0.5
 var is_long_press_bubble: bool = false
 var is_dragging: bool = false
+var should_staff_handle: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var button: Button = $Button
 
 var is_long_pressing: bool
+
 
 func _ready():
 	# 配置刚体属性
@@ -47,9 +49,11 @@ func _input(event: InputEvent) -> void:
 					is_dragging = true
 					# 计算鼠标位置和气泡位置的偏移
 					drag_offset = global_position - event.position
+					should_staff_handle = false
 				else:
 					# 结束拖拽
 					is_dragging = false
+					should_staff_handle = true
 	
 	# 鼠标移动事件
 	elif event is InputEventMouseMotion and is_dragging:
@@ -73,8 +77,7 @@ func on_destroy_bubble() -> void:
 	if character:
 		character.play_animation_click()
 	
-	# 播放音效
-	AudioManager.play_sfx("bubble")
+		
 	
 	# 销毁气泡
 	GameManager.solved_bubble_num += 1
@@ -89,15 +92,20 @@ func _on_button_button_down() -> void:
 		
 		await animated_sprite_2d.animation_finished
 		
-		on_destroy_bubble()
-		AudioManager.sound_player.stream = null
 		is_long_pressing = false
+		
+		AudioManager.play_sfx("bubble")
+		on_destroy_bubble()
+		
+		AudioManager.sound_player.stream = null
 	else:
+		AudioManager.play_sfx("bubble")
 		on_destroy_bubble()
 
 func _on_button_button_up() -> void:
 	# 结束拖拽
 	is_dragging = false
+	is_long_pressing = false
 	# 恢复物理模拟
 	freeze = false
 	
