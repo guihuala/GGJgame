@@ -15,7 +15,9 @@ var is_in_area: bool = false
 @export var probabilty: float = 0.5
 var is_long_press_bubble: bool = false
 var is_dragging: bool = false
+
 var should_staff_handle: bool = false
+
 var drag_offset: Vector2 = Vector2.ZERO
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -54,7 +56,10 @@ func _input(event: InputEvent) -> void:
 					# 结束拖拽
 					is_dragging = false
 					should_staff_handle = true
-	
+					await get_tree().create_timer(0.1).timeout
+					should_staff_handle = false
+					
+
 	# 鼠标移动事件
 	elif event is InputEventMouseMotion and is_dragging:
 		# 更新气泡位置
