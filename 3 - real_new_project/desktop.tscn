@@ -506,3 +506,5 @@ offset_bottom = 368.0
 target = NodePath("../BubbleRoot")
 shake_intensity = 5.0
 threshold = 13
+
+[node name="Staff" type="Node2D" parent="."]
