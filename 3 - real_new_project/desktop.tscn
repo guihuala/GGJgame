@@ -102,13 +102,13 @@ atlas = ExtResource("10_11fhx")
 region = Rect2(151, 1, 43, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vueqy"]
-size = Vector2(2557, 83)
+size = Vector2(2557, 2115)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nieyc"]
-size = Vector2(84, 2545)
+size = Vector2(1310, 4092)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dxgw"]
-size = Vector2(83.2451, 2538)
+size = Vector2(1654.24, 4267)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi6hi"]
 atlas = ExtResource("23_0ea3b")
@@ -420,13 +420,14 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Wall" type="Node2D" parent="."]
+visible = false
 
 [node name="top" type="RigidBody2D" parent="Wall"]
 gravity_scale = 0.0
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/top"]
-position = Vector2(1278.5, -30.5)
+position = Vector2(1278.5, -1046.5)
 shape = SubResource("RectangleShape2D_vueqy")
 
 [node name="left" type="RigidBody2D" parent="Wall"]
@@ -434,7 +435,7 @@ gravity_scale = 0.0
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/left"]
-position = Vector2(-36, 1269.5)
+position = Vector2(-649, 496)
 shape = SubResource("RectangleShape2D_nieyc")
 
 [node name="right" type="RigidBody2D" parent="Wall"]
@@ -442,7 +443,7 @@ gravity_scale = 0.0
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/right"]
-position = Vector2(2596.38, 1263)
+position = Vector2(3381.88, 398.5)
 shape = SubResource("RectangleShape2D_2dxgw")
 
 [node name="Character" type="Node2D" parent="." groups=["Character"]]
